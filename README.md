@@ -1,2 +1,2 @@
-# sp-stamplay
-Stamplay Book Club application
+# Codingo
+Simple way to learn coding for your startup
