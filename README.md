@@ -1,5 +1,3 @@
-# sp-stamplay
+# Codingo
+Simple way to learn coding for your startup
 
-Stamplay Book Club application
-
-For a yet to be published SitePoint article
