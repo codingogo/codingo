@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <h4 class="center grey-text page-title">{{lessonObj.title}}</h4>
+    <div class="col m3">
+      <ul class="collection" ng-repeat="item in lessonFile">
+        <li class="collection-item"><a href="" class="full-width" ng-click="showTab($index)">{{item.title}}</a></li>
+      </ul>
+    </div>
+    
+    <!-- Video Section -->
+    <div class="col m9">
+      <p>{{videoFile.title}}</p>
+      <img src="{{videoFile.videoLink}}" alt="" width="400">
+   <!--    <video autoplay width="640" height="360">
+        <source src="{{videoFile.videoLink}}" type="video/mp4">
+      </video> -->
+      <p>{{videoFile.description}}</p>
+    </div>
+ 
+
+<!--     <div class="col s12">
+      {{lessonObj.actions.comments}}
+    </div> -->
+  </div>
+</div>
