@@ -110,19 +110,16 @@ var app = angular.module('codingo', [
             });
 
         return def.promise;
-      },
-      logout: function() {
-        var user = Stamplay.User().Model;
-        user.logout();
-        $rootScope.currentUser = {};
-        console.log($rootScope.currentUser);
-      },
-      showw: function(){
-        console.log('checking');
       }
+      // logout: function() {
+      //   var user = Stamplay.User().Model;
+      //   user.logout();
+      //   $rootScope.currentUser = {};
+      //   console.log($rootScope.currentUser);
+      // }
     }; 
 })
-.controller('MainCtrl',['$scope','User', '$rootScope','$state', function ($scope, User, $rootScope, $state){
+.controller('MainCtrl',['$scope','User', '$rootScope','$state', '$stamplay', function ($scope, User, $rootScope, $state, $stamplay){
 
     var main = this;
     // main.logout = logout;
@@ -169,12 +166,12 @@ var app = angular.module('codingo', [
 
     $scope.logout = function(){
       console.log('logged out')
-      User.logout();
+      // $stamplay.User.logout();
       $rootScope.currentUser = {};
       $state.go('home');
     };
-    $scope.showw = function(){
-      console.log('checking');
-      User.logout();
+    $scope.check = function(){
+      console.log('wtf');
+      
     }
 }])

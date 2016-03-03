@@ -50,9 +50,6 @@ app
       },
       getUserModel: function(){
         return Stamplay.User;
-      },
-      showw: function(){
-        console.log('showw');
       }
     };
 

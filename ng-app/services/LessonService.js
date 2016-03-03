@@ -13,7 +13,7 @@ app.factory('Lesson', function($q, $stamplay, $http){
   function get(id) {
     var def = $q.defer();
 
-    var lesson = new Stamplay.Cobject('lessons').Model;
+    var lesson = new Stamplay.Cobject('lesson').Model;
 
     lesson.fetch(id)
       .then(function(){
