@@ -2,32 +2,27 @@
   <div class="width400 center">
     <h4 class="center grey-text page-title">Sign Up</h4>
     <div class="row">
-      <form class="col s12">
+      <form class="col s12" id="signupForm">
         <div class="row">
           <div class="input-field col s12">
-            <input placeholder="" id="first_name" type="text" class="validate">
-            <label for="first_name">User Name</label>
+            <input placeholder="" id="first_name" type="text" class="validate" ng-model="signupData.username" required>
+            <label for="first_name">Username</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
+            <input id="email" type="email" class="validate" ng-model="signupData.email" required>
             <label for="email">Email</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="password" type="password" class="validate">
+            <input id="password" type="password" class="validate" ng-model="signupData.password" required>
             <label for="password">Password</label>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="passwordconfirm" type="password" class="validate">
-            <label for="passwordconfirm">Confirm Password</label>
-          </div>
-        </div>      
-        <button class="btn center">Submit</button>
+        
+        <button type="submit" class="btn center" ng-click="signup(signupData)">Sign Up</button>
       </form>
     </div>
   </div>

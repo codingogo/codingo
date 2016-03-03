@@ -13,7 +13,9 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson){
       }
     })
   };
-
+  $scope.showw = function(){
+    console.log('checking');
+  }
   loadLessons();
 });
 

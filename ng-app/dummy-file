@@ -1,0 +1,220 @@
+/////////////app.js
+var app = angular.module('codingo', [
+  'ngStamplay',
+  'ui.router'
+])
+.run( function ($stamplay, $location){
+  // $rootScope.$0n('auth:login-success', function(userInfo){
+  //   $location.path('/');
+  // });
+  Stamplay.init('codingo');
+})
+.config(function ($stateProvider, $urlRouterProvider){
+
+  $urlRouterProvider.otherwise('/index.html');
+  $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: '/ng-app/main/lessons.html',
+      controller: 'LessonsCtrl'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: '/ng-app/partials/login.html'
+      // controller: 'authenticateCtrl'
+    })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: '/ng-app/partials/signup.html',
+      controller: 'MainCtrl'
+    })
+    .state('pricing', {
+      url: '/pricing',
+      templateUrl: '/ng-app/pages/pricing.html'
+    })
+    .state('lessonDetail', {
+      url: '/lesson/:lessonId',
+      templateUrl: '/ng-app/main/lesson_content.html',
+      controller: 'LessonCtrl'
+    });
+
+    $urlRouterProvider.otherwise('/home');
+})
+.service('User', function($stamplay, $q){
+     // return an object with all our functions
+    return {
+      getCurrent: function() {
+        var def = $q.defer();
+
+        // instantiate a new user model from the stamplay js sdk
+        var user = new Stamplay.User().Model;
+        console.log(user);
+        user.currentUser()
+            .then(function() {
+                // send the entire user model back
+                def.resolve(user);
+            });
+
+        return def.promise;
+      },
+      signup: function(data) {
+        var def = $q.defer();
+
+        // instantiate a new user model from the stamplay js sdk
+        var user = new Stamplay.User().Model;
+        user.signup(data)
+            .then(function() {
+                // send the entire user model back
+                def.resolve(user);
+            })
+
+        return def.promise;
+      },
+      login: function(data) {
+        var def = $q.defer();
+
+        var user = Stamplay.User().Model;
+        user.login(data.email, data.password)
+            .then(function() {
+                // send the entire user model back
+                def.resolve(user);
+            }, function() {
+                def.reject({ 'error': 'Unable to login user.' });
+            });
+
+        return def.promise;
+      },
+      logout: function() {
+        var user = Stamplay.User().Model;
+        user.logout();
+      }
+    }; 
+})
+.controller('MainCtrl',['$scope','User', '$rootScope','$state', function ($scope, User, $rootScope, $state){
+
+    var main = this;
+    // main.logout = logout;
+    $rootScope.currentUser = {};
+
+    User.getCurrent().then(function(data){
+      if(data.get('_id')){
+        $rootScope.currentUser.id = data.get('_id');
+        // $rootScope.currentUser.name = data.get('displayName');
+        console.log($rootScope.currentUser);
+      } else {
+        $rootScope.currentUser = {};
+      }
+    });
+    console.log('current user');
+
+    $scope.signup = function(signupData) {
+      User.signup(signupData)
+        .then(function(data) {
+          console.log(data);
+          if (data.get('_id')) {
+            $rootScope.currentUser.id    = data.get('_id');
+            $rootScope.currentUser.name  = data.get('username');
+            // redirect the user
+            $state.go('home');
+          }
+        });
+    };   
+
+    // function logout(){
+    //   User.logout();
+    //   $rootScope.currentUser = {};
+    // };
+}])
+
+
+/// signup.html
+<div class="container">
+  <div class="width400 center">
+    <h4 class="center grey-text page-title">Sign Up</h4>
+    <div class="row">
+      <form class="col s12" id="signupForm" ng-submit="signup(signupData)">
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="" id="first_name" type="text" class="validate" ng-model="signupData.username" required>
+            <label for="first_name">Username</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate" ng-model="signupData.email" required>
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="password" class="validate" ng-model="signupData.password" required>
+            <label for="password">Password</label>
+          </div>
+        </div>
+<!--         <div class="row">
+          <div class="input-field col s12">
+            <input id="passwordconfirm" type="password" class="validate" ng-model="authenticate.signupData.passwordconfirm">
+            <label for="passwordconfirm">Confirm Password</label>
+          </div>
+        </div>  -->     
+        <button type="submit" class="btn center">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+////// UserService.js
+app
+.factory('User', function ($stamplay, $q) {
+
+    // return an object with all our functions
+    return {
+      getCurrent: function() {
+        var def = $q.defer();
+
+        // instantiate a new user model from the stamplay js sdk
+        var user = new Stamplay.User().Model;
+        console.log(user);
+        user.currentUser()
+            .then(function() {
+                // send the entire user model back
+                def.resolve(user);
+            });
+
+        return def.promise;
+      },
+      signup: function(data) {
+        var def = $q.defer();
+
+        // instantiate a new user model from the stamplay js sdk
+        var user = new Stamplay.User().Model;
+        user.signup(data)
+            .then(function() {
+                // send the entire user model back
+                def.resolve(user);
+            })
+
+        return def.promise;
+      },
+      login: function(data) {
+        var def = $q.defer();
+
+        var user = Stamplay.User().Model;
+        user.login(data.email, data.password)
+            .then(function() {
+                // send the entire user model back
+                def.resolve(user);
+            }, function() {
+                def.reject({ 'error': 'Unable to login user.' });
+            });
+
+        return def.promise;
+      },
+      logout: function() {
+        var user = Stamplay.User().Model;
+        user.logout();
+      }
+    };
+
+});

@@ -1,22 +1,14 @@
 app
-.factory('User', function UserService($stamplay, $q) {
-
+.factory('User', function ($stamplay, $q, $http) {
+    var user = {};
     // return an object with all our functions
     return {
-        getCurrent: getCurrent,
-        signup: signup,
-        login: login,
-        logout: logout
-    };
-
-    /**
-     * Get the current logged in user
-     */
-    function getCurrent() {
+      getCurrent: function() {
         var def = $q.defer();
 
         // instantiate a new user model from the stamplay js sdk
-        var user = $stamplay.User().Model;
+        var user = new Stamplay.User().Model;
+        console.log(user);
         user.currentUser()
             .then(function() {
                 // send the entire user model back
@@ -24,16 +16,12 @@ app
             });
 
         return def.promise;
-    }
-
-    /**
-     * Register a user with their name, email, and password
-     */
-    function signup(data) {
+      },
+      signup: function(data) {
         var def = $q.defer();
 
         // instantiate a new user model from the stamplay js sdk
-        var user = $stamplay.User().Model;
+        var user = new Stamplay.User().Model;
         user.signup(data)
             .then(function() {
                 // send the entire user model back
@@ -41,16 +29,12 @@ app
             })
 
         return def.promise;
-    }
-
-    /**
-     * Log a user in with their email and password
-     */
-    function login(data) {
+      },
+      login: function(data) {
         var def = $q.defer();
 
-        var user = $stamplay.User().Model;
-        user.login(data.email, data.password)
+        var user = new Stamplay.User().Model;
+        user.login(data)
             .then(function() {
                 // send the entire user model back
                 def.resolve(user);
@@ -59,15 +43,37 @@ app
             });
 
         return def.promise;
-    }
+      },
+      logout: function() {
+        // return Stamplay.User.logout();
+        console.log('checking');
+      },
+      getUserModel: function(){
+        return Stamplay.User;
+      },
+      showw: function(){
+        console.log('showw');
+      }
+    };
+
+    /**
+     * Get the current logged in user
+     */
+
+    /**
+     * Register a user with their name, email, and password
+     */
+
+
+    /**
+     * Log a user in with their email and password
+     */
+
 
     /**
      * Log the current user out
      * Will also redirect the browser to the logout url (home)
      */
-    function logout() {
-        var user = $stamplay.User().Model;
-        user.logout();
-    }
+
 
 });
