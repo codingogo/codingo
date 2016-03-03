@@ -62,8 +62,16 @@ var app = angular.module('codingo', [
     })
     .state('lessonDetail', {
       url: '/lesson/:lessonId',
-      templateUrl: '/ng-app/main/lesson_content.html',
-      controller: 'LessonCtrl'
+      views: {
+        '': {
+          templateUrl: '/ng-app/main/lesson_content.html',
+          controller: 'LessonCtrl'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'MainCtrl'
+        }
+      }      
     });
 
     $urlRouterProvider.otherwise('/home');
