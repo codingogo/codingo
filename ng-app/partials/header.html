@@ -3,14 +3,16 @@
       <a ui-sref="home" class="brand-logo">CODINGO</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li class=""><a ui-sref="pricing">Pricing</a></li>
-        <li class="" ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
-        <li class="" ng-if="!logged"><a ui-sref="login">로그인</a></li>
-        <li class="" ng-if="logged" ><a ui-sref="home" ng-click="logout()">Logout</a></li>
-        <li class=""><a ui-sref="/"></a></li>
+        <li><a ui-sref="pricing">Pricing</a></li>
+        <li ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
+        <li ng-if="!logged"><a ui-sref="login">로그인</a></li>
+        <li ng-if="logged" ><a ui-sref="home" ng-click="logout()">Logout</a></li>
+        <li><a ui-sref="/"></a></li>
       </ul>
+
+      <!-- Mobile menu -->
       <ul class="side-nav" id="mobile-demo">
-        <li class="" ng-if="!a@mail.com"><a ui-sref="registration">회원가입</a></li>
+        <li class="" ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
         <li class="" ng-if="!logged"><a ui-sref="login">로그인</a></li>
         <li class="" ng-if="logged" ng-click="logout()"><a>로그아웃</a></li>
         <li class=""><a ui-sref="pricing">Pricing</a></li>
@@ -21,7 +23,10 @@
 
 <script>
     // Initialize collapse button
-  $(".button-collapse").sideNav();
+  $(".button-collapse").sideNav({
+    closeOnClick: true,
+    menuWidth: 280
+  });
   // Initialize collapsible (uncomment the line below if you use the dropdown variation)
   //$('.collapsible').collapsible();
 </script>
