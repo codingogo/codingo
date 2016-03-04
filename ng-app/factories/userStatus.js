@@ -1,12 +1,21 @@
-app.factory('userStatus', ['$http','$stamplay',function ($http, $stamplay) {
+/*
+This Factory is in charge of tracking user status via the **User** `getStatus`
+API call and expose it to controllers who require it.
+It acts as a simple caching layer between user status and controllers
+Whenever one or more controller on the same page are in need to know
+the user status the API call would be effectively done only one time
+*/
+app.factory('userStatus', ['$http','$stamplay', '$rootScope',function ($http, $stamplay, $rootScope) {
 
   var user = {};
 
   return {
     loginUser: function (data) {
+      console.log(data);
       return Stamplay.User.login(data);
     },
     registerUser: function (data) {
+      console.log(data);
       return Stamplay.User.signup(data);
     },
     logout: function(){
