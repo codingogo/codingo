@@ -3,14 +3,8 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson){
   
   var loadLessons = function(){
     Lesson.all().then(function(lessons){
-      var lessonsObj = lessons;
+      $scope.lessons = lessons.data;
 
-      for(var key in lessonsObj) {
-        var valueObj = {
-          instance: lessonsObj[key].instance
-        };
-        $scope.lessons.push(valueObj);
-      }
     })
   };
 
@@ -23,17 +17,15 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson){
   
   $scope.showTab = function(tabIndex) {
     $scope.currentTabIndex = tabIndex;
-    console.log(tabIndex);
     $scope.videoFile = $scope.lessonFile[tabIndex];
-    console.log($scope.videoFile);
   };
 
   $scope.lessonId = $stateParams.lessonId;
-  
+
   var lesson = this;
   Lesson.get($stateParams.lessonId)
     .then(function(data){
-      $scope.lessonObj = data.instance;
+      $scope.lessonObj = data.data[0];
   });
 
   $scope.lessonFile = [

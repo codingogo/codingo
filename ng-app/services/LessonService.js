@@ -2,23 +2,20 @@ app.factory('Lesson', function($q, $stamplay, $http){
   function all() {
     var def = $q.defer();
 
-    var LessonCollection = new Stamplay.Cobject('lesson').Collection;
-    LessonCollection.fetch({populate: true}).then(function(){
-      def.resolve(LessonCollection.instance);
-    });
-
+    Stamplay.Object("lesson").get({}, function(err, res){
+      if(err) return err;
+      def.resolve(res);
+    })
     return def.promise;
   }
 
   function get(id) {
     var def = $q.defer();
 
-    var lesson = new Stamplay.Cobject('lesson').Model;
-
-    lesson.fetch(id)
-      .then(function(){
-        def.resolve(lesson);
-      });
+    Stamplay.Object('lesson').get({_id: id}, function(err, res){
+      if(err) return err;
+      def.resolve(res);
+    })
 
     return def.promise;
   }

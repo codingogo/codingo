@@ -127,22 +127,22 @@ var app = angular.module('codingo', [
       // }
     }; 
 })
-.controller('MainCtrl',['$scope','User', '$rootScope','$state', '$stamplay', function ($scope, User, $rootScope, $state, $stamplay){
+.controller('MainCtrl',['$scope','User', '$rootScope','$state', '$stamplay', '$q', function ($scope, User, $rootScope, $state, $stamplay, $q){
 
     var main = this;
     // main.logout = logout;
     $rootScope.currentUser = {};
 
-    User.getCurrent().then(function(data){
-      if(data.get('_id')){
-        $rootScope.currentUser.id = data.get('_id');
-        $rootScope.currentUser.name = data.get('username');
-        $rootScope.currentUser.email = data.get('email');
-        console.log($rootScope.currentUser);
-      } else {
-        $rootScope.currentUser = {};
-      }
-    });
+    // User.getCurrent().then(function(data){
+    //   if(data.get('_id')){
+    //     $rootScope.currentUser.id = data.get('_id');
+    //     $rootScope.currentUser.name = data.get('username');
+    //     $rootScope.currentUser.email = data.get('email');
+    //     console.log($rootScope.currentUser);
+    //   } else {
+    //     $rootScope.currentUser = {};
+    //   }
+    // });
 
     $scope.signup = function(signupData) {
       User.signup(signupData)
@@ -170,16 +170,18 @@ var app = angular.module('codingo', [
             $state.go('home');
           }
         });   
-    }
+    };
 
     $scope.logout = function(){
-      console.log('logged out')
-      // $stamplay.User.logout();
+      
+      var q = $q.defer();
+      
       $rootScope.currentUser = {};
+      return q.promise;
       $state.go('home');
     };
     $scope.check = function(){
       console.log('wtf');
       
-    }
+    };
 }])
