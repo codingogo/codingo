@@ -11,13 +11,16 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson){
   loadLessons();
 });
 
-app.controller('LessonCtrl', function($scope, $stateParams, Lesson){
-
+app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video){
+// console.log($stateParams);
   $scope.currentTabIndex = 0;
-  
+  if($scope.filteredVideos){
+    $scope.videoFile = $scope.filteredVideos[0];
+  };
   $scope.showTab = function(tabIndex) {
     $scope.currentTabIndex = tabIndex;
-    $scope.videoFile = $scope.lessonFile[tabIndex];
+    // $scope.videoFile = $scope.lessonFile[tabIndex];
+    $scope.videoFile = $scope.filteredVideos[tabIndex];
   };
 
   $scope.lessonId = $stateParams.lessonId;
@@ -28,13 +31,18 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson){
       $scope.lessonObj = data.data[0];
   });
 
-  $scope.lessonFile = [
-    {title: 'First Chapter', sectionId: 0, videoLink:'./ng-app/assets/images/sample.jpg', description: 'this is the first video'}, 
-    {title: 'Second Chaper', sectionId: 1, videoLink: './ng-app/assets/images/sample2.jpg', description: 'this is the second video'}, 
-    {title: 'Third Chapter', sectionId: 2, videoLink: './ng-app/assets/images/sample3.jpg', description: 'this is a video'}
-  ];
-  
-  $scope.videoFile = $scope.lessonFile[0];
+  $scope.videoId = $stateParams;
+  // console.log('lessonId', $stateParams);
 
+  Video.get($stateParams)
+    .then(function(data){
+      var obj = data.data;
+      var result = obj.filter(function(val){
+        return val.lesson_id == $stateParams.lessonId;
+      })
+      $scope.filteredVideos = result;
+      $scope.videoFile = $scope.filteredVideos[0];
+      // console.log('filteredVideos', $scope.filteredVideos);
+  });
 
 });

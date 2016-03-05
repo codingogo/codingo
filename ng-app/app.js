@@ -65,8 +65,13 @@ var app = angular.module('codingo', [
       url: '/lesson/:lessonId',
       views: {
         '': {
-          templateUrl: '/ng-app/main/lesson_content.html',
-          controller: 'LessonCtrl'
+          templateUrl: '/ng-app/main/lesson_show.html',
+          controller: 'LessonCtrl',
+          resolve: {
+            qId: function($stateParams){
+              return $stateParams;
+            }
+          }
         },
         'header': {
           templateUrl: '/ng-app/partials/header.html',
