@@ -4,7 +4,7 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson){
   var loadLessons = function(){
     Lesson.all().then(function(lessons){
       $scope.lessons = lessons.data;
-
+      console.log($scope.lessons);
     })
   };
 

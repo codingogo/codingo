@@ -17,3 +17,11 @@
 .width400 {
   max-width: 400px;
 }
+.text-right {
+  float: right;
+}
+.container-default {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 80%;
+}

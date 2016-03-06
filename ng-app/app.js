@@ -61,6 +61,54 @@ var app = angular.module('codingo', [
         }
       }
     })
+    .state('about', {
+      url: '/about',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/about.html'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    }) 
+    .state('contact', {
+      url: '/contact',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/contact.html'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    }) 
+    .state('policies', {
+      url: '/policies',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/policies.html'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    }) 
+    .state('terms', {
+      url: '/terms',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/terms.html'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    })                
     .state('lessonDetail', {
       url: '/lesson/:lessonId',
       views: {
