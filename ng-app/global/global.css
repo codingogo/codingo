@@ -2,10 +2,8 @@
   text-align: center;
   margin: 0 auto;
 }
-.page-title {
-  display: block;
-  width: 100%;
-  padding: 50px;
+.height600 {
+  min-height: 600px;
 }
 .full-width {
   width: 100%;

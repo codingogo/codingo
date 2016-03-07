@@ -14,7 +14,10 @@ app.controller('LoginCtrl', ['$scope', '$state', 'userStatus', 'globalVariable',
         password: $scope.password
       }
       userStatus.loginUser(user).then(function(){
-        
+        // console.log('checking');
+          
+        // var userr = userStatus.getUser();
+        // console.log(userr);
         $state.go('home');
       },function(){
         $scope.error = data;

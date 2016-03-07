@@ -11,20 +11,13 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope',function ($http, $s
 
   return {
     loginUser: function (data) {
-      console.log(data);
-      // $rootScope.currentUser = [
-      //   {email: data.email},
-      //   {username: data.username}
-      // ];
+      $rootScope.currentUser = data.email;
+
       return Stamplay.User.login(data);
     },
     registerUser: function (data) {
-      console.log(data);
-      // $rootScope.currentUser = [
-      //   {email: data.email},
-      //   {username: data.username}
-
-      //   ];
+      $rootScope.currentUser = data.email;
+ 
       return Stamplay.User.signup(data);
     },
     logout: function(){

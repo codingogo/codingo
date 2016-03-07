@@ -1,0 +1,24 @@
+.active {
+  color: green;
+  font-size: 1.2em;
+}
+.font-mid {
+  font-size: 0.7em;
+}
+.pw-section {
+  height: 166px;
+  margin-bottom: 25px;
+}
+.email-section {
+  height: 166px;
+}
+.cp-section {
+  height: 180px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+  .small-note {
+    font-size: 0.9em;
+    padding-left: 25px;
+    color: #999;
+  }

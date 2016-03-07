@@ -2,20 +2,22 @@
     <div class="nav-wrapper">
       <a ui-sref="home" class="brand-logo">CODINGO</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <div class="hide-on-large-only text-right" ng-if="logged"><a ui-sref="profile"><img src="{{picture}}" alt="" class="profile-img"></a></div>
       <ul class="right hide-on-med-and-down">
-        <li><a ui-sref="pricing">Pricing</a></li>
-        <li ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
-        <li ng-if="!logged"><a ui-sref="login">로그인</a></li>
-        <li ng-if="logged" ><a ui-sref="home" ng-click="logout()">Logout</a></li>
-        <li><a ui-sref="/"></a></li>
+        <li><a ui-sref="subscribe" class="btn deep-orange accent-1">PRO 맴버십</a></li>
+        <li><a ui-sref="pricing">가격</a></li>
+        <li ng-if="!logged"><a ui-sref="registration">일반회원 가입</a></li>
+        <li ng-if="!logged"><a ui-sref="login" class="login-btn">로그인</a></li>
+        <li ng-if="logged" ><a ui-sref="home" ng-click="logout()">나가기</a></li>
+        <li ng-if="logged"><a ui-sref="profile" style="height:64px;"><img src="{{picture}}" alt="" class="profile-img"></a></li>
       </ul>
 
       <!-- Mobile menu -->
       <ul class="side-nav" id="mobile-demo">
         <li class="" ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
         <li class="" ng-if="!logged"><a ui-sref="login">로그인</a></li>
-        <li class="" ng-if="logged" ng-click="logout()"><a>로그아웃</a></li>
-        <li class=""><a ui-sref="pricing">Pricing</a></li>
+        <li class="" ng-if="logged" ng-click="logout()"><a>나가기</a></li>
+        <li class=""><a ui-sref="pricing">가격</a></li>
         <li></li>
       </ul>
     </div>

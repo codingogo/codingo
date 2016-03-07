@@ -61,6 +61,32 @@ var app = angular.module('codingo', [
         }
       }
     })
+    .state('profile', {
+      url: '/profile',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/user/profile.html',
+          controller: 'NavbarCtrl'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    }) 
+
+    .state('subscribe', {
+      url: '/subscribe',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/subscribe.html'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    })     
     .state('about', {
       url: '/about',     
       views: {

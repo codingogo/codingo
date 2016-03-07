@@ -1,0 +1,67 @@
+<div class="container-default height600">
+  <div class="row">
+      <h4 class="center grey-text page-title">
+        <span ng-if="currentTabIndex === 0">일반정보</span>
+        <span ng-if="currentTabIndex === 1">회원정보</span>
+      </h4>
+      <div class="col s12 m4">          
+        <p>
+          <a class="waves-effect waves-green btn-flat" ng-click="showTab(0)" ng-class="{'active': currentTabIndex === 0}">일반정보 </a>
+        </p>
+        <p>
+          <a class="waves-effect waves-green btn-flat" ng-click="showTab(1)" ng-class="{'active': currentTabIndex === 1}">회원정보</a>
+        </p>
+      </div>      
+      
+    <form action="" class="col s12 m8" ng-if="currentTabIndex === 0">  
+
+          <div class="section email-section">
+            <div class="input-field col s12">
+              <input value="{{user.username}}" id="username2" type="text" class="validate">
+              <label class="active" for="username2">Your Username</label>
+            </div>
+            <div class="input-field col s12">
+              <input value="{{user.email}}" id="email2" type="text" class="validate">
+              <label class="active" for="email2">Your Email</label>
+            </div>
+          </div>
+
+          <div class="section pw-section">
+            <div class="input-field col s12">
+              <input id="newpassword2" type="text" class="validate">
+              <label  for="newpassword2">New Password</label>
+            </div> 
+            <div class="input-field col s12">
+              <input id="confirmpassword2" type="text" class="validate">
+              <label  for="confirmpassword2">Confirm Password</label>
+            </div>   
+          </div>
+ 
+          <div class="section green lighten-5 cp-section">
+            <p class="small-note">확인을 위해 현재 사용중인 패스워드를 입력하세요</p>
+            <div class="input-field col s12">
+              <input id="currentpassword2" type="text" class="validate">
+              <label  for="currentpassword2">Current Password</label>
+            </div>   
+          </div>                                 
+      <!--   </div>   -->
+
+        <div class="center-align">
+          <button ng-click="changeProfile()" class="btn btn-large center-align">입력</button> 
+        </div>   
+    </form>  
+
+    <div class="col s12 m8 center-align" ng-if="currentTabIndex === 1">
+          <div class="card light-blue darken-2">
+            <div class="card-content white-text">
+              <span class="card-title">현재 회원님께서는 FREE 회원이십니다.</span>
+            </div>
+            <div class="card-action">
+              <a class="btn btn-large deep-orange accent-1" ui-sref="subscribe" ng-if="!user">PRO 회원 가입하기</a>   
+            </div>
+          </div>    </div>  
+
+  </div>  <!-- row end --> 
+    
+
+</div>

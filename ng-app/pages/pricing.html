@@ -8,8 +8,8 @@
           <p>I am a very simple card. I am good at containing small bits of information.
           I am convenient because I require little markup to use effectively.</p>
         </div>
-        <div class="card-action center">
-          <a href="#" class="btn blue darken-1">Subscribe</a>
+        <div class="card-action center info-text">
+          <a ui-sref="registration" class="btn grey" ng-hide="user">일반회원 가입</a> <span class="grey-text " ng-show="user">가입한 회원입니다</span>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
               I am convenient because I require little markup to use effectively.</p>
             </div>
             <div class="card-action center">
-              <a href="#" class="btn blue darken-1">Subscribe</a>
+              <a ui-sref="subscribe" class="btn blue darken-1">PRO 회원 가입</a>
             </div>
           </div>
     </div>    
