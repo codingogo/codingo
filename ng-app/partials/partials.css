@@ -6,10 +6,16 @@
   margin-top: 8px;
   margin-right: 20px;
 }
+.profile-img-frame {
+  height: 64px;
+  margin-right: 5px;
+}
 .login-btn {
   margin-right: 15px;
 }
-
+nav .dropdown-content {
+  margin-top: 8px;
+}
 /*Footer Page*/
 
 /*Nav Page*/

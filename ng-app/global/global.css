@@ -2,6 +2,9 @@
   text-align: center;
   margin: 0 auto;
 }
+.height400 {
+  min-height: 400px;
+}
 .height600 {
   min-height: 600px;
 }
@@ -22,4 +25,10 @@
   margin: 0 auto;
   max-width: 1280px;
   width: 80%;
+}
+.height100{
+  height: 100%;
+}
+.margin-none {
+  margin: 0;
 }

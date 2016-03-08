@@ -4,7 +4,7 @@
   
     <div class="">          
       <ul class="collection lesson-nav">
-        <li class="collection-item" ng-repeat="item in filteredVideos">{{item.title}}
+        <li class="collection-item avatar" ng-repeat="item in filteredVideos"><a href="" ng-click="showTab($index)"><i class="material-icons circle red">play_arrow</i>{{item.title}}</a>
           <span class="text-right grey-text darken-3">{{item.duration}}</span>
           <a href="" class="full-width" ng-click="showTab($index)">{{item.description}}</a>
         </li>

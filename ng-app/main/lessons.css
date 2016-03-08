@@ -25,11 +25,7 @@ nav .button-collapse i{
   padding-left: 15px;
   padding-right: 15px;
 }
-.page-title {
-  display: block;
-  width: 100%;
-  padding: 25px 20px 10px 20px;
-}
+
 @media (max-width: 767px){
   .lesson-nav {
     left: -300px;

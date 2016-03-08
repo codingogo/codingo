@@ -2,14 +2,24 @@
     <div class="nav-wrapper">
       <a ui-sref="home" class="brand-logo">CODINGO</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <div class="hide-on-large-only text-right" ng-if="logged"><a ui-sref="profile"><img src="{{picture}}" alt="" class="profile-img"></a></div>
-      <ul class="right hide-on-med-and-down">
-        <li><a ui-sref="subscribe" class="btn deep-orange accent-1">PRO 맴버십</a></li>
-        <li><a ui-sref="pricing">가격</a></li>
-        <li ng-if="!logged"><a ui-sref="registration">일반회원 가입</a></li>
+
+      <ul class="right ">
+        <li class="hide-on-med-and-down"><a ui-sref="about">이용안내</a></li>  
+        <li class="hide-on-med-and-down"><a ui-sref="pricing">가격</a></li>
+        <li ng-if="!logged" class="hide-on-med-and-down"><a ui-sref="registration">회원가입</a></li>
         <li ng-if="!logged"><a ui-sref="login" class="login-btn">로그인</a></li>
-        <li ng-if="logged" ><a ui-sref="home" ng-click="logout()">나가기</a></li>
-        <li ng-if="logged"><a ui-sref="profile" style="height:64px;"><img src="{{picture}}" alt="" class="profile-img"></a></li>
+        <li ng-if="logged"><a ui-sref="subscribe" class="btn deep-orange accent-1 hide-on-med-and-down">PRO 회원가입</a></li>
+
+        <!-- Dropdown Trigger --> 
+        <li ng-hide="!logged"><a class='dropdown-button profile-img-frame' data-activates='dropdown1' ><img src="{{picture}}" alt="" class="profile-img"></a></li>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a ui-sref="profile">회원정보</a></li>
+          <li><a href="#!">프로젝트</a></li>
+          <li class="divider"></li>
+          <li><a ng-click="logout()">로그아웃</a></li>
+        </ul>        
       </ul>
 
       <!-- Mobile menu -->
@@ -31,4 +41,15 @@
   });
   // Initialize collapsible (uncomment the line below if you use the dropdown variation)
   //$('.collapsible').collapsible();
+
+  $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );  
 </script>

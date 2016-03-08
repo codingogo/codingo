@@ -29,7 +29,7 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video){
     .then(function(data){
       $scope.lessonObj = data.data[0];
   });
-
+console.log($stateParams);
   $scope.videoId = $stateParams;
   // console.log('lessonId', $stateParams);
 

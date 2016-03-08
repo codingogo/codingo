@@ -31,7 +31,7 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'userStatus', '$rootScope',
       //if user was defined -> update $scope
       user.currentUser()
         .then(function(res){
-          console.log(res.user);
+          // console.log(res.user);
           var user = res.user;
           $rootScope.loggedUser = res.user;
           var logged = user._id;

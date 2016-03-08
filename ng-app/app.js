@@ -79,7 +79,8 @@ var app = angular.module('codingo', [
       url: '/subscribe',     
       views: {
         '': {
-          templateUrl: '/ng-app/pages/subscribe.html'
+          templateUrl: '/ng-app/pages/subscribe.html',
+          controller: 'RegistrationCtrl'                  
         },
         'header': {
           templateUrl: '/ng-app/partials/header.html',
@@ -91,7 +92,8 @@ var app = angular.module('codingo', [
       url: '/about',     
       views: {
         '': {
-          templateUrl: '/ng-app/pages/about.html'
+          templateUrl: '/ng-app/pages/about.html', 
+          controller: 'AboutCtrl'
         },
         'header': {
           templateUrl: '/ng-app/partials/header.html',
@@ -99,6 +101,30 @@ var app = angular.module('codingo', [
         }
       }
     }) 
+    .state('service', {
+      url: '/service',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/service.html'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    })  
+    .state('faq', {
+      url: '/faq',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/faq.html'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    })         
     .state('contact', {
       url: '/contact',     
       views: {
