@@ -16,6 +16,7 @@ nav .button-collapse i{
   max-height: 100%;
   overflow-y: auto;
   padding-bottom: 20px; 
+  margin-top: 0;
 }
 .video-section {
   padding-left: 300px;

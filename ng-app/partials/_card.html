@@ -1,0 +1,51 @@
+<div class="center signup-area" id="payment-form"> 
+
+  <!-- Card Info -->
+  <div class="row">
+    <form class="col s12 center" id="payment-form">
+      <div class="price-checkbox">
+        <div class="row ">
+          <p class="col s12">
+            <input name="subscription1" type="checkbox" id="subscription1" ng-model="card.price" value="29000" required/>
+            <label for="subscription1" class="price-month">월<span class="green-text">29,000</span>원</label>
+          </p>
+            <p class="grey-text note-info">위 가격을 체크해주시기 바랍니다. (맴버십은 언제든지 해제가 가능합니다)</p>
+        </div>  
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="cardnum" type="text" class="validate" ng-model="card.number">
+          <label for="cardnum">카드번호</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="name" type="text" class="validate" ng-model="card.name">
+          <label for="name">이름</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="exp_month" type="text" class="validate" ng-model="card.exp_month">
+          <label for="exp_month">Exp(MM)</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="exp_year" type="text" class="validate" ng-model="card.exp_year">
+          <label for="exp_year">Exp(YYYY)</label>
+        </div>
+      </div>  
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="cvc" type="text" class="validate" ng-model="card.cvc">
+          <label for="cvc">CVC</label>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-large" ng-click="subscribeCard(card)">결제하기</button>
+            <p class="center blue-text stripe-info">* 본 결제는 Stripe를 통하여 안전하게 결제됩니다.</p>    
+    </form>
+  </div>
+</div>

@@ -1,13 +1,11 @@
 <div class="container">
-  <div class="width400 center">
-    <h4 class="center grey-text page-title">회원가입</h4>
+  <h4 class="center grey-text page-title">회원가입</h4>
+  <div class="width400 center signup-area" ng-show="!user">
     <div class="row">
       <form class="col s12">  
-      <!--   <fieldset class="grey-text">
-          <legend></legend> -->
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="" id="first_name" type="text" class="validate" ng-model="username" required>
+              <input placeholder="" id="first_name" type="text" class="validate" ng-model="displayName" required>
               <label for="first_name">Username</label>
             </div>
           </div>        
@@ -25,13 +23,13 @@
           </div>
         </div>
         
-          <button type="button" class="btn btn-primary" ng-click="register()">Register</button>
+          <button type="button" class="btn btn-primary btn-large" ng-click="register()">가입하기</button>
 
           <div style="margin-top:10px"><label>{{error}}</label></div>
-
-       <!--  </fieldset> -->
       </form>
     </div>
     <a ui-sref="login" class="center">로그인은 여기를 클릭하세요</a>
-  </div>  
+  </div> 
+
+ <!--  <div ng-if="user" ng-include="'./ng-app/partials/_card.html'"></div>  -->
 </div>

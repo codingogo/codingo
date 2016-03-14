@@ -11,22 +11,40 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope',function ($http, $s
 
   return {
     loginUser: function (data) {
-      $rootScope.currentUser = data.email;
-
       return Stamplay.User.login(data);
     },
     registerUser: function (data) {
-      $rootScope.currentUser = data.email;
- 
       return Stamplay.User.signup(data);
     },
     logout: function(){
       return Stamplay.User.logout()
     },
-    //simple call to get userStatus
     getUserModel: function () {
+      // var user = {};
+
+      // Stamplay.User.currentUser().then(function(res){
+      //   user = res.user;
+
+      //   if(user.verificationCode){
+      //     if(user.stripeCustomerId === undefined){
+      //       // Create Stripe Customer           
+      //       Stamplay.Stripe.createCustomer('', user._id)
+      //       .then(function(resData){
+      //         var userData = {
+      //           'stripeCustomerId': resData.customer_id,
+      //           'subscriptions': resData.subscriptions
+      //         };
+      //         Stamplay.User.update(user._id, userData);
+      //       }, function(err){
+      //         console.log(err);
+      //       })
+      //     };
+      //   };
+
+      // })
       return Stamplay.User;
-    },
+    },    
+
     // Getter and Setter method
     getUser: function () {
       return user
@@ -39,6 +57,20 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope',function ($http, $s
         email: email,
         logged: logged
       }
+    },
+
+    // Subscription Section
+    createCard: function(user_id, cardObj){
+      // Collect credit card information and store it via Stripe
+      console.log(cardObj);
+      console.log(user_id);
+      // return Stamplay.Stripe.createCreditCard(user_id, cardObj);
+    },
+    subscribe: function(planId){
+      // Subscribe user
+    },
+    unsubscribe: function(planId){
+      // Cancel user subscription
     }
   };
 }])

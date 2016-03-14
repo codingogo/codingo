@@ -2,8 +2,10 @@ var app = angular.module('codingo', [
   'ngStamplay',
   'ui.router'
 ])
-.run( function ($stamplay, $location){
+.run( function ($stamplay, userStatus, $rootScope){
   Stamplay.init('codingo');
+  Stripe.setPublishableKey('pk_test_cAhaJovqcrJoK6GQYGQFJxfQ');
+
 })
 .config(function ($stateProvider, $urlRouterProvider){
 
@@ -41,6 +43,7 @@ var app = angular.module('codingo', [
       views: {
         '': {
           templateUrl: '/ng-app/partials/registration.html',
+          params: 'index',
           controller: 'RegistrationCtrl'
         },        
         'header': {
@@ -66,7 +69,7 @@ var app = angular.module('codingo', [
       views: {
         '': {
           templateUrl: '/ng-app/user/profile.html',
-          controller: 'NavbarCtrl'
+          controller: 'ProfileCtrl'
         },
         'header': {
           templateUrl: '/ng-app/partials/header.html',
@@ -75,19 +78,19 @@ var app = angular.module('codingo', [
       }
     }) 
 
-    .state('subscribe', {
-      url: '/subscribe',     
+    .state('subscriptions', {
+      url: '/subscriptions',     
       views: {
         '': {
-          templateUrl: '/ng-app/pages/subscribe.html',
-          controller: 'RegistrationCtrl'                  
+          templateUrl: '/ng-app/subscription/subscriptions.html',
+          controller: 'SubscriptionsCtrl'                  
         },
         'header': {
           templateUrl: '/ng-app/partials/header.html',
           controller: 'NavbarCtrl'
         }
       }
-    })     
+    })         
     .state('about', {
       url: '/about',     
       views: {
@@ -129,7 +132,8 @@ var app = angular.module('codingo', [
       url: '/contact',     
       views: {
         '': {
-          templateUrl: '/ng-app/pages/contact.html'
+          templateUrl: '/ng-app/pages/contact.html',
+          controller: 'ContactCtrl'
         },
         'header': {
           templateUrl: '/ng-app/partials/header.html',

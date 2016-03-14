@@ -4,18 +4,18 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
       <ul class="right ">
-        <li class="hide-on-med-and-down"><a ui-sref="about">이용안내</a></li>  
-        <li class="hide-on-med-and-down"><a ui-sref="pricing">가격</a></li>
-        <li ng-if="!logged" class="hide-on-med-and-down"><a ui-sref="registration">회원가입</a></li>
-        <li ng-if="!logged"><a ui-sref="login" class="login-btn">로그인</a></li>
-        <li ng-if="logged"><a ui-sref="subscribe" class="btn deep-orange accent-1 hide-on-med-and-down">PRO 회원가입</a></li>
+        <li class="hide-on-med-and-down"><a ui-sref="about">About</a></li>  
+        <li class="hide-on-med-and-down"><a ui-sref="pricing">Pricing</a></li>
+        <li ng-if="!logged" class="hide-on-med-and-down"><a ui-sref="registration">Sign Up</a></li>
+        <li ng-if="!logged"><a ui-sref="login" class="login-btn">Log In</a></li>
+        <li ng-if="logged"><a ui-sref="subscriptions" class="btn deep-orange accent-1 hide-on-med-and-down">PRO 회원가입</a></li>
 
         <!-- Dropdown Trigger --> 
         <li ng-hide="!logged"><a class='dropdown-button profile-img-frame' data-activates='dropdown1' ><img src="{{picture}}" alt="" class="profile-img"></a></li>
 
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
-          <li><a ui-sref="profile">회원정보</a></li>
+          <li><a ui-sref="profile">내정보</a></li>
           <li><a href="#!">프로젝트</a></li>
           <li class="divider"></li>
           <li><a ng-click="logout()">로그아웃</a></li>
@@ -24,11 +24,11 @@
 
       <!-- Mobile menu -->
       <ul class="side-nav" id="mobile-demo">
-        <li class="" ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
-        <li class="" ng-if="!logged"><a ui-sref="login">로그인</a></li>
-        <li class="" ng-if="logged" ng-click="logout()"><a>나가기</a></li>
-        <li class=""><a ui-sref="pricing">가격</a></li>
-        <li></li>
+        <li class="" ng-if="!logged"><a ui-sref="registration">Sign Up</a></li>
+        <li class="" ng-if="!logged"><a ui-sref="login">Log In</a></li>
+        <li class=""><a ui-sref="about">About</a></li>  
+        <li class=""><a ui-sref="pricing">Pricing</a></li>
+        <li class="" ng-if="logged" ng-click="logout()"><a>Log Out</a></li>
       </ul>
     </div>
   </nav>
