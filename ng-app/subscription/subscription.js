@@ -20,22 +20,31 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, userStatus, $sta
             console.log('card token', response);
             var token = response.id;
             var cardId = response.card.id;
+            var fingerprint = response.card.fingerprint;
             console.log('token', token);
             console.log('cardId', response);
-            
-            Stamplay.Stripe.createCreditCard(user_id, token)
-            .then(function(returnCard){
-              console.log('created card',returnCard)
-            }, function(error){
-              console.log(error);
-            })
-       
-            Stamplay.Stripe.createSubscription(user_id, 'monthly_subscription').then(function(res){
-              console.log('subscription',res);
-              $rootScope.subscription = res;
-            }, function(err){
-              console.log(err);
-            })
+            console.log('fingerprint', fingerprint);
+            if(fingerprint === null){
+              Stamplay.Stripe.createCreditCard(user_id, token)
+              .then(function(returnCard){
+                console.log('created card',returnCard)
+                Stamplay.Stripe.createSubscription(user_id, 'monthly_subscription').then(function(res){
+                  console.log('subscription',res);
+                  $rootScope.subscription = res;
+                }, function(err){
+                  console.log(err);
+                });                
+              }, function(error){
+                console.log(error);
+              }) 
+            } else {
+              Stamplay.Stripe.createSubscription(user_id, 'monthly_subscription').then(function(res){
+                console.log('subscription',res);
+                $rootScope.subscription = res;
+              }, function(err){
+                console.log(err);
+              })
+            }
                   
           }
         })
