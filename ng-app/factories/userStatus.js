@@ -1,6 +1,7 @@
 app.factory('userStatus', ['$http','$stamplay', '$rootScope','$q',function ($http, $stamplay, $rootScope, $q) {
 
   var user = {};
+  var user_id = user._id;
 
   return {
     loginUser: function (data) {
@@ -29,26 +30,24 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope','$q',function ($htt
         logged: logged
       }
     },
-    // Subscription Section
-    createCard: function(cardInfo){
-    return Stripe.card.createToken(cardInfo, function(status, response){
-        if(response.error){
-          console.log('err', response.error);
-        } else {
-          var token = response.id;
-          var cardId = response.card.id;
-          var user_id = user._id;
-          Stamplay.Stripe.createCreditCard(user_id, token)
-          .then(function(returnCard){
-            console.log('card', returnCard);
-          }, function(err){
-            console.log(err);
-          })
-        }
-      })
+    getCard: function(user_id){
+      // var user_id = user._id;
+      return Stamplay.Stripe.getCreditCard(user_id)
+              .then(function(res){
+                return res;
+              }, function(err){
+                console.log(err);
+              })
     },
-    subscribe: function(planId){
-      // Subscribe user
+    subscribe: function(user_id, planId){
+      return Stamplay.Stripe.createSubscription(user_id, planId)
+              .then(function(res){
+                console.log('subscription', res);
+                $rootScope.subscription = res;
+                return res;
+              }, function(err){
+                console.log(err);
+              })
     },
     unsubscribe: function(planId){
       // Cancel user subscription
