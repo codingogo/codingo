@@ -24,7 +24,7 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'userStatus', '$rootScope',
       user.currentUser()
         .then(function(res){
           var user = res.user;
-          console.log(user);
+          // console.log(user);
           $rootScope.loggedUser = res.user;
         
           if(user._id !== undefined){
@@ -43,23 +43,23 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'userStatus', '$rootScope',
               }
               Stamplay.Stripe.getCreditCard(user._id)
               .then(function(data){
-                console.log(data);
+                // console.log(data);
               }, function(err){
-                console.log(err);
+                // console.log(err);
               });
-              console.log(user._id);
+              // console.log(user._id);
               // Get user subscription
               Stamplay.Stripe.getSubscriptions(user._id, 'monthly_subscription').then(function(data){
-                console.log('subscription data',data);
+                // console.log('subscription data',data);
                 $rootScope.user.subscriptions = data;
               }, function(err){
-                console.log(err);
+                // console.log(err);
               })
             })
             userStatus.setUser(user.displayName, user.profileImg, user._id, user.email, true)
             }
           }, function(err){
-            console.log(err);
+            // console.log(err);
           })
       }
     }

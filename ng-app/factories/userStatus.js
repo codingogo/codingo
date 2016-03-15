@@ -1,11 +1,4 @@
-/*
-This Factory is in charge of tracking user status via the **User** `getStatus`
-API call and expose it to controllers who require it.
-It acts as a simple caching layer between user status and controllers
-Whenever one or more controller on the same page are in need to know
-the user status the API call would be effectively done only one time
-*/
-app.factory('userStatus', ['$http','$stamplay', '$rootScope',function ($http, $stamplay, $rootScope) {
+app.factory('userStatus', ['$http','$stamplay', '$rootScope','$q',function ($http, $stamplay, $rootScope, $q) {
 
   var user = {};
 
@@ -20,28 +13,6 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope',function ($http, $s
       return Stamplay.User.logout()
     },
     getUserModel: function () {
-      // var user = {};
-
-      // Stamplay.User.currentUser().then(function(res){
-      //   user = res.user;
-
-      //   if(user.verificationCode){
-      //     if(user.stripeCustomerId === undefined){
-      //       // Create Stripe Customer           
-      //       Stamplay.Stripe.createCustomer('', user._id)
-      //       .then(function(resData){
-      //         var userData = {
-      //           'stripeCustomerId': resData.customer_id,
-      //           'subscriptions': resData.subscriptions
-      //         };
-      //         Stamplay.User.update(user._id, userData);
-      //       }, function(err){
-      //         console.log(err);
-      //       })
-      //     };
-      //   };
-
-      // })
       return Stamplay.User;
     },    
 
@@ -58,13 +29,23 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope',function ($http, $s
         logged: logged
       }
     },
-
     // Subscription Section
-    createCard: function(user_id, cardObj){
-      // Collect credit card information and store it via Stripe
-      console.log(cardObj);
-      console.log(user_id);
-      // return Stamplay.Stripe.createCreditCard(user_id, cardObj);
+    createCard: function(cardInfo){
+    return Stripe.card.createToken(cardInfo, function(status, response){
+        if(response.error){
+          console.log('err', response.error);
+        } else {
+          var token = response.id;
+          var cardId = response.card.id;
+          var user_id = user._id;
+          Stamplay.Stripe.createCreditCard(user_id, token)
+          .then(function(returnCard){
+            console.log('card', returnCard);
+          }, function(err){
+            console.log(err);
+          })
+        }
+      })
     },
     subscribe: function(planId){
       // Subscribe user

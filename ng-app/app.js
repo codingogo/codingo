@@ -4,7 +4,7 @@ var app = angular.module('codingo', [
 ])
 .run( function ($stamplay, userStatus, $rootScope){
   Stamplay.init('codingo');
-  Stripe.setPublishableKey('pk_test_cAhaJovqcrJoK6GQYGQFJxfQ');
+  Stripe.setPublishableKey('pk_test_EUICxbyG7LkG2qT9zPcTBGen');
 
 })
 .config(function ($stateProvider, $urlRouterProvider){
