@@ -1,4 +1,7 @@
-app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $state){
+app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $state, $rootScope){
+
+  
+
   $scope.subscribeMembership = function(card){
     var cardInfo = {
       number: card.number,
@@ -42,9 +45,11 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
               $scope.$apply(function(){
                 $rootScope.subscriptions = subscription;
                 // $scope.user.subscribed = true;
-                $rootScope.user.subscribed = true;
-                UserStatus.updateUser(user_id, {'subscribed': true});
-
+                $rootScope.subscribed = true;
+                UserStatus.updateUser(user_id, {'subscribed': true})
+                .then(function(){
+                  $state.go('home');
+                })
               }, function(err){
                 console.log(err);
               });              
@@ -64,59 +69,20 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
               $scope.$apply(function(){
                 $rootScope.subscriptions = subscription;
                 // $scope.user.subscribed = true;
-                $rootScope.user.subscribed = true;
-                UserStatus.updateUser(user_id, {'subscribed': true});
+                $rootScope.subscribed = true;
+                UserStatus.updateUser(user_id, {'subscribed': true})
+                .then(function(){
+                  $state.go('home');
+                })
               }, function(err){
                 console.log(err);
               });              
             });
           }
-          $state.go('home');
+          
         }
       })
     })
-    // .then(function(card){
-    //   // card doesn't exist    
-    //   console.log('card', card);  
-    //   if(res.fingerprint === undefined){   
-    //     console.log('create card');     
-    //     // create credit card          
-    //     // Stripe.card.createToken(cardInfo, function(status, response){
-    //     //   if(response.error){
-    //     //     console.log('err', response.error)
-    //     //   } else {
-    //     //     var token = response.id;
-    //     //     var cardId = response.card.id;
-
-    //     //     Stamplay.Stripe.createCreditCard(user_id, token)
-    //     //     .then(function(returnCard){
-    //     //       // create subscription
-    //     //       UserStatus.subscribe(user_id, 'monthly_subscription')
-    //     //       .then(function(res){
-    //     //         $rootScope.subscription = res;
-    //     //         consol.log(res);
-    //     //       }, function(err){
-    //     //         console.log(err);
-    //     //       })              
-    //     //     })
-    //     //   }
-    //     // })        
-    //   } else {
-    //     // card exist        
-    //     // created subscription
-    //     UserStatus.subscribe(user_id, 'monthly_subscription')
-    //     .then(function(res){
-    //       $rootScope.subscription = res;
-    //       console.log(res);
-    //     }, function(err){
-    //       console.log(err);
-    //     }) 
-    //   }
-    // }, function(err){
-    //   console.log(err);
-    // });
-
-    
   }
 
 });

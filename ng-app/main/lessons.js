@@ -1,13 +1,25 @@
-app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson){
+app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, UserStatus){
   $scope.lessons = [];
   
+  var initialise = function(){
+    loadLessons();
+    getUser();
+  }
+
+  var getUser = function(){
+    UserStatus.getUser()
+    .then(function(res){
+      console.log('user', res);
+    })
+  };
+
   var loadLessons = function(){
     Lesson.all().then(function(lessons){
       $scope.lessons = lessons.data;
     })
   };
 
-  loadLessons();
+  initialise();
 });
 
 app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video){

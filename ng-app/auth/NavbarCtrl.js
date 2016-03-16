@@ -43,6 +43,11 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope',
     .then(function(subscription){
       console.log('subscription', subscription);
       UserStatus.updateUser(user_id, {'subscriptions': subscription})
+      console.log(subscription.data[0].status);
+      var status = subscription.data[0].status;
+      if(status === 'active'){
+        $scope.subscribed = true;
+      }
       if(user_id !== undefined){
         $scope.$apply(function(){
           $rootScope.subscriptions = subscription;
