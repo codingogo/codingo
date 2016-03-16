@@ -9,7 +9,7 @@ app
   ];
 
 })
-.controller('ContactCtrl', function($scope, userStatus){
+.controller('ContactCtrl', function($scope, UserStatus){
   // var user = userStatus.getUserModel();
   
 });

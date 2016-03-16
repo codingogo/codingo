@@ -1,5 +1,5 @@
-app.controller('RegistrationCtrl', ['$scope', 'userStatus', 'globalVariable', 'validator','$state', '$stateParams',
-  function RegistrationCtrl($scope, userStatus, globalVariable, validator, $state) {
+app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'globalVariable', 'validator','$state', '$stateParams',
+  function RegistrationCtrl($scope, UserStatus, globalVariable, validator, $state) {
 
     //setting regexp for email field
     $scope.EMAIL = globalVariable.email
@@ -18,7 +18,7 @@ app.controller('RegistrationCtrl', ['$scope', 'userStatus', 'globalVariable', 'v
         validator.validateEmail(validate)
           .success(function (data, status) {
             //second step register user
-            userStatus.registerUser(user).then(function(){
+            UserStatus.registerUser(user).then(function(){
                 $state.go('home');
             },function(){
               $scope.error = 'Registration Failed'

@@ -1,4 +1,4 @@
-app.factory('userStatus', ['$http','$stamplay', '$rootScope','$q',function ($http, $stamplay, $rootScope, $q) {
+app.factory('UserStatus', ['$http','$stamplay', '$rootScope','$q',function ($http, $stamplay, $rootScope, $q) {
 
   var user = {};
   var user_id = user._id;
@@ -11,7 +11,7 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope','$q',function ($htt
       return Stamplay.User.signup(data);
     },
     logout: function(){
-      return Stamplay.User.logout()
+      return Stamplay.User.logout();
     },
     getUserModel: function () {
       return Stamplay.User;
@@ -19,7 +19,10 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope','$q',function ($htt
 
     // Getter and Setter method
     getUser: function () {
-      return user
+      return Stamplay.User.currentUser();
+    },
+    updateUser: function (user_id, data) {
+      return Stamplay.User.update(user_id, data);
     },
     setUser: function (displayName, picture, _id, email, logged) {
       user = {
@@ -30,24 +33,17 @@ app.factory('userStatus', ['$http','$stamplay', '$rootScope','$q',function ($htt
         logged: logged
       }
     },
+    createCard: function(user_id, token){
+      return Stamplay.Stripe.createCreditCard(user_id, token);
+    },
     getCard: function(user_id){
-      // var user_id = user._id;
-      return Stamplay.Stripe.getCreditCard(user_id)
-              .then(function(res){
-                return res;
-              }, function(err){
-                console.log(err);
-              })
+      return Stamplay.Stripe.getCreditCard(user_id);
+    },
+    getSubscriptions: function(user_id, options){
+      return Stamplay.Stripe.getSubscriptions(user_id, options);
     },
     subscribe: function(user_id, planId){
-      return Stamplay.Stripe.createSubscription(user_id, planId)
-              .then(function(res){
-                console.log('subscription', res);
-                $rootScope.subscription = res;
-                return res;
-              }, function(err){
-                console.log(err);
-              })
+      return Stamplay.Stripe.createSubscription(user_id, planId);
     },
     unsubscribe: function(planId){
       // Cancel user subscription

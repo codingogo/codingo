@@ -1,9 +1,10 @@
-app.controller('NavbarCtrl', ['$scope', '$location', 'userStatus', '$rootScope', '$stamplay',
-  function NavbarController($scope, $location, userStatus, $rootScope, $stamplay) {
+app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope', '$stamplay',
+  function NavbarController($scope, $location, UserStatus, $rootScope, $stamplay) {
     $scope.currentTabIndex = 0;
-    
+    $scope.subscribed = false;
+    var user_id;
     $scope.logout = function(){
-      userStatus.logout()
+      UserStatus.logout()
     }
     //method for setting active class in navbar
     $scope.routeIs = function (routeName) {
@@ -14,53 +15,43 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'userStatus', '$rootScope',
       $scope.currentTabIndex = tabIndex;
     };
 
-    if(userStatus.getUser().logged){
-      $scope.logged = true;  
-    }else{
-      //default value of user Status
-      $scope.logged = false;
-      //Call service
-      var user = userStatus.getUserModel();
-      user.currentUser()
-        .then(function(res){
-          var user = res.user;
-          // console.log(user);
-          $rootScope.loggedUser = res.user;
-        
-          if(user._id !== undefined){
-            $scope.$apply(function(){
-              $scope.logged = true;
-              $scope.displayName = user.displayName;
-              $scope.email = user.email;
-              
-              // Globally sets user
-              $rootScope.user = user;
-              $rootScope.user.logged = true;
-              if(user.profileImg !== ''){
-                $scope.picture = user.profileImg;
-              } else {
-                $rootScope.picture = './ng-app/assets/images/sample2.jpg';
-              }
-              Stamplay.Stripe.getCreditCard(user._id)
-              .then(function(data){
-                // console.log(data);
-              }, function(err){
-                // console.log(err);
-              });
-              // console.log(user._id);
-              // Get user subscription
-              Stamplay.Stripe.getSubscriptions(user._id, 'monthly_subscription').then(function(data){
-                // console.log('subscription data',data);
-                $rootScope.user.subscriptions = data;
-              }, function(err){
-                // console.log(err);
-              })
-            })
-            userStatus.setUser(user.displayName, user.profileImg, user._id, user.email, true)
-            }
-          }, function(err){
-            // console.log(err);
-          })
+    // Set User for Header
+    UserStatus.getUser()
+    .then(function(res){
+      console.log('user', res.user);
+      var user = res.user;
+      user_id = res.user._id;
+      if(user._id !== undefined){
+        $scope.$apply(function(){
+          $scope.logged = true;
+          $scope.displayName = user.displayName;
+          $scope.email = user.email;
+          // Globally set user
+          $rootScope.user = user;
+          $rootScope.user.logged = true;
+          $rootScope.logged = true;
+          if(user.profileImg !== ''){
+            $scope.picture = user.profileImg;
+          } else {
+            $rootScope.picture = './ng-app/assets/images/sample2.jpg';
+          }
+        })
+        UserStatus.setUser(user.displayName, user.profileImg, user._id, user.email, true);
       }
-    }
-])
+      return UserStatus.getSubscriptions(user._id, 'monthly_subscription');
+    })
+    .then(function(subscription){
+      console.log('subscription', subscription);
+      UserStatus.updateUser(user_id, {'subscriptions': subscription})
+      if(user_id !== undefined){
+        $scope.$apply(function(){
+          $rootScope.subscriptions = subscription;
+          console.log('updated user');
+        }, function(err){
+          console.log(err);
+        });
+      } 
+    })
+  }
+
+]);

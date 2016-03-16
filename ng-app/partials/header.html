@@ -5,10 +5,10 @@
 
       <ul class="right ">
         <li class="hide-on-med-and-down"><a ui-sref="about">About</a></li>  
-        <li class="hide-on-med-and-down"><a ui-sref="pricing">Pricing</a></li>
+        <li class="hide-on-med-and-down" ng-hide="subscribed"><a ui-sref="pricing">Pricing</a></li>
         <li ng-if="!logged" class="hide-on-med-and-down"><a ui-sref="registration">Sign Up</a></li>
         <li ng-if="!logged"><a ui-sref="login" class="login-btn">Log In</a></li>
-        <li ng-if="logged"><a ui-sref="subscriptions" class="btn deep-orange accent-1 hide-on-med-and-down">PRO 회원가입</a></li>
+        <li ng-if="logged" ng-hide="{{subscribed}}"><a ui-sref="subscriptions" class="btn deep-orange accent-1 hide-on-med-and-down">PRO 회원가입</a></li>
 
         <!-- Dropdown Trigger --> 
         <li ng-hide="!logged"><a class='dropdown-button profile-img-frame' data-activates='dropdown1' ><img src="{{picture}}" alt="" class="profile-img"></a></li>
