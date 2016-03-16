@@ -1,12 +1,31 @@
 <div class="container-video height600">
   <div class="row">
     <h4 class="center grey-text page-title">Lesson: {{lessonObj.title}}</h4>
-  
-    <div class="">          
+    <!-- free lesson -->
+    <div class="" ng-if="!premium">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar" ng-repeat="item in filteredVideos"><a href="" ng-click="showTab($index)"><i class="material-icons circle red">play_arrow</i>{{item.title}}</a>
+        <li class="collection-item avatar" ng-repeat="item in filteredVideos"><a href="" ng-click="showTab($index)"><i class="material-icons circle blue">play_arrow</i>{{item.title}}</a>
           <span class="text-right grey-text darken-3">{{item.duration}}</span>
           <a href="" class="full-width" ng-click="showTab($index)">{{item.description}}</a>
+        </li>
+      </ul>
+    </div>
+    <!-- user is subscribed && premium -->
+    <div class="" ng-if="premium && user.subscribed">          
+      <ul class="collection lesson-nav">
+        <li class="collection-item avatar" ng-repeat="item in filteredVideos"><a href="" ng-click="showTab($index)"><i class="material-icons circle blue">play_arrow</i>{{item.title}}</a>
+          <span class="text-right grey-text darken-3">{{item.duration}}</span>
+          <a href="" class="full-width" ng-click="showTab($index)">{{item.description}}</a>
+        </li>
+      </ul>
+    </div>
+    <!-- user is not subscribed && premium-->
+    <div class="" ng-if="premium && !user.subscribed">          
+      <ul class="collection lesson-nav">
+        <li class="collection-item avatar" ng-repeat="item in filteredVideos">
+          <i class="material-icons circle red">lock</i>{{item.title}}
+          <span class="text-right grey-text darken-3">{{item.duration}}</span>
+          <p href="" class="full-width">{{item.description}}</p>
         </li>
       </ul>
     </div>

@@ -39,6 +39,9 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video){
   var lesson = this;
   Lesson.get($stateParams.lessonId)
     .then(function(data){
+      console.log('data', data.data[0]);
+      $scope.premium = data.data[0].premium;
+      console.log('premium', $scope.premium);
       $scope.lessonObj = data.data[0];
   });
 
@@ -51,9 +54,10 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video){
       var result = obj.filter(function(val){
         return val.lesson_id == $stateParams.lessonId;
       })
+      console.log('result', result);
       $scope.filteredVideos = result;
       $scope.videoFile = $scope.filteredVideos[0];
       // console.log('filteredVideos', $scope.filteredVideos);
-  });
+    });
 
 });
