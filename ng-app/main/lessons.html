@@ -20,7 +20,8 @@
               <span class="card-title grey-text text-darken-4">{{lesson.title}}</span>
               <span>{{lesson.pricing}}</span>
               <p>{{lesson.description}}</p>
-              <button class="badge">Free</button>
+              <button class="lesson-price grey white-text" ng-if="!lesson.premium">Free</button>
+              <button class="lesson-price blue white-text" ng-if="lesson.premium">Pro</button>
             </div>
         </div>
       </a>

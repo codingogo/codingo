@@ -16,6 +16,7 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, Us
   var loadLessons = function(){
     Lesson.all().then(function(lessons){
       $scope.lessons = lessons.data;
+      console.log('lessons',lessons);
     })
   };
 

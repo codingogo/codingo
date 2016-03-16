@@ -26,7 +26,13 @@ nav .button-collapse i{
   padding-left: 15px;
   padding-right: 15px;
 }
-
+.lesson-price{
+  width: 70px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 8px;
+}
 @media (max-width: 767px){
   .lesson-nav {
     left: -300px;

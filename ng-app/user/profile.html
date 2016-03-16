@@ -52,14 +52,23 @@
     </form>  
 
     <div class="col s12 m8 center-align" ng-if="currentTabIndex === 1">
-          <div class="card light-blue darken-2">
-            <div class="card-content white-text">
-              <span class="card-title">현재 회원님께서는 FREE 회원이십니다.</span>
-            </div>
-            <div class="card-action">
-              <a class="btn btn-large deep-orange accent-1" ui-sref="subscriptions" ng-if="!user">PRO 회원 가입하기</a>   
-            </div>
-          </div>    </div>  
+      <div class="card light-grey darken-2" ng-if="!user.subscribed">
+        <div class="card-content white-text">
+          <span class="card-title">현재 회원님께서는 FREE 회원이십니다.</span>
+        </div>
+        <div class="card-action">
+          <a class="btn btn-large deep-orange accent-1" ui-sref="subscriptions" ng-if="!user">PRO 회원 가입하기</a>   
+        </div>
+      </div> 
+      <div class="card light-blue darken-2" ng-if="user.subscribed">
+        <div class="card-content white-text">
+          <span class="card-title">현재 회원님께서는 PRO 회원이십니다.</span>
+        </div>
+        <div class="card-action">
+          <a class="btn btn-large deep-orange accent-1" ui-sref="subscriptions" ng-if="!user">PRO 회원 가입하기</a>   
+        </div>
+      </div>          
+    </div>  
 
   </div>  <!-- row end --> 
     
