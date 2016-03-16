@@ -50,10 +50,13 @@
 
 /*Pricing Page*/
 .price-content {
-  min-height: 200px;
+  min-height: 258px;
 }
 .price-title {
   font-size: 2em;
+}
+.price-action {
+  min-height: 94px;
 }
 .price {
   font-size: 1.4em;

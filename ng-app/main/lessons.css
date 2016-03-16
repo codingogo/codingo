@@ -9,6 +9,9 @@ nav .brand-logo {
 nav .button-collapse i{
   padding-left: 10px;
 }
+.lesson-card {
+  min-height: 420px;
+}
 .lesson-nav {
   z-index: 99;
   position: absolute;
