@@ -18,9 +18,9 @@
             </div>    
             <div class="card-content">
               <span class="card-title grey-text text-darken-4">{{lesson.title}}</span>
-              <p>{{lesson.description}}</p>
-              <button class="lesson-price grey white-text" ng-if="!lesson.premium">Free</button>
-              <button class="lesson-price blue white-text" ng-if="lesson.premium">Pro</button>
+              <p class="grey-text">{{lesson.description}}</p>
+              <button class="lesson-price grey lighten-2 text-darken-4" ng-if="!lesson.premium">FREE</button>
+              <button class="lesson-price blue white-text" ng-if="lesson.premium">PRO</button>
             </div>
         </div>
       </a>

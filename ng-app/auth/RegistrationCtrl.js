@@ -1,8 +1,8 @@
-app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'globalVariable', 'validator','$state', '$stateParams',
-  function RegistrationCtrl($scope, UserStatus, globalVariable, validator, $state) {
+app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'GlobalVariable', 'Validator','$state', '$stateParams',
+  function RegistrationCtrl($scope, UserStatus, GlobalVariable, Validator, $state) {
 
     //setting regexp for email field
-    $scope.EMAIL = globalVariable.email
+    $scope.EMAIL = GlobalVariable.email
     //register function
     $scope.register = function () {
       if ($scope.email && $scope.password && $scope.displayName) {
@@ -15,7 +15,7 @@ app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'globalVariable', 'v
             email: $scope.email
           }
           //first step verify email is not already used
-        validator.validateEmail(validate)
+        Validator.validateEmail(validate)
           .success(function (data, status) {
             //second step register user
             UserStatus.registerUser(user).then(function(){

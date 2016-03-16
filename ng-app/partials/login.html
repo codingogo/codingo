@@ -1,5 +1,5 @@
 <div class="container">
-    <h4 class="center grey-text page-title">로그인</h4>
+  <h4 class="center grey-text page-title">로그인</h4>
   <div class="width400 center signup-area">
     <div class="row" >
       <form class="col s12" id="loginForm">
@@ -15,9 +15,12 @@
             <label for="password">Password</label>
           </div>
         </div> 
-        <button ng-click="login()" class="btn btn-large btn-primary center">로그인</button>   
+        <button ng-click="login()" class="btn btn-large blue center">로그인</button>   
       </form>
     </div>
+    <a ui-sref="password">비밀번호 찾기</a>
+  </div>
+  <div class="center">
     <a ui-sref="registration" class="center">회원가입은 여기를 클릭하세요</a>
   </div>
 </div>

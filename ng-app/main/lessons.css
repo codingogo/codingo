@@ -35,6 +35,9 @@ nav .button-collapse i{
   border-radius: 5px;
   border: none;
   margin-top: 8px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 @media (max-width: 767px){
   .lesson-nav {

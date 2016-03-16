@@ -30,7 +30,7 @@
           </ul>          
         </div>
         <div class="card-action center price-action">
-          <a ui-sref="subscriptions" class="btn btn-large blue darken-1" ng-if="!user.subscribed">PRO 회원가입</a><span class="grey-text">가입한 회원입니다</span>
+          <a ui-sref="subscriptions" class="btn btn-large blue darken-1" ng-if="!user.subscribed">PRO 회원가입</a><span class="grey-text" ng-if="user.subscrbed">가입한 회원입니다</span>
         </div>
       </div>
     </div>    

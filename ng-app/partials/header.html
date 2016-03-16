@@ -11,7 +11,12 @@
         <li ng-if="logged"><a ui-sref="subscriptions" class="btn deep-orange accent-1 hide-on-med-and-down" ng-hide="subscribed">PRO 회원가입</a></li>
 
         <!-- Dropdown Trigger --> 
-        <li ng-hide="!logged"><a class='dropdown-button profile-img-frame' data-activates='dropdown1' ><img src="{{picture}}" alt="" class="profile-img"></a></li>
+        <li ng-hide="!logged">
+          <a class='dropdown-button profile-img-frame chip' data-activates='dropdown1'>
+            <span class="chip-pro blue-text" ng-if="user-subscribed">Pro</span>
+            <img src="{{picture}}" alt="" class="profile-img">
+          </a>
+        </li>
 
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>

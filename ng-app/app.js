@@ -37,7 +37,19 @@ var app = angular.module('codingo', [
         }
       }
     })
-
+    .state('password', {
+      url: '/password',
+      views: {
+        '': {
+          templateUrl: '/ng-app/partials/_password.html',
+          controller: 'LoginCtrl'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    })
     .state('registration', {
       url: '/registration',
       views: {

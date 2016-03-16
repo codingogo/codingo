@@ -3,7 +3,7 @@
  *  API call and expose it to controllers who require it.
  */
 
-app.factory('validator', ['$http', function ($http) {
+app.factory('Validator', ['$http', function ($http) {
   return {
     validateEmail: function (validate) {
       return $http({

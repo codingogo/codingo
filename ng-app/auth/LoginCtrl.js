@@ -1,11 +1,11 @@
 /*
 This is the controller in charge to make the API call to the login endpoint for email+passowrd authentication.
 */
-app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'globalVariable', '$state',
-  function LoginController($scope, $state, UserStatus, globalVariable) {
+app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable', '$state',
+  function LoginController($scope, $state, UserStatus, GlobalVariable) {
 
     //setting regexp for email field
-    $scope.EMAIL = globalVariable.email;
+    $scope.EMAIL = GlobalVariable.email;
 
     //login function   
     $scope.login = function () {
