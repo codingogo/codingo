@@ -18,11 +18,11 @@
     <div ng-include="'./ng-app/partials/_card.html'"></div>
 
   </div>
-</div>
-
-<div class="subscribed-info container center height400" ng-if="user.subscribed">
-  <h3 class="grey-text page-title"><span class="blue-text">Pro</span> 회원입니다</h3>
-  <a ui-sref="home" class="videocam-hover">
-    <i class="material-icons large">videocam</i> <p>영상보러가기 </p>
-  </a> 
+  
+  <div class="subscribed-info container center height400" ng-if="user.subscribed">
+    <h3 class="grey-text page-title"><span class="blue-text">Pro</span> 회원입니다</h3>
+    <a ui-sref="home" class="videocam-hover">
+      <i class="material-icons large">videocam</i> <p>영상보러가기 </p>
+    </a> 
+  </div>
 </div>

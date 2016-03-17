@@ -3,15 +3,15 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, Us
   
   var initialise = function(){
     loadLessons();
-    getUser();
+    // getUser();
   }
 
-  var getUser = function(){
-    UserStatus.getUser()
-    .then(function(res){
-      console.log('user', res);
-    })
-  };
+  // var getUser = function(){
+  //   UserStatus.getUser()
+  //   .then(function(res){
+  //     console.log('user', res);
+  //   })
+  // };
 
   var loadLessons = function(){
     Lesson.all().then(function(lessons){
