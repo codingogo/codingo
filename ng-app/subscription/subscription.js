@@ -100,7 +100,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
         })
       })
     } else {
-      $scope.error = "가격을 체크해주시기 바랍니다 "
+      $scope.error = "가격을 체크해주시기 바랍니다 ";
     }
   };
   // setting regexp for email field
@@ -123,11 +123,11 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                 $scope.logged = true;
               })
             }, function(){
-              $scope.error = '회원가입이 실패했습니다';
+              $scope.error = "회원가입이 실패했습니다";
             })
         })
         .error(function(data, status){
-          $scope.error = '이미 사용된 이메일 또는 사용가능하지 않은 이메일입니다';
+          $scope.error = "이미 사용된 이메일 또는 사용가능하지 않은 이메일입니다";
         })
     }
   };

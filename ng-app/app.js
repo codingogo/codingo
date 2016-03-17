@@ -1,6 +1,7 @@
 var app = angular.module('codingo', [
   'ngStamplay',
-  'ui.router'
+  'ui.router',
+  'ui.materialize'
 ])
 .run( function ($stamplay, UserStatus, $rootScope){
   Stamplay.init('codingo');
