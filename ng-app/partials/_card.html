@@ -10,14 +10,14 @@
             <input name="subscription1" type="checkbox" id="subscription1" ng-model="card.price" value="29000" ng-click="checked(check)"/>
             <label for="subscription1" class="price-month">월<span class="green-text">29,000</span>원</label>
           </p>
-            <p class="grey-text note-info">위 가격을 체크해주시기 바랍니다.</p>
+            <p class="grey-text note-info"><span class="red-text">*</span> 위 가격을 체크해주시기 바랍니다.</p>
         </div>  
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="cardnum" type="text" class="validate" ng-model="card.number">
-          <label for="cardnum">카드번호</label>
+          <input placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(16자리)" id="cardnum" type="text" class="validate" ng-model="card.number">
+          <label for="cardnum"><span class="red-text">*</span> 카드번호</label>
         </div>
       </div>
       <div class="row">
@@ -29,26 +29,27 @@
 
       <div class="row">
         <div class="input-field col s6">
-          <input id="exp_month" type="text" class="validate" ng-model="card.exp_month">
-          <label for="exp_month">Exp(MM)</label>
+          <input id="exp_month" type="text" class="validate" ng-model="card.exp_month" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(카드만기 달 2자리 숫자) ">
+          <label for="exp_month"><span class="red-text">*</span> Exp(MM)</label>
         </div>
         <div class="input-field col s6">
-          <input id="exp_year" type="text" class="validate" ng-model="card.exp_year">
-          <label for="exp_year">Exp(YYYY)</label>
+          <input id="exp_year" type="text" class="validate" ng-model="card.exp_year" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(카드만기 년도 4자리 숫자) ">
+          <label for="exp_year"><span class="red-text">*</span> Exp(YYYY)</label>
         </div>
       </div>  
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="cvc" type="text" class="validate" ng-model="card.cvc">
-          <label for="cvc">CVC</label>
+          <input id="cvc" type="text" class="validate" ng-model="card.cvc" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(카드 뒷편에 나온 3자리 숫자) ">
+          <label for="cvc"><span class="red-text">*</span> CVC</label>
         </div>
       </div>
 
       <!-- error msg -->
       <h5 class="error-msg" ng-show="error">{{error}}</h5>
-      <button class="btn blue btn-large" ng-click="subscribeMembership(card)">안전 결제하기 </button>
-      <p class="center grey-text stripe-info ">* 본 결제는 <a href="https://stripe.com"><span class="blue-text">Stripe</span></a>를 통하여 안전하게 결제됩니다.</p>    
+      <button class="btn blue btn-large" ng-click="subscribeMembership(card)">결제하기 </button>
+      <p class="center grey-text stripe-info"><span class="red-text">*</span> 표시된 부분은 필수 입력사항입니다 </p>
+      <p class="center grey-text stripe-info ">본 결제는 <a href="https://stripe.com"><span class="blue-text">Stripe</span></a>를 통하여 안전하게 결제됩니다.</p>    
     </form>
   </div>
 </div>
