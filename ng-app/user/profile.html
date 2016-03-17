@@ -60,12 +60,12 @@
           <a class="btn btn-large light-blue darken-2" ui-sref="subscriptions" ng-if="!user.subscribed">PRO 회원 가입하기</a>   
         </div>
       </div> 
-      <div class="card blue lighten-1" ng-if="user.subscribed">
-        <div class="card-content white-text">
-          <span class="card-title">현재 회원님께서는 <span class="black-text">PRO</span> 회원이십니다.</span>
+      <div class="card" ng-if="user.subscribed">
+        <div class="card-content white-text blue lighten-1">
+          <span class="card-title">현재 회원님은 <span class="black-text">PRO</span> 회원입니다. </span>
         </div>
         <div class="card-action">
-          <a class="btn btn-large deep-orange accent-2" ui-sref="subscriptions" ng-if="!user">PRO 회원 가입하기</a>   
+          <a class="btn btn red accent-2" ui-sref="subscriptions">PRO 회원 해제하기 </a>   
         </div>
       </div>          
     </div>  

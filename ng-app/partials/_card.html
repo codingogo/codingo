@@ -1,5 +1,5 @@
 <div class="center signup-area" id="payment-form" ng-class="{disabled: !logged}"> 
-
+  
   <p ng-if="!logged">*Pro회원이 되려면 일반회원가입 또는 로그인해주시기 바랍니다.</p>
   <!-- Card Info -->
   <div class="row" ng-if="!user.subscribed">
@@ -7,10 +7,10 @@
       <div class="price-checkbox">
         <div class="row ">
           <p class="col s12">
-            <input name="subscription1" type="checkbox" id="subscription1" ng-model="card.price" value="29000" required/>
+            <input name="subscription1" type="checkbox" id="subscription1" ng-model="card.price" value="29000" ng-click="checked(check)"/>
             <label for="subscription1" class="price-month">월<span class="green-text">29,000</span>원</label>
           </p>
-            <p class="grey-text note-info">위 가격을 체크해주시기 바랍니다. (맴버십은 언제든지 해제가 가능합니다)</p>
+            <p class="grey-text note-info">위 가격을 체크해주시기 바랍니다.</p>
         </div>  
       </div>
 
@@ -45,8 +45,10 @@
         </div>
       </div>
 
-      <button class="btn btn-primary btn-large" ng-click="subscribeMembership(card)">결제하기</button>
-            <p class="center blue-text stripe-info">* 본 결제는 Stripe를 통하여 안전하게 결제됩니다.</p>    
+      <!-- error msg -->
+      <h5 class="error-msg" ng-show="error">{{error}}</h5>
+      <button class="btn blue btn-large" ng-click="subscribeMembership(card)">안전 결제하기 </button>
+      <p class="center grey-text stripe-info ">* 본 결제는 <a href="https://stripe.com"><span class="blue-text">Stripe</span></a>를 통하여 안전하게 결제됩니다.</p>    
     </form>
   </div>
 </div>

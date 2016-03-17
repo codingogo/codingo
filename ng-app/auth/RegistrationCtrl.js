@@ -1,5 +1,5 @@
 app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'GlobalVariable', 'Validator','$state',
-  function RegistrationCtrl($scope, UserStatus, GlobalVariable, Validator, $state) {
+  function RegistrationCtrl($scope, UserStatus, GlobalVariable, Validator, $state) {   
 
     //setting regexp for email field
     $scope.EMAIL = GlobalVariable.email;
@@ -22,11 +22,11 @@ app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'GlobalVariable', 'V
             UserStatus.registerUser(user).then(function(){
                 $state.go('home');
             },function(){
-              $scope.error = 'Registration Failed'
+              $scope.error = '회원가입이 실패했습니다';
             })
           })
           .error(function (data, status) {
-            $scope.error = 'Email Already Exist or invalid'
+            $scope.error = '이미 사용된 이메일 또는 사용가능하지 않은 이메일입니다';
           })
       }
     }

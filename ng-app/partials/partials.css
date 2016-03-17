@@ -13,6 +13,7 @@
   background-color: #a5d6a7;
   border-radius: 0;
 }
+
 .login-btn {
   margin-right: 15px;
 }
@@ -31,6 +32,10 @@ nav .dropdown-content {
   margin-top: 5px;
   float: right;
 }
+/*Card page*/
+.stripe-info {
+  margin: 15px;
+}
 /*Footer Page*/
 
 /*Nav Page*/
@@ -41,7 +46,20 @@ nav .dropdown-content {
   border: 1px solid #ddd;
   padding: 30px;
   margin-top: -20px;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
+}
+.login-link{
+  height: 100px;
+  width: 100%;
+  display: block;
+}
+.error-msg {
+  background-color: #ef9a9a;
+  color: white;
+  width: 100%;
+  min-height: 80px;
+  padding-top: 26px;
+  border-radius: 5px;
 }
 @media (max-width: 600px) {
   .profile-img {

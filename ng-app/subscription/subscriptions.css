@@ -4,3 +4,10 @@
   background-color: #ddd;
   pointer-events: none;
 }
+.videocam-hover:hover {
+  color: #3f51b5;
+}
+.sub-info{
+  height: 35px;
+  margin: -30px 0 30px 0;
+}
