@@ -1,35 +1,4 @@
 <div class="container">
   <h4 class="center grey-text page-title">회원가입</h4>
-  <div class="width400 center signup-area" ng-show="!user">
-    <div class="row">
-      <form class="col s12">  
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="" id="first_name" type="text" class="validate" ng-model="displayName" required>
-              <label for="first_name">Username</label>
-            </div>
-          </div>        
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="email" ng-pattern="EMAIL" id="email" ng-model="email" class="validate" required>
-              <label for="email">Email</label>
-            </div>
-          </div>
-        
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="password" type="password" class="validate" ng-model="password" required>
-            <label for="password">Password</label>
-          </div>
-        </div>
-        
-          <button type="button" class="btn blue btn-large" ng-click="register()">가입하기</button>
-
-          <div style="margin-top:10px"><label>{{error}}</label></div>
-      </form>
-    </div>
-    <a ui-sref="login" class="center">로그인은 여기를 클릭하세요</a>
-  </div> 
-
- <!--  <div ng-if="user" ng-include="'./ng-app/partials/_card.html'"></div>  -->
+  <div ng-include="'./ng-app/partials/_signup.html'"></div>
 </div>

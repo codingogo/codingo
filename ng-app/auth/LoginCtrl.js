@@ -8,10 +8,10 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
     $scope.EMAIL = GlobalVariable.email;
 
     //login function   
-    $scope.login = function () {
+    $scope.login = function (login) {
       var user = {
-        email: $scope.email,
-        password: $scope.password
+        email: login.email,
+        password: login.password
       }
       UserStatus.loginUser(user).then(function(){
         

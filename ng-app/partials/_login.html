@@ -1,0 +1,20 @@
+<div class="width400 center signup-area">
+  <div class="row" >
+    <form class="col s12" id="loginForm">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" ng-pattern="EMAIL" class="validate" ng-model="login.email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" ng-model="login.password">
+          <label for="password">Password</label>
+        </div>
+      </div> 
+      <button ng-click="login(login)" class="btn btn-large blue center">로그인</button>   
+    </form>
+  </div>
+  <a ui-sref="password">비밀번호 찾기</a>
+</div>

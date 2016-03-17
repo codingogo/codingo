@@ -13,7 +13,7 @@
           </ul>
         </div>
         <div class="free-card-action center info-text">
-          <a ui-sref="registration" class="btn btn-large grey" ng-hide="user">일반회원 가입</a> <span class="grey-text " ng-show="user">가입한 회원입니다</span>
+          <a ui-sref="registration" class="btn btn-large grey" ng-hide="user">일반회원 가입</a> <span class="blue-text " ng-show="user">가입한 회원입니다</span>
         </div>
       </div>
     </div>
@@ -30,7 +30,8 @@
           </ul>          
         </div>
         <div class="card-action center price-action">
-          <a ui-sref="subscriptions" class="btn btn-large blue darken-1" ng-if="!user.subscribed">PRO 회원가입</a><span class="grey-text" ng-if="user.subscrbed">가입한 회원입니다</span>
+          <a ui-sref="subscriptions" class="btn btn-large blue darken-1" ng-if="!user.subscribed">PRO 회원가입</a>
+          <span class="blue-text" ng-show="user.subscribed">가입한 회원입니다</span>
         </div>
       </div>
     </div>    

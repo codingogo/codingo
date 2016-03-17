@@ -3,25 +3,25 @@
       <form class="col s12">  
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="" id="first_name" type="text" class="validate" ng-model="displayName" required>
+              <input placeholder="" id="first_name" type="text" class="validate" ng-model="signup.displayName" required>
               <label for="first_name">Username</label>
             </div>
           </div>        
           <div class="row">
             <div class="input-field col s12">
-              <input type="email" ng-pattern="EMAIL" id="email" ng-model="email" class="validate" required>
+              <input type="email" ng-pattern="EMAIL" id="email" ng-model="signup.email" class="validate" required>
               <label for="email">Email</label>
             </div>
           </div>
         
         <div class="row">
           <div class="input-field col s12">
-            <input id="password" type="password" class="validate" ng-model="password" required>
+            <input id="password" type="password" class="validate" ng-model="signup.password" required>
             <label for="password">Password</label>
           </div>
         </div>
         
-          <button type="button" class="btn btn-large blue" ng-click="register()">가입하기</button>
+          <button type="button" class="btn btn-large blue" ng-click="register(signup)">가입하기</button>
 
           <div style="margin-top:10px"><label>{{error}}</label></div>
       </form>

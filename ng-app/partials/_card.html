@@ -1,7 +1,8 @@
-<div class="center signup-area" id="payment-form"> 
+<div class="center signup-area" id="payment-form" ng-class="{disabled: !logged}"> 
 
+  <p ng-if="!logged">*Pro회원이 되려면 일반회원가입 또는 로그인해주시기 바랍니다.</p>
   <!-- Card Info -->
-  <div class="row">
+  <div class="row" ng-if="!user.subscribed">
     <form class="col s12 center" id="payment-form">
       <div class="price-checkbox">
         <div class="row ">

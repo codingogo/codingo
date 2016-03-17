@@ -1,0 +1,6 @@
+.disabled {
+  position: relative;
+  color: red;
+  background-color: #ddd;
+  pointer-events: none;
+}

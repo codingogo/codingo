@@ -1,6 +1,4 @@
-app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $state, $rootScope){
-
-  
+app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $state, $rootScope, GlobalVariable, Validator){
 
   $scope.subscribeMembership = function(card){
     var cardInfo = {
@@ -54,7 +52,6 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                 console.log(err);
               });              
             });
-
           // user has a card
           } else {
             // get card
@@ -78,11 +75,34 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                 console.log(err);
               });              
             });
-          }
-          
+          }          
         }
       })
     })
   }
 
+  $scope.EMAIL = GlobalVariable.email;
+  $scope.register = function(signup){
+    if(signup.email && signup.password && signup.displayName){
+      var user = {
+        email: signup.email,
+        password: signup.password,
+        displayName: signup.displayName
+      }
+      var validate = {
+        email: signup.email
+      }
+      Validator.validateEmail(validate)
+        .success(function(data, status){
+          UserStatus.registerUser(user)
+            .then(function(){
+              $scope.$apply(function(){
+                $scope.logged = true;
+              })
+            }, function(){
+              $scope.error = 'Registration Failed'
+            })
+        })
+    }
+  }
 });
