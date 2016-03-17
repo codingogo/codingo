@@ -11,7 +11,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
   $scope.checked = function(check){
     $scope.monthly_sub = !$scope.monthly_sub;
     console.log($scope.monthly_sub);
-  }
+  };
   $scope.subscribeMembership = function(card){
     $scope.error = false;
     var cardInfo = {
@@ -102,7 +102,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
     } else {
       $scope.error = "가격을 체크해주시기 바랍니다 "
     }
-  }
+  };
   // setting regexp for email field
   $scope.EMAIL = GlobalVariable.email;
   $scope.register = function(signup){
@@ -130,7 +130,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
           $scope.error = '이미 사용된 이메일 또는 사용가능하지 않은 이메일입니다';
         })
     }
-  }
+  };
 
   //login function   
   $scope.login = function (login) {
@@ -145,5 +145,5 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
     },function(){
       $scope.error = data;
     })
-  }  
+  };  
 });

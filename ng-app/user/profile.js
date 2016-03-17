@@ -47,5 +47,5 @@ app.controller('ProfileCtrl', function($scope, UserStatus, $state, $rootScope){
       $scope.error = err;
       console.log(err);
     })
-  }
+  };
 });
