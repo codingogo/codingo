@@ -36,6 +36,11 @@ nav .dropdown-content {
 .stripe-info {
   margin: 15px;
 }
+.cvc {
+  float: left;
+  margin-left: 10px;
+  font-size: 0.8em;
+}
 /*Footer Page*/
 
 /*Nav Page*/

@@ -45,8 +45,8 @@ app.factory('UserStatus', ['$http','$stamplay', '$rootScope','$q',function ($htt
     subscribe: function(user_id, planId){
       return Stamplay.Stripe.createSubscription(user_id, planId);
     },
-    unsubscribe: function(planId){
-      // Cancel user subscription
+    unsubscribe: function(user_id, subscriptionId, options){
+      return Stamplay.Stripe.deleteSubscription(user_id, subscriptionId, options);
     }
   };
 }])

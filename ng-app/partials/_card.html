@@ -16,8 +16,8 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(16자리)" id="cardnum" type="text" class="validate" ng-model="card.number">
-          <label for="cardnum"><span class="red-text">*</span> 카드번호</label>
+          <input id="cardnum" type="text" class="validate" ng-model="card.number">
+          <label for="cardnum"><span class="red-text">*</span> 카드번호 (16자리)</label>
         </div>
       </div>
       <div class="row">
@@ -29,20 +29,39 @@
 
       <div class="row">
         <div class="input-field col s6">
-          <input id="exp_month" type="text" class="validate" ng-model="card.exp_month" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(카드만기 달 2자리 숫자) ">
-          <label for="exp_month"><span class="red-text">*</span> Exp(MM)</label>
+          <input id="exp_month" type="text" class="validate" ng-model="card.exp_month">
+          <label for="exp_month"><span class="red-text">*</span> 
+            <a tooltipped data-position="top" data-delay="30" data-tooltip="카드 만기달 2자리 숫자" class="grey-text">Exp(MM)</a>
+            </label>
         </div>
         <div class="input-field col s6">
-          <input id="exp_year" type="text" class="validate" ng-model="card.exp_year" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(카드만기 년도 4자리 숫자) ">
-          <label for="exp_year"><span class="red-text">*</span> Exp(YYYY)</label>
+          <input id="exp_year" type="text" class="validate" ng-model="card.exp_year">
+          <label for="exp_year"><span class="red-text">*</span> 
+            <a tooltipped data-position="top" data-delay="30" data-tooltip="카드 만기년도 4자리 숫자" class="grey-text">Exp(YYYY)</a></label>
         </div>
       </div>  
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="cvc" type="text" class="validate" ng-model="card.cvc" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(카드 뒷편에 나온 3자리 숫자) ">
-          <label for="cvc"><span class="red-text">*</span> CVC</label>
+          <input id="cvc" type="text" class="validate" ng-model="card.cvc">
+          <label for="cvc"><span class="red-text">*</span> <a tooltipped data-position="top" data-delay="30" data-tooltip="카드 뒷편에 나온 3자리 숫자" class="grey-text">CVC</a></label>
         </div>
+
+        <!-- Modal Trigger -->
+        <div class="col">
+            <a class='cvc' href='#demoModal' modal>(CVC가 뭔가요?)</a>
+        </div>
+        <!-- Modal Structure -->
+        <div id="demoModal" class="modal">
+            <div class="modal-content">
+                <h5>CVC는 카드 뒷편에 있는 3자리 숫자 </h5>
+                <img src="./ng-app/assets/images/cvc.jpg" alt="cvc"> 
+            </div>
+            <div class="modal-footer">
+                <a href class=" modal-action modal-close btn white black-text">닫기 </a>
+            </div>
+        </div>
+
       </div>
 
       <!-- error msg -->
