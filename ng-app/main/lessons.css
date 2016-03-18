@@ -1,13 +1,19 @@
 .main-background {
   margin-top: 30px;
-  padding-top: 60px;
-  height: 320px;기
+  padding: 54px 20px 10px 30px;
+  height: 320px;
 }
 nav .brand-logo {
   padding-left: 20px;
 }
 nav .button-collapse i{
   padding-left: 10px;
+}
+.card-title {
+  font-size: 18px;
+}
+.two-weeks {
+  font-size: 42px;
 }
 .lesson-card {
   min-height: 420px;
@@ -51,5 +57,8 @@ nav .button-collapse i{
   }
   .video-section {
     padding-left: 0;
+  }
+  .main-background {
+    padding-top: 20px;
   }
 }
