@@ -21,7 +21,7 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, Us
         } else if (returnData.level === 1){
           lessons.data[index].level = '중급';
         } else {
-          lessons.data[index].level = '고급';
+          lessons.data[index].level = '상급';
         }
       })
       $scope.lessons = lessons.data;
