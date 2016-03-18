@@ -7,7 +7,7 @@ app.factory('Lesson', function($q, $stamplay, $http){
       def.resolve(res);
     })
     return def.promise;
-  }
+  };
 
   function get(id) {
     var def = $q.defer();
@@ -18,7 +18,7 @@ app.factory('Lesson', function($q, $stamplay, $http){
     })
 
     return def.promise;
-  }
+  };
 
   return {
     all: all,
