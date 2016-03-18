@@ -15,8 +15,16 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, Us
 
   var loadLessons = function(){
     Lesson.all().then(function(lessons){
+      lessons.data.forEach(function(returnData, index){
+        if(returnData.level === 0){
+          lessons.data[index].level = '초급';
+        } else if (returnData.level === 1){
+          lessons.data[index].level = '중급';
+        } else {
+          lessons.data[index].level = '고급';
+        }
+      })
       $scope.lessons = lessons.data;
-      console.log('lessons',lessons);
     })
   };
 

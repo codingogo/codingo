@@ -10,7 +10,7 @@
             <input name="subscription1" type="checkbox" id="subscription1" ng-model="card.price" value="29000" ng-click="checked(check)"/>
             <label for="subscription1" class="price-month">월<span class="green-text">29,000</span>원</label>
           </p>
-            <p class="grey-text note-info"><span class="red-text">*</span> 위 가격을 체크해주시기 바랍니다.</p>
+            <p class="grey-text text-darken-2 note-info"><span class="red-text">*</span> 위 가격을 체크해주시기 바랍니다.</p>
         </div>  
       </div>
 
@@ -44,7 +44,7 @@
       <div class="row">
         <div class="input-field col s12">
           <input id="cvc" type="text" class="validate" ng-model="card.cvc">
-          <label for="cvc"><span class="red-text">*</span> <a tooltipped data-position="top" data-delay="30" data-tooltip="카드 뒷편에 나온 3자리 숫자" class="grey-text">CVC</a></label>
+          <label for="cvc"><span class="red-text">*</span> <a tooltipped data-position="top" data-delay="30" data-tooltip="카드 뒷편에 나온 3자리 숫자" class="grey-text text-darken-2">CVC</a></label>
         </div>
 
         <!-- Modal Trigger -->
@@ -67,8 +67,8 @@
       <!-- error msg -->
       <h5 class="error-msg" ng-show="error">{{error}}</h5>
       <button class="btn blue btn-large" ng-click="subscribeMembership(card)">결제하기 </button>
-      <p class="center grey-text stripe-info"><span class="red-text">*</span> 표시된 부분은 필수 입력사항입니다 </p>
-      <p class="center grey-text stripe-info ">본 결제는 <a href="https://stripe.com"><span class="blue-text">Stripe</span></a>를 통하여 안전하게 결제됩니다.</p>    
+      <p class="center grey-text text-darken-2 stripe-info"><span class="red-text">*</span> 표시된 부분은 필수 입력사항입니다 </p>
+      <p class="center grey-text text-darken-2 stripe-info ">본 결제는 <a href="https://stripe.com"><span class="blue-text">Stripe</span></a>를 통하여 안전하게 결제됩니다.</p>    
     </form>
   </div>
 </div>

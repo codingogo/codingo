@@ -1,7 +1,7 @@
 .main-background {
   margin-top: 30px;
   padding-top: 60px;
-  height: 320px;
+  height: 320px;기
 }
 nav .brand-logo {
   padding-left: 20px;
@@ -20,6 +20,12 @@ nav .button-collapse i{
   overflow-y: auto;
   padding-bottom: 20px; 
   margin-top: 0;
+}
+.lesson-level {
+  float: left;
+  bottom: 18px;
+  position: absolute;
+  font-size: 16px;
 }
 .video-section {
   padding-left: 300px;

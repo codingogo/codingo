@@ -1,9 +1,9 @@
 <div class="container-default">
 
   <div class="center main-background green lighten-5">
-    <h3 class="fancy ">Code Your Startup</h3>
+    <h3 class="fancy">스타트업 2주만에 만들기  </h3>
     <p class="lead">
-      성공한 스타트업들을 직접 만들면서 배우는 코딩 교육! 본인의 아이디어를 이주만에 실현할 수 있습니다.
+      성공한 스타트업들을 직접 만들어 보면서 배우는 코딩 교육! 본인의 아이디어를 이주만에 실현할 수 있습니다.
     </p>
     <a ui-sref="registration" class="btn btn-large blue" ng-hide="logged">FREE 계정 만들기</a>
   </div>
@@ -18,9 +18,10 @@
             </div>    
             <div class="card-content">
               <span class="card-title grey-text text-darken-4">{{lesson.title}}</span>
-              <p class="grey-text">{{lesson.description}}</p>
-              <button class="lesson-price grey lighten-2 text-darken-4" ng-if="!lesson.premium">FREE</button>
-              <button class="lesson-price blue white-text" ng-if="lesson.premium">PRO</button>
+              <p class="grey-text text-darken-2">{{lesson.description}}</p>
+              <button class="lesson-price grey lighten-2 blue-text text-darken-2" ng-if="!lesson.premium">FREE</button>
+              <button class="lesson-price blue lighten-1 white-text" ng-if="lesson.premium" tooltipped data-position="top" data-delay="30" data-tooltip="Pro 회원만 시청이 가능합니다">PRO</button>
+              <p class="lesson-level blue-text lighten-1">{{lesson.level}}</p>
             </div>
         </div>
       </a>
