@@ -20,4 +20,11 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
         $scope.error = data;
       })
     }
+
+    // retrieve password
+    $scope.sendEmail = function(retrieve){
+      alert(retrieve.email);
+
+      $scope.message = "비밀번호 재설정 이메일을 보냈습니다."
+    }
 }])
