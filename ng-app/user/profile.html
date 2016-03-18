@@ -44,13 +44,13 @@
               <label  for="currentpassword2">사용중인 비밀번호 </label>
             </div>   
           </div>                                 
-      <!--   </div>   -->
 
         <div class="center-align">
           <button ng-click="changeProfile()" class="btn btn-large center-align">정정확인 </button> 
         </div>   
     </form>  
 
+    <!-- members info -->
     <div class="col s12 m8 center-align" ng-if="currentTabIndex === 1">
       <div class="card grey lighten-2" ng-if="!user.subscribed">
         <div class="card-content">
@@ -67,7 +67,9 @@
         <div class="card-action">
           <a class="btn btn red accent-2" ng-click="cancelSubscription()">PRO 회원 해제하기 </a>   
         </div>
-      </div>          
+      </div> 
+
+      <button class="btn btn-small red">회원탈퇴하기</button>         
     </div>  
 
   </div>  <!-- row end -->     
