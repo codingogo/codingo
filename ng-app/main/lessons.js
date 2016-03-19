@@ -33,37 +33,20 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, Us
 
 app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce){
 
-
   $scope.showTab = function(tabIndex) {
-    $scope.videoLink = 'nothing';
-    var src="http://fast.wistia.net/assets/external/E-v1.js";
-    console.log($scope.videoLink);
-    console.log(tabIndex);
-    console.log($scope.filteredVideos[tabIndex].wistia);
     $scope.currentTabIndex = tabIndex;
-
     $scope.videoObj = $scope.filteredVideos[tabIndex];
-    // console.log($scope.videoObj);
-    console.log($scope.videoObj.wistia);
-
-    $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];     
-    console.log($scope.videoLink);   
-
+    $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];
   };
 
-
-
-
-  $scope.initialise = function(){
+  var initialise = function(){
     $scope.currentTabIndex = 0;
     $scope.lessonId = $stateParams.lessonId;
     $scope.videoId = $stateParams;
   
     Lesson.get($stateParams.lessonId)
       .then(function(data){
-        // console.log('data', data.data[0]);
         $scope.premium = data.data[0].premium;
-        // console.log('premium', $scope.premium);
         $scope.lessonObj = data.data[0];
     });
 
@@ -78,20 +61,11 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
         var result = obj.filter(function(val){
           return val.lesson_id == $stateParams.lessonId;
         })
-        console.log('result', result);
         $scope.filteredVideos = result;
         $scope.videoObj = $scope.filteredVideos[0];
-        // $scope.videoLink = $scope.videoObj.wistia
         $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];
-        console.log($scope.videoObj.wistia);
       });
   }
 
-  $scope.initialise();
+  initialise();
 });
-
-app.filter("TrustUrl", ['$sce', function ($sce) {
-    return function (recordingUrl) {
-       return $sce.trustAsResourceUrl(recordingUrl);
-    };
-}]);
