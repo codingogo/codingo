@@ -1,8 +1,10 @@
 <div class="container-default height600">
+
   <div class="row">
       <h4 class="center grey-text page-title">
         <span ng-if="currentTabIndex === 0">일반정보</span>
         <span ng-if="currentTabIndex === 1">회원정보</span>
+        <span ng-if="currentTabIndex === 2">비밀번호 변경</span>
       </h4>
       <div class="col s12 m4">          
         <p>
@@ -11,46 +13,34 @@
         <p>
           <a class="waves-effect waves-green btn-flat" ng-click="showTab(1)" ng-class="{'active': currentTabIndex === 1}">회원정보</a>
         </p>
+        <p>
+          <a class="waves-effect waves-green btn-flat" ng-click="showTab(2)" ng-class="{'active': currentTabIndex === 2}">비밀번호 변경</a>
+        </p>        
       </div>      
-      
-    <form action="" class="col s12 m8" ng-if="currentTabIndex === 0">  
+    <!-- 일반정보 -->
+    <div class="col s12 m8" ng-if="currentTabIndex === 0">  
+      <form action="" class="col s12 m8">  
 
-          <div class="section email-section">
-            <div class="input-field col s12">
-              <input value="{{user.displayName}}" id="username2" type="text" class="validate">
-              <label class="active" for="username2">사용자명</label>
-            </div>
-            <div class="input-field col s12">
-              <input value="{{user.email}}" id="email2" type="text" class="validate">
-              <label class="active" for="email2">이메일 </label>
-            </div>
+        <div class="section email-section">
+          <div class="input-field col s12">
+            <input value="{{user.displayName}}" id="username2" type="text" class="validate" ng-model="user.displayName">
+            <label class="active" for="username2">사용자명</label>
           </div>
 
-          <div class="section pw-section">
-            <div class="input-field col s12">
-              <input id="newpassword2" type="text" class="validate">
-              <label  for="newpassword2">새로운 비밀번호 </label>
-            </div> 
-            <div class="input-field col s12">
-              <input id="confirmpassword2" type="text" class="validate">
-              <label  for="confirmpassword2">비밀번호 확인 </label>
-            </div>   
+          <div class="col s12">
+            <p class="grey-text email-header">이메일</p>
+            <p class="grey-text email-detail">{{user.email}}</p> 
           </div>
- 
-          <div class="section green lighten-5 cp-section">
-            <p class="small-note">확인을 위해 현재 사용중인 패스워드를 입력하세요</p>
-            <div class="input-field col s12">
-              <input id="currentpassword2" type="text" class="validate">
-              <label  for="currentpassword2">사용중인 비밀번호 </label>
-            </div>   
-          </div>                                 
+        </div>
 
         <div class="center-align">
-          <button ng-click="changeProfile()" class="btn btn-large center-align">정정확인 </button> 
-        </div>   
-    </form>  
+          <button ng-click="changeProfile(user)" class="btn btn-large center-align">정정확인 </button> 
+        </div>                
+      </form>  
+    
+    </div>
 
-    <!-- members info -->
+    <!-- 회원정보 -->
     <div class="col s12 m8 center-align" ng-if="currentTabIndex === 1">
       <div class="card grey lighten-2" ng-if="!user.subscribed">
         <div class="card-content">
@@ -65,16 +55,35 @@
           <span class="card-title">현재 회원님은 <span class="black-text">PRO</span> 회원입니다. </span>
         </div>
         <div class="card-action">
-          <a class="btn btn red accent-2" ng-click="cancelSubscription()">PRO 회원 해제하기 </a>   
+          <button class="btn btn red accent-2" ng-click="cancelSubscription()" ng-disabled="spinner">PRO 회원 해제하기 </button>   
         </div>
       </div> 
       <p ng-if="user.subscribed" class="grey-text delete-user-info">만약 코딩고 회원탈퇴를 원하신다면 먼저 Pro 회원을 해제해주시기 바랍니다.</p>
       <button class="btn btn-small red unsubscribe-btn" ng-click="deleteUser()" ng-if="!user.subscribed">회원탈퇴하기</button>         
-    </div>  
+    </div> 
 
+    <!-- 비밀번호 변경 --> 
+    <div class="col s12 m8" ng-if="currentTabIndex === 2"> 
+      <div class="password-change">
+        <div class="section pw-section">
+          <div class="input-field col s12">
+            <input id="newpassword2" type="password" class="validate"ng-model="password.change" ng-required="true">
+            <label  for="newpassword2">새로운 비밀번호 </label>
+          </div> 
+          <div class="input-field col s12">
+            <input id="confirmpassword2" type="password" class="validate" ng-model="password.confirm" ng-required="true">
+            <label  for="confirmpassword2">비밀번호 확인 </label>
+          </div>   
+        </div>
+      </div>
+      <p class="red-text" ng-show="error">입력한 비밀번호를 확인해주세요</p>
+      <button class="btn btn-default" ng-click="changePassword(password)">비밀번호 재설정 </button>
+    </div>  
   </div>  <!-- row end -->     
 
 </div>
 
 <!-- spinner  -->
 <img src="./ng-app/assets/images/spinner.gif" alt="spinner"class="spinner" ng-if="spinner">
+
+

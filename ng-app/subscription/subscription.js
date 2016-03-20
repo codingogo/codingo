@@ -32,6 +32,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
         Stripe.card.createToken(cardInfo, function(status, response){
           if(response.error){
             console.log('err', status);
+            $scope.spinner = false;
             $scope.$apply(function(){
               $scope.error = "카드정보가 옳지 않습니다 ";
             })
@@ -60,6 +61,8 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                   $rootScope.subscribed = true;
                   UserStatus.updateUser(user_id, {'subscribed': true})
                   .then(function(){
+                    $scope.successMsg = "Pro회원되신 것을 축하드립니다!"
+                    Materialize.toast($scope.successMsg, 2000);
                     $scope.spinner = false;
                     $state.go('home');
                   }, function(err){
@@ -84,19 +87,20 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
               .then(function(subscription){
                 $scope.$apply(function(){
                   $rootScope.subscriptions = subscription;
-                  // $scope.user.subscribed = true;
                   $rootScope.subscribed = true;
                   UserStatus.updateUser(user_id, {'subscribed': true})
                   .then(function(){
-                    $scope.spinner = false;
+                    $scope.successMsg = "Pro회원되신 것을 축하드립니다!"
+                    Materialize.toast($scope.successMsg, 2000);
                     $state.go('home');
-                  }, function(err){
                     $scope.spinner = false;
+                  }, function(err){
                     $scope.error = err;
+                    $scope.spinner = false;
                   })
                 }, function(err){
-                  $scope.spinner = false;
                   console.log(err);
+                  $scope.spinner = false;
                 });              
               });
             }          
@@ -105,6 +109,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
       })
     } else {
       $scope.error = "가격을 체크해주시기 바랍니다 ";
+      $scope.spinner = false;
     }
   };
   // setting regexp for email field
@@ -141,20 +146,23 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
   };
 
   //login function   
-  $scope.login = function (login) {
+  $scope.login = function(login) {
     $scope.spinner = true;
     var user = {
       email: login.email,
       password: login.password
     }
-    UserStatus.loginUser(user).then(function(){
+    UserStatus.loginUser(user)
+    .then(function(){
       $scope.$apply(function(){
         $scope.logged = true;
+        $scope.spinner = false;
       })
-      $scope.spinner = false;
     },function(){
       $scope.error = data;
-      $scope.spinner = false;
+      $scope.$apply(function(){
+        $scope.spinner = false;
+      })
     })
   };  
 });

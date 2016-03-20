@@ -43,5 +43,8 @@
   top: 15em;
   width: 150px;
   height: 150px;
-  margin-left: 42%;
+  margin-left: 43%;
+}
+#toast-container {
+  top: 20px !important;
 }

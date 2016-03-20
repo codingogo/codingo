@@ -10,17 +10,21 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
     //login function   
     $scope.login = function (login) {
       $scope.spinner = true;
-      var user = {
+      var userInput = {
         email: login.email,
         password: login.password
       }
-      UserStatus.loginUser(user).then(function(){
+      UserStatus.loginUser(userInput)
+      .then(function(res){
         $scope.spinner = false;
         $state.go('home');
-      },function(){
-        $scope.spinner = false;
-        $scope.error = data;
-      })
+      }, function(err){
+        console.log(err);
+        $scope.error = "이메일 또는 비밀번호 입력이 잘못됐습니다";
+        $scope.$apply(function(){
+          $scope.spinner = false;
+        })
+      });
     }
 
     // retrieve password
@@ -34,14 +38,5 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
         if(err) return console.log(err);
         console.log(res);
       })
-      // Stamplay.User.resetPassword(emailAndNewPassword)
-      // .then(function(res){
-      //   console.log(res);
-      //   $scope.message = "비밀번호 재설정 이메일을 보냈습니다."
-      // }, function(err){
-      //   console.log(err);
-      //   $scope.error = err;
-      // })
-
     }
 }])

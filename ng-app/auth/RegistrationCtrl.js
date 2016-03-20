@@ -22,6 +22,8 @@ app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'GlobalVariable', 'V
             //second step register user
             UserStatus.registerUser(user).then(function(){
                 $scope.spinner = false;
+                $scope.successMsg = "코딩고 회원님되신 것을 축하드립니다!"
+                Materialize.toast($scope.successMsg, 2000);
                 $state.go('home');
             },function(){
               $scope.spinner = false;
@@ -30,6 +32,7 @@ app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'GlobalVariable', 'V
           })
           .error(function (data, status) {
             $scope.error = '이미 사용된 이메일 또는 사용가능하지 않은 이메일입니다';
+            $scope.spinner = false;
           })
       }
     }
