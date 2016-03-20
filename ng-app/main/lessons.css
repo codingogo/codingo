@@ -51,6 +51,40 @@ nav .button-collapse i{
   bottom: 10px;
   right: 10px;
 }
+.collection .collection-item.avatar .play-title:hover {
+  color: #01579b;
+}
+.collection .collection-item.avatar i.circle{
+  /*light blue*/
+  background-color: #039be5;
+}
+.collection .collection-item.avatar i.circle:hover {
+  /*dark blue*/
+  background-color: #01579b;
+  color: #000;
+}
+.card .card-action.video-controller{
+  padding: 10px 40px 6px 64px;
+  height: 106px;
+}
+.card .card-content .video-title {
+  padding: 0px 0px 10px 0px;
+  line-height: 35px;
+}
+.card .card-content .video-description {
+  padding: 10px 0 0 0;
+}
+i.video-skips {
+  color: white;
+  text-shadow: 1px 1px 1px #999;
+}
+i.video-skips:hover {
+  color: #ffa000;
+}
+.iframe-video {
+  width: 100%;
+  min-height: 400px;
+}
 @media (max-width: 767px){
   .lesson-nav {
     left: -300px;

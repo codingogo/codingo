@@ -1,49 +1,68 @@
 <div class="container-video height600">
   <div class="row">
-    <h4 class="center grey-text page-title">Lesson: {{lessonObj.title}}</h4>
+    <h4 class="center grey-text text-darken-2 page-title">{{lessonObj.title}}</h4>
+
     <!-- free lesson -->
     <div class="" ng-if="!premium">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar" ng-repeat="item in filteredVideos"><a href="" ng-click="showTab($index)"><i class="material-icons circle blue">play_arrow</i>{{item.title}}</a>
-          <span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <a href="" class="full-width" ng-click="showTab($index)">{{item.description}}</a>
+        <li class="collection-item avatar" ng-repeat="item in filteredVideos">
+          <a href="" ng-click="showTab($index)" class="play-title"><i class="material-icons circle play-arrow">play_arrow</i>{{item.title}}</a>
+            <span class="text-right grey-text darken-3">{{item.duration}}</span>
+          <a href="" class="full-width grey-text" ng-click="showTab($index)">{{item.description}}</a>
         </li>
       </ul>
     </div>
+
     <!-- user is subscribed && premium -->
     <div class="" ng-if="premium && user.subscribed">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar" ng-repeat="item in filteredVideos"><a href="" ng-click="showTab($index)"><i class="material-icons circle blue">play_arrow</i>{{item.title}}</a>
-          <span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <a href="" class="full-width" ng-click="showTab($index)">{{item.description}}</a>
+        <li class="collection-item avatar" ng-repeat="item in filteredVideos">
+          <a href="" ng-click="showTab($index)">
+            <i class="material-icons circle blue">play_arrow</i>{{item.title}}</a><span class="text-right grey-text darken-3">{{item.duration}}</span>
+          <a href="" class="full-width grey-text" ng-click="showTab($index)">{{item.description}}</a>
         </li>
       </ul>
     </div>
+
     <!-- user is not subscribed && premium-->
     <div class="" ng-if="premium && !user.subscribed">          
       <ul class="collection lesson-nav">
         <li class="collection-item avatar" ng-repeat="item in filteredVideos">
           <i class="material-icons circle red">lock</i>{{item.title}}
           <span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <p href="" class="full-width">{{item.description}}</p>
+          <p class="full-width grey-text">{{item.description}}</p>
         </li>
       </ul>
     </div>
     
     <!-- Video Section -->
-    <div class="video-section">
+    <div class="video-section white-text">
       <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
+        <div class="card-content">
+          <p class="card-title video-title">{{videoObj.title}}</p>
           <div class="card-image">
-            <iframe ng-src="{{videoLink[0].url}}" class="wistia_embed" name="wistia_embed"  width="100%" height="360"></iframe>
+            <iframe ng-src="{{videoLink[0].url}}" allowtransparency="true" frameborder="0" scrolling="no" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen class="iframe-video"></iframe>
           </div>
-          <span class="card-title">{{videoObj.title}}</span>
-          <p>{{videoObj.description}}</p>
+          <p class="video-description">{{videoObj.description}}</p>
         </div>
-        <div class="card-action">
-          <a href="">Previous</a>
-          <span class="right"><a href="">Next</a></span>
+
+        <!-- video controller -->
+        <div class="card-action video-controller" ng-if="!premium">
+          <a href="" ng-click="previousVideo(videoObj.order)" ng-if="allowPreviousBtn"><i class="material-icons large video-skips">fast_rewind</i></a>
+          <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn"><i class="material-icons large video-skips">fast_forward</i></a></span>
         </div>
+
+        <div class="card-action video-controller" ng-if="premium && user.subscribed">
+          <a href="" ng-click="previousVideo(videoObj.order)" ng-if="allowPreviousBtn"><i class="material-icons large video-skips">fast_rewind</i></a>
+          <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn"><i class="material-icons large video-skips">fast_forward</i></a></span>
+        </div>
+
+        <div class="card-action video-controller" ng-if="premium && !user.subscribed">
+          <p>Pro 회원만 본 영상들을 시청할 수 있습니다. 
+          <span>
+            <a ui-sref="subscriptions"> <button class="btn btn-default blue btn-large"><span class="black-text">Pro</span> 회원 가입하기</button></a>
+          </span></p>
+        </div>        
       </div>      
     </div>
  
@@ -52,9 +71,3 @@
 
 <script src="http://fast.wistia.net/assets/external/E-v1.js" async></script>
 
-<script>
-  window._wq = window._wq || [];
-  _wq.push({ "abc": function(video) {
-    console.log("I got a handle to the video!", video);
-  }});
-</script>
