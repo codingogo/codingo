@@ -38,3 +38,10 @@
 .visible {
   display: block;
 }
+.spinner {
+  position: fixed;
+  top: 15em;
+  width: 150px;
+  height: 150px;
+  margin-left: 42%;
+}

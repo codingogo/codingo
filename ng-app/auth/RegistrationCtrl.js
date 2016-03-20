@@ -1,11 +1,12 @@
 app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'GlobalVariable', 'Validator','$state',
   function RegistrationCtrl($scope, UserStatus, GlobalVariable, Validator, $state) {   
-
+    $scope.spinner = false;
+    
     //setting regexp for email field
     $scope.EMAIL = GlobalVariable.email;
     //register function
     $scope.register = function (signup) {
-      console.log(signup);
+      $scope.spinner = true;
       if (signup.email && signup.password && signup.displayName) {
         var user = {
           email: signup.email,
@@ -20,8 +21,10 @@ app.controller('RegistrationCtrl', ['$scope', 'UserStatus', 'GlobalVariable', 'V
           .success(function (data, status) {
             //second step register user
             UserStatus.registerUser(user).then(function(){
+                $scope.spinner = false;
                 $state.go('home');
             },function(){
+              $scope.spinner = false;
               $scope.error = '회원가입이 실패했습니다';
             })
           })

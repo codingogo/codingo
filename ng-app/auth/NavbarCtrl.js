@@ -1,10 +1,15 @@
 app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope', '$stamplay',
   function NavbarController($scope, $location, UserStatus, $rootScope, $stamplay) {
+    $scope.spinner = false;
     $scope.currentTabIndex = 0;
     $scope.subscribed = false;
     var user_id;
     $scope.logout = function(){
+      $scope.spinner = true;
       UserStatus.logout()
+      .then(function(){
+        $scope.spinner = false;
+      })
     }
     //method for setting active class in navbar
     $scope.routeIs = function (routeName) {

@@ -1,5 +1,6 @@
 app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $state, $rootScope, GlobalVariable, Validator){
   
+  $scope.spinner = false;
   $scope.monthly_sub = false;
   // set up to signup-are initially
   $scope.currentTabIndex = 0;
@@ -14,6 +15,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
   };
   $scope.subscribeMembership = function(card){
     $scope.error = false;
+    $scope.spinner = true;
     var cardInfo = {
       number: card.number,
       cvc: card.cvc,
@@ -34,18 +36,13 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
               $scope.error = "카드정보가 옳지 않습니다 ";
             })
           } else {
-            console.log('card token', response);
             var token = response.id;
             var used = response.used;
-            console.log('token', token);
-            console.log('card used', used);
-            // console.log('hasCard', hasCard);
 
             // user has no credit card
             if(hasCard === undefined || hasCard === false){
               UserStatus.createCard(user_id, token)
               .then(function(resCard){
-                console.log('card', resCard);
                 $scope.$apply(function(){
                   $scope.user.hasCard = true;
                   $rootScope.user.hasCard = true;
@@ -54,44 +51,51 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
 
                 return UserStatus.subscribe(user_id, 'monthly_subscription');
               }, function(err){
+                $scope.spinner = false;
                 console.log(err);
               })
               .then(function(subscription){
-                console.log('subscription', subscription);
                 $scope.$apply(function(){
                   $rootScope.subscriptions = subscription;
-                  // $scope.user.subscribed = true;
                   $rootScope.subscribed = true;
                   UserStatus.updateUser(user_id, {'subscribed': true})
                   .then(function(){
+                    $scope.spinner = false;
                     $state.go('home');
+                  }, function(err){
+                    $scope.spinner = false;
+                    $scope.error = err;
                   })
                 }, function(err){
+                  $scope.spinner = false;
                   console.log(err);
                 });              
               }, function(err){
+                $scope.spinner = false;
                 console.log(err);
               });
             // user has a card
             } else {
               // get card
-              console.log('user id', user_id);
               UserStatus.getCard(user_id)
               .then(function(card){
-                console.log('card info', card);
                 return UserStatus.subscribe(user_id, 'monthly_subscription');
               })
               .then(function(subscription){
-                console.log('subscription', subscription);
                 $scope.$apply(function(){
                   $rootScope.subscriptions = subscription;
                   // $scope.user.subscribed = true;
                   $rootScope.subscribed = true;
                   UserStatus.updateUser(user_id, {'subscribed': true})
                   .then(function(){
+                    $scope.spinner = false;
                     $state.go('home');
+                  }, function(err){
+                    $scope.spinner = false;
+                    $scope.error = err;
                   })
                 }, function(err){
+                  $scope.spinner = false;
                   console.log(err);
                 });              
               });
@@ -106,6 +110,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
   // setting regexp for email field
   $scope.EMAIL = GlobalVariable.email;
   $scope.register = function(signup){
+    $scope.spinner = true;
     if(signup.email && signup.password && signup.displayName){
       var user = {
         email: signup.email,
@@ -122,18 +127,22 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
               $scope.$apply(function(){
                 $scope.logged = true;
               })
+              $scope.spinner = false;
             }, function(){
               $scope.error = "회원가입이 실패했습니다";
+              $scope.spinner = false;
             })
         })
         .error(function(data, status){
           $scope.error = "이미 사용된 이메일 또는 사용가능하지 않은 이메일입니다";
+          $scope.spinner = false;
         })
     }
   };
 
   //login function   
   $scope.login = function (login) {
+    $scope.spinner = true;
     var user = {
       email: login.email,
       password: login.password
@@ -142,8 +151,10 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
       $scope.$apply(function(){
         $scope.logged = true;
       })
+      $scope.spinner = false;
     },function(){
       $scope.error = data;
+      $scope.spinner = false;
     })
   };  
 });

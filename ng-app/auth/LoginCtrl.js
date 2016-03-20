@@ -3,20 +3,22 @@ This is the controller in charge to make the API call to the login endpoint for 
 */
 app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable', '$stamplay',
   function LoginController($scope, $state, UserStatus, GlobalVariable, $stamplay) {
-
+    $scope.spinner = false;
     //setting regexp for email field
     $scope.EMAIL = GlobalVariable.email;
 
     //login function   
     $scope.login = function (login) {
+      $scope.spinner = true;
       var user = {
         email: login.email,
         password: login.password
       }
       UserStatus.loginUser(user).then(function(){
-        
+        $scope.spinner = false;
         $state.go('home');
       },function(){
+        $scope.spinner = false;
         $scope.error = data;
       })
     }

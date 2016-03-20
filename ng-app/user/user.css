@@ -22,3 +22,10 @@
   padding-left: 25px;
   color: #999;
 }
+.unsubscribe-btn {
+  margin :40px;
+}
+.delete-user-info {
+  font-size: 0.8em;
+  margin: 30px 10px 30px 10px;
+}

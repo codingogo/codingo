@@ -68,10 +68,13 @@
           <a class="btn btn red accent-2" ng-click="cancelSubscription()">PRO 회원 해제하기 </a>   
         </div>
       </div> 
-
-      <button class="btn btn-small red">회원탈퇴하기</button>         
+      <p ng-if="user.subscribed" class="grey-text delete-user-info">만약 코딩고 회원탈퇴를 원하신다면 먼저 Pro 회원을 해제해주시기 바랍니다.</p>
+      <button class="btn btn-small red unsubscribe-btn" ng-click="deleteUser()" ng-if="!user.subscribed">회원탈퇴하기</button>         
     </div>  
 
   </div>  <!-- row end -->     
 
 </div>
+
+<!-- spinner  -->
+<img src="./ng-app/assets/images/spinner.gif" alt="spinner"class="spinner" ng-if="spinner">

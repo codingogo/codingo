@@ -33,9 +33,10 @@ app.factory('UserStatus', ['$http','$stamplay', '$rootScope','$q',function ($htt
         logged: logged
       }
     },
-    // resetPassword: function(data){
-    //   return Stamplay.User.resetPassword(data);
-    // },
+    deleteUser: function(user_id){
+      return Stamplay.User.remove(user_id);
+    },
+    // card and subscription
     createCard: function(user_id, token){
       return Stamplay.Stripe.createCreditCard(user_id, token);
     },
