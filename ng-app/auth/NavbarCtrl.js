@@ -57,7 +57,7 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope',
           $rootScope.subscriptions = subscription;
           // console.log('updated user');
         }, function(err){
-          console.log(err);
+          // console.log(err);
         });
       } 
     })

@@ -13,7 +13,9 @@
   background-color: #a5d6a7;
   border-radius: 0;
 }
-
+nav .brand-logo {
+  padding-left: 25px;
+}
 .login-btn {
   margin-right: 15px;
 }
@@ -80,5 +82,8 @@ nav .dropdown-content {
   .profile-img-frame{
     height: 56px;
     padding-top: 2px;
+  }
+  nav .brand-logo{
+    padding-left: 0;
   }
 }

@@ -1,6 +1,3 @@
-/*
-This is the controller in charge to make the API call to the login endpoint for email+passowrd authentication.
-*/
 app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable', '$stamplay',
   function LoginController($scope, $state, UserStatus, GlobalVariable, $stamplay) {
     $scope.spinner = false;
@@ -19,7 +16,7 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
         $scope.spinner = false;
         $state.go('home');
       }, function(err){
-        console.log(err);
+        // console.log(err);
         $scope.error = "이메일 또는 비밀번호 입력이 잘못됐습니다";
         $scope.$apply(function(){
           $scope.spinner = false;
@@ -34,9 +31,16 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
         newPassword: "reset.password"
       };
       console.log(reset);
-      Stamplay.User.resetPassword(emailAndNewPassword, function(err, res){
-        if(err) return console.log(err);
-        console.log(res);
-      })
+      if(emailAndNewPassword !== undefined){
+        Stamplay.User.resetPassword(emailAndNewPassword)
+        .then(function(res){
+          console.log(res);
+          $scope.successMsg = "비밀번호 재설정 이메일이 보내졌습니다. 보내진 이메일에 링크를 클릭하여 변경을 확인해주시기 바랍니다."
+          Materialize.toast($scope.successMsg, 8000);
+          $state.go('home');
+        }, function(err){
+          console.log(err);
+        })
+      };
     }
 }])

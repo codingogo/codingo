@@ -127,7 +127,7 @@ app.controller('ProfileCtrl', function($scope, UserStatus, $state, $rootScope){
           email: res.user.email,
           newPassword: password.change
         }
-        var email = res.user.email;
+        
         Stamplay.User.resetPassword(emailAndNewPassword)
         .then(function(res){
           console.log(res);

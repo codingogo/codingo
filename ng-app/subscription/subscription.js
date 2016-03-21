@@ -11,7 +11,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
 
   $scope.checked = function(check){
     $scope.monthly_sub = !$scope.monthly_sub;
-    console.log($scope.monthly_sub);
+    // console.log($scope.monthly_sub);
   };
   $scope.subscribeMembership = function(card){
     $scope.error = false;
@@ -27,11 +27,11 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
       .then(function(res){
         var user_id = res.user._id;
         var hasCard = res.user.hasCard;
-        console.log('user',res);
+        // console.log('user',res);
 
         Stripe.card.createToken(cardInfo, function(status, response){
           if(response.error){
-            console.log('err', status);
+            // console.log('err', status);
             $scope.spinner = false;
             $scope.$apply(function(){
               $scope.error = "카드정보가 옳지 않습니다 ";
@@ -53,7 +53,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                 return UserStatus.subscribe(user_id, 'monthly_subscription');
               }, function(err){
                 $scope.spinner = false;
-                console.log(err);
+                // console.log(err);
               })
               .then(function(subscription){
                 $scope.$apply(function(){
@@ -71,11 +71,11 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                   })
                 }, function(err){
                   $scope.spinner = false;
-                  console.log(err);
+                  // console.log(err);
                 });              
               }, function(err){
                 $scope.spinner = false;
-                console.log(err);
+                // console.log(err);
               });
             // user has a card
             } else {
@@ -99,7 +99,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                     $scope.spinner = false;
                   })
                 }, function(err){
-                  console.log(err);
+                  // console.log(err);
                   $scope.spinner = false;
                 });              
               });
@@ -134,7 +134,7 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
               })
               $scope.spinner = false;
             }, function(){
-              $scope.error = "회원가입이 실패했습니다";
+              $scope.error = "회원가입에 실패했습니다";
               $scope.spinner = false;
             })
         })

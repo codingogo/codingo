@@ -90,8 +90,10 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
   
     Lesson.get($stateParams.lessonId)
       .then(function(data){
+        console.log(data);
         $scope.premium = data.data[0].premium;
         $scope.lessonObj = data.data[0];
+        $scope.comments = data.data[0].actions.comments;
     });
 
     Video.get($stateParams)
