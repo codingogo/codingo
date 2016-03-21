@@ -63,10 +63,10 @@ app.controller('ProfileCtrl', function($scope, UserStatus, $state, $rootScope){
       // console.log(cancellation);
       $scope.$apply(function(){
         $rootScope.subscriptions = cancellation;
-        $rootScope.subscribed = false;
+        $rootScope.subscribed = false; 
         UserStatus.updateUser(user_id, {'subscribed': false})
           .then(function(res){
-            $scope.successMsg = "Pro 회원권을 안전하게 취하였습니다"
+            $scope.successMsg = "Pro 회원권을 안전하게 취소하였습니다"
                 Materialize.toast($scope.successMsg, 3000);
             $scope.spinner = false;
             $state.go('home');
