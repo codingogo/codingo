@@ -37,7 +37,7 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope',
           if(user.profileImg !== ''){
             $scope.picture = user.profileImg;
           } else {
-            $rootScope.picture = './ng-app/assets/images/sample2.jpg';
+            $rootScope.picture = './ng-app/assets/images/person.png';
           }
         })
         UserStatus.setUser(user.displayName, user.profileImg, user._id, user.email, true);

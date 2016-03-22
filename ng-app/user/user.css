@@ -6,11 +6,19 @@
   font-size: 0.7em;
 }
 .pw-section {
-  height: 166px;
+  min-height: 166px;
   margin-bottom: 25px;
 }
+.input-area {
+  background-color: #fff;
+  padding: 15px;
+}
+.submit-btn {
+  padding: 20px;
+}
 .email-section {
-  height: 166px;
+  min-height: 166px;
+  padding-bottom: 20px;
 }
 .email-header {
   font-size: 0.8em;

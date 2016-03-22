@@ -19,7 +19,7 @@
       </div>      
     <!-- 일반정보 -->
     <div class="col s12 m8" ng-if="currentTabIndex === 0">  
-      <form action="" class="col s12 m8">  
+      <form action="" class="input-area col s12 m8">  
 
         <div class="section email-section">
           <div class="input-field col s12">
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <div class="center-align">
+        <div class="center-align submit-btn">
           <button ng-click="changeProfile(user)" class="btn btn-large center-align">정정확인 </button> 
         </div>                
       </form>  
@@ -63,7 +63,7 @@
     </div> 
 
     <!-- 비밀번호 변경 --> 
-    <div class="col s12 m8" ng-if="currentTabIndex === 2"> 
+    <div class="col s12 m8 white-background" ng-if="currentTabIndex === 2" style="padding:20px"> 
       <div class="password-change">
         <div class="section pw-section">
           <div class="input-field col s12">
@@ -77,7 +77,7 @@
         </div>
       </div>
       <p class="red-text" ng-show="error">입력한 비밀번호를 확인해주세요</p>
-      <button class="btn btn-default" ng-click="changePassword(password)">비밀번호 재설정 </button>
+      <button class="btn btn-default center" ng-click="changePassword(password)">비밀번호 재설정 </button>
     </div>  
   </div>  <!-- row end -->     
 

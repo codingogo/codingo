@@ -23,9 +23,9 @@ nav .dropdown-content {
   margin-top: 8px;
 }
 .chip img {
-  margin: 10px 8px 0 7px;
-  height: 45px;
-  width: 45px;
+  margin: 13px 10px 0 1px;
+  height: 40px;
+  width: 40px;
 }
 .chip-pro {
   font-weight: bolder;
@@ -44,7 +44,9 @@ nav .dropdown-content {
   font-size: 0.8em;
 }
 /*Footer Page*/
-
+.fa-icons {
+  padding: 0 10px;
+}
 /*Nav Page*/
 
 /*Registration Page*/
@@ -78,6 +80,7 @@ nav .dropdown-content {
   .chip img {
     height: 34px;
     width: 34px;
+    margin-top: 9px;
   }
   .profile-img-frame{
     height: 56px;
