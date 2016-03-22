@@ -10,7 +10,7 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, Us
     UserStatus.getUser()
     .then(function(res){
       // console.log('user', res);
-    })
+    });
   };
 
   var loadLessons = function(){

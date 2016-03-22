@@ -27,11 +27,7 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
     // retrieve password
     $scope.sendEmail = function(reset){
       $scope.spinner = true;
-      // console.log($window.localStorage);
-      // $window.localStorage.clear();
-      // localStorage.clear();
-      console.log(reset.email);
-      console.log(reset.password);
+
       var emailAndNewPassword = {
         email: reset.email,
         newPassword: reset.password
@@ -40,7 +36,6 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
       if(emailAndNewPassword !== undefined){
         Stamplay.User.resetPassword(emailAndNewPassword)
         .then(function(res){
-          console.log(res);
           $scope.successMsg = "비밀번호 재설정 이메일이 보내졌습니다. 보내진 이메일에 링크를 클릭하여 변경을 확인해주시기 바랍니다."
           Materialize.toast($scope.successMsg, 8000);
           $scope.spinner = false;
@@ -49,8 +44,7 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
           $scope.$apply(function(){
             $scope.spinner = false;
           });
-          $scope.error = '죄송합니다. 이메일을 확인해주세요.'
-          console.log(err);
+          $scope.error = '죄송합니다. 이메일을 확인해주세요.';
         })
       };
     }
