@@ -16,6 +16,13 @@
 nav .brand-logo {
   padding-left: 25px;
 }
+nav .brand-logo:hover {
+  color: #f5f5f5;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
 .login-btn {
   margin-right: 15px;
 }

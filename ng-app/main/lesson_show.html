@@ -30,7 +30,7 @@
         <li class="collection-item avatar" ng-repeat="item in filteredVideos">
           <a href="" ng-click="showTab($index)">
             <i class="material-icons circle blue">play_arrow</i>{{item.title}}</a><span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <a href="" class="full-width grey-text limited-description" ng-click="showTab($index)">{{item.description | limitTo: 30}}</a>
+          <a href="" class="full-width grey-text limited-description" ng-click="showTab($index)">{{item.description | limitTo: 30}}...</a>
         </li>
       </ul>
     </div>
@@ -41,7 +41,7 @@
         <li class="collection-item avatar" ng-repeat="item in filteredVideos">
           <i class="material-icons circle red">lock</i>{{item.title}}
           <span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <p class="full-width grey-text limited-description">{{item.description | limitTo: 30}}</p>
+          <p class="full-width grey-text limited-description">{{item.description | limitTo: 30}}...</p>
         </li>
       </ul>
     </div>
