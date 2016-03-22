@@ -27,12 +27,14 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
     // retrieve password
     $scope.sendEmail = function(reset){
       $scope.spinner = true;
-      console.log($window.localStorage);
-      $window.localStorage.clear();
-      localStorage.clear();
+      // console.log($window.localStorage);
+      // $window.localStorage.clear();
+      // localStorage.clear();
+      console.log(reset.email);
+      console.log(reset.password);
       var emailAndNewPassword = {
-        email: "reset.email",
-        newPassword: "reset.password"
+        email: reset.email,
+        newPassword: reset.password
       };
 
       if(emailAndNewPassword !== undefined){
