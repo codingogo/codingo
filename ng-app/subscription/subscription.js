@@ -1,9 +1,47 @@
 app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $state, $rootScope, GlobalVariable, Validator){
-  
+
   $scope.spinner = false;
   $scope.monthly_sub = false;
   // set up to signup-are initially
   $scope.currentTabIndex = 0;
+  $scope.card = {};
+
+  $scope.months = [
+    {'month': '만기달', value: ''},
+    {'month': '01', value: 01},
+    {'month': '02', value: 02},
+    {'month': '03', value: 03},
+    {'month': '04', value: 04},
+    {'month': '05', value: 05},
+    {'month': '06', value: 06},
+    {'month': '07', value: 07},
+    {'month': '08', value: 08},
+    {'month': '09', value: 09},
+    {'month': '10', value: 10},
+    {'month': '11', value: 11},
+    {'month': '12', value: 12}
+  ];
+  $scope.card.exp_month = $scope.months[0];
+
+  $scope.years = [
+    {'year': '만기년도', value: ''},
+    {'year': 2016, value: 2016},
+    {'year': 2017, value: 2017},
+    {'year': 2018, value: 2018},
+    {'year': 2019, value: 2019},
+    {'year': 2020, value: 2020},
+    {'year': 2021, value: 2021},
+    {'year': 2022, value: 2022},
+    {'year': 2023, value: 2023},
+    {'year': 2024, value: 2024},
+    {'year': 2025, value: 2025},
+    {'year': 2026, value: 2026},
+    {'year': 2027, value: 2027},
+    {'year': 2028, value: 2028},
+    {'year': 2029, value: 2029},
+    {'year': 2030, value: 2030},
+  ]
+  $scope.card.exp_year = $scope.years[0];
 
   $scope.showTab = function(tabIndex) {
     $scope.currentTabIndex = tabIndex;
@@ -11,27 +49,26 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
 
   $scope.checked = function(check){
     $scope.monthly_sub = !$scope.monthly_sub;
-    // console.log($scope.monthly_sub);
   };
+
   $scope.subscribeMembership = function(card){
     $scope.error = false;
     $scope.spinner = true;
+
     var cardInfo = {
       number: card.number,
       cvc: card.cvc,
-      exp_month: card.exp_month,
-      exp_year: card.exp_year
+      exp_month: card.exp_month.value,
+      exp_year: card.exp_year.value
     }
     if($scope.monthly_sub === true){
       UserStatus.getUser()
       .then(function(res){
         var user_id = res.user._id;
         var hasCard = res.user.hasCard;
-        // console.log('user',res);
 
         Stripe.card.createToken(cardInfo, function(status, response){
           if(response.error){
-            // console.log('err', status);
             $scope.spinner = false;
             $scope.$apply(function(){
               $scope.error = "카드정보가 옳지 않습니다 ";

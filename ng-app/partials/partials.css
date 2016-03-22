@@ -50,6 +50,13 @@ nav .dropdown-content {
   margin-left: 10px;
   font-size: 0.8em;
 }
+.num-example {
+  font-size: 0.8em;
+}
+.row .col.s1.required-date {
+  position: absolute;
+  left: 0;
+}
 /*Footer Page*/
 .fa-icons {
   padding: 0 10px;

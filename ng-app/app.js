@@ -170,7 +170,8 @@ var app = angular.module('codingo', [
       url: '/terms',     
       views: {
         '': {
-          templateUrl: '/ng-app/pages/terms.html'
+          templateUrl: '/ng-app/pages/terms.html',
+          controller: 'TermsCtrl'
         },
         'header': {
           templateUrl: '/ng-app/partials/header.html',

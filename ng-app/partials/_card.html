@@ -29,15 +29,16 @@
 
       <div class="row">
         <div class="input-field col s6">
-          <input id="exp_month" type="text" class="validate" ng-model="card.exp_month">
-          <label for="exp_month"><span class="red-text">*</span> 
-            <a tooltipped data-position="top" data-delay="30" data-tooltip="카드 만기달 2자리 숫자" class="grey-text">Exp(MM)</a>
-            </label>
+          <div class="row">
+            <span class="left red-text col s1 required-date">*</span>
+            <select class="browser-default col s8 offset-s1" ng-model="card.exp_month" ng-options="item.month for item in months"></select>
+          </div>
         </div>
         <div class="input-field col s6">
-          <input id="exp_year" type="text" class="validate" ng-model="card.exp_year">
-          <label for="exp_year"><span class="red-text">*</span> 
-            <a tooltipped data-position="top" data-delay="30" data-tooltip="카드 만기년도 4자리 숫자" class="grey-text">Exp(YYYY)</a></label>
+          <div class="row">
+            <span class="left red-text col s1 required-date">*</span>
+            <select class="browser-default col s8 offset-s1" ng-model="card.exp_year" ng-options="item.year for item in years"></select>    
+          </div>      
         </div>
       </div>  
 
@@ -61,7 +62,6 @@
                 <a href class=" modal-action modal-close btn white black-text">닫기 </a>
             </div>
         </div>
-
       </div>
 
       <!-- error msg -->
