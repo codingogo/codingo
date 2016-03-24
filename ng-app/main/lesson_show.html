@@ -2,46 +2,46 @@
   <div class="row">
     <h4 class="center grey-text text-darken-2 page-title">{{lessonObj.title}}</h4>
 
-    <!-- user is not logged -->
+    <!-- Scenerio 1: user is not logged -->
     <div class="" ng-if="!premium">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar" ng-repeat="item in filteredVideos">
-          <p href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 로그인해주세요 " data-delay="0"><i class="material-icons circle-grey play-arrow" >play_arrow</i>{{item.title}}</p>
-            <span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <p href="" class="full-width grey-text limited-description">{{item.description | limitTo: 30}}...</p>
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos">
+          <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
+          <div class="video-note">
+
+            <a href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 로그인해주세요 " data-delay="0"><i class="material-icons circle-grey play-arrow" >play_arrow</i>{{item.title}}</a>
+              <span class="text-right grey-text darken-3 video-time">{{item.duration}}</span>
+            <p class="full-width grey-text limited-description">{{item.description | limitTo: 50}}...</p>
+          </div>
         </li>
       </ul>
     </div>
 
-    <!-- free lesson && user logged-->
-    <div class="" ng-if="!premium && user.logged">          
+    <!-- Scenerio 2: (free lesson && user logged) or (premiu && subscribed)-->
+    <div class="" ng-if="(!premium && user.logged) ||(premium && user.subscribed) ">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar" ng-repeat="item in filteredVideos">
-          <a href="" ng-click="showTab($index)" class="play-title"><i class="material-icons circle play-arrow">play_arrow</i>{{item.title}}</a>
-            <span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <a href="" class="full-width grey-text limited-description" ng-click="showTab($index)">{{item.description | limitTo: 30}}...</a>
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos">
+          <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
+          <div class="video-note">
+            <a href="" ng-click="showTab($index)" class="play-title"><i class="material-icons circle-blue play-arrow">play_arrow</i>{{item.title}}</a>
+              <span class="text-right grey-text darken-3 video-time">{{item.duration}}</span>
+            <a href="" class="full-width grey-text limited-description" ng-click="showTab($index)">{{item.description | limitTo: 50}}...</a>
+          </div>  
         </li>
       </ul>
     </div>
 
-    <!-- user is subscribed && premium -->
-    <div class="" ng-if="premium && user.subscribed">          
-      <ul class="collection lesson-nav">
-        <li class="collection-item avatar" ng-repeat="item in filteredVideos">
-          <a href="" ng-click="showTab($index)">
-            <i class="material-icons circle blue">play_arrow</i>{{item.title}}</a><span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <a href="" class="full-width grey-text limited-description" ng-click="showTab($index)">{{item.description | limitTo: 30}}...</a>
-        </li>
-      </ul>
-    </div>
 
-    <!-- user is not subscribed && premium-->
+    <!-- Scenerio 3: user is not subscribed && premium-->
     <div class="" ng-if="premium && !user.subscribed">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar" ng-repeat="item in filteredVideos">
-          <i class="material-icons circle red">lock</i>{{item.title}}
-          <span class="text-right grey-text darken-3">{{item.duration}}</span>
-          <p class="full-width grey-text limited-description">{{item.description | limitTo: 30}}...</p>
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos">
+          <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
+          <div class="video-note">
+            <a href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 Pro회원에 가입해주세요 " data-delay="0"><i class="material-icons circle-blue red">lock</i>{{item.title}}</a>
+            <span class="text-right grey-text darken-3 video-time">{{item.duration}}</span>
+            <p class="full-width grey-text limited-description">{{item.description | limitTo: 50}}...</p>
+          </div>  
         </li>
       </ul>
     </div>

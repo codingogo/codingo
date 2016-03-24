@@ -36,6 +36,7 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
   $scope.showTab = function(tabIndex) {
     $scope.currentTabIndex = tabIndex;
     $scope.videoObj = $scope.filteredVideos[tabIndex];
+    console.log($scope.videoObj);
     $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];
 
     window._wq = window._wq || [];
@@ -87,22 +88,29 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
     $scope.videoId = $stateParams;
     $scope.allowNextBtn = true;
     $scope.allowPreviousBtn = false;
-  
+
+    var videos = [];
+    var lessonObj = [];
+
     Lesson.get($stateParams.lessonId)
       .then(function(data){
-        console.log(data);
+        console.log('lesson', data.data);
         $scope.premium = data.data[0].premium;
         $scope.lessonObj = data.data[0];
         $scope.comments = data.data[0].actions.comments;
-    });
+    })
 
     Video.get($stateParams)
       .then(function(data){
+        // console.log(data);
         var obj = data.data;
-        var result = obj.filter(function(val){
+        videos = obj.filter(function(val){
           return val.lesson_id == $stateParams.lessonId;
         })
-        $scope.filteredVideos = result;
+        $scope.filteredVideos = videos;
+        console.log('videos with same lessonId', videos);
+
+        // initial video
         $scope.videoObj = $scope.filteredVideos[0];
         $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];
       });
