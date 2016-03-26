@@ -19,8 +19,19 @@ app.factory('Video', function($q, $stamplay, $http){
     return def.promise;
   }
 
+  function query(obj) {
+    var def = $q.defer();
+
+    Stamplay.Object('video').get(obj, function(err, res){
+      if(err) return err;
+      def.resolve(res);
+    })
+    return def.promise;
+  }
+
   return {
     all: all,
-    get: get
+    get: get,
+    query: query
   }
 });

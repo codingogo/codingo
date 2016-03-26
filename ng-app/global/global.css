@@ -57,3 +57,7 @@ body {
 .padding20 {
   padding: 20px;
 }
+.disabled-pointer {
+  pointer-events: none;
+  cursor: default;
+}

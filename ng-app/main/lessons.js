@@ -83,6 +83,7 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
   };
 
   var initialise = function(){
+    $scope.spinner = true;
     $scope.currentTabIndex = 0;
     $scope.lessonId = $stateParams.lessonId;
     $scope.videoId = $stateParams;
@@ -100,9 +101,16 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
         $scope.comments = data.data[0].actions.comments;
     })
 
-    Video.get($stateParams)
+    var query = {
+      page: 1,
+      per_page: 100
+    };
+
+    Video.query(query)
       .then(function(data){
-        // console.log(data);
+        console.log(data.data.length);
+        $scope.test = data.data;
+        console.log($stateParams);
         var obj = data.data;
         videos = obj.filter(function(val){
           return val.lesson_id == $stateParams.lessonId;
@@ -113,6 +121,7 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
         // initial video
         $scope.videoObj = $scope.filteredVideos[0];
         $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];
+        $scope.spinner = false;
       });
   }
 
