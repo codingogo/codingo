@@ -178,7 +178,19 @@ var app = angular.module('codingo', [
           controller: 'NavbarCtrl'
         }
       }
-    })                
+    }) 
+    .state('comingsoon', {
+      url: '/comingsoon',
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/comingsoon.html'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    })               
     .state('lessonDetail', {
       url: '/lesson/:lessonId',
       views: {

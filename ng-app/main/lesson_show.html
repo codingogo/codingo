@@ -58,6 +58,10 @@
         </div>
 
         <!-- video controller -->
+        <div class="card-action video-controller" ng-if="!user.logged && !premium">
+          <p>영상을 시청하려면 로그인해주세요</p>
+        </div>
+
         <div class="card-action video-controller" ng-if="!premium && user.logged">
           <a href="" ng-click="previousVideo(videoObj.order)" ng-if="allowPreviousBtn"><i class="material-icons large video-skips">fast_rewind</i></a>
           <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn"><i class="material-icons large video-skips">fast_forward</i></a></span>

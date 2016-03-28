@@ -1,5 +1,6 @@
 <div class="container-default">
-
+  
+  <!-- not logged -->
   <div class="center main-background">
     <h3 class="fancy">스타트업 <span class="black-text two-weeks">2주</span>만에 만들기 </h3>
     <p class="lead">
@@ -9,10 +10,34 @@
     <a ui-sref="registration" class="btn btn-large blue" ng-hide="logged">FREE 계정 만들기</a>
   </div>
 
+  <!-- logged & not subscribed-->
+<!--   <div class="center main-background" ng-if="logged && !user.subscribed">
+    <h3 class="fancy">PRO</h3>
+    <p class="lead">
+      Pro 회원이 되면 모든 영상을 시청할 수 있습니다. 
+    </p>
+  </div> -->
+
+  <!-- logged & subscribed-->
+<!--   <div class="center main-background" ng-if="logged && user.subscribed">
+    <h5 class="fancy">질문하세요</h5>
+    <p class="lead">
+      문제가 있으면 여기에 작성해주세요 
+    </p>
+    <form action="question-form">
+      <div class="row">
+        <p class="col s12">
+          <input type="text" class="browser-default">
+        </p>
+      </div>
+    </form>
+  </div>   -->
+
 <br>
   <div class="row">
+    <!-- lessons not locked -->
     <div class="col s12 m6 l4 " ng-repeat="lesson in lessons">
-      <a ui-sref="lessonDetail({lessonId: '{{lesson._id}}'})">
+      <a ui-sref="lessonDetail({lessonId: '{{lesson._id}}'})" ng-if="!lesson.locked">
         <div class="card hoverable lesson-card">
             <div class="card-image">
               <img src="{{lesson.main_img}}" alt="lesson image">
@@ -27,6 +52,24 @@
         </div>
       </a>
     </div>
+  
+    <!-- lessons locked -->
+    <div class="col s12 m6 l4 " ng-repeat="lesson in lessons">
+      <a ui-sref="comingsoon" ng-if="lesson.locked">
+        <div class="card hoverable lesson-card">
+            <div class="card-image">
+              <img src="{{lesson.main_img}}" alt="lesson image">
+            </div>    
+            <div class="card-content">
+              <span class="card-title-text grey-text text-darken-4">{{lesson.title}}</span>
+              <p class="grey-text text-darken-2">{{lesson.description}}</p>
+              <button class="lesson-price grey lighten-2 blue-text text-darken-2" ng-if="!lesson.premium">FREE</button>
+              <button class="lesson-price blue lighten-1 white-text" ng-if="lesson.premium" tooltipped data-position="top" data-delay="30" data-tooltip="Pro 회원만 시청이 가능합니다">PRO</button>
+              <p class="lesson-level blue-text lighten-1">{{lesson.level}}</p>
+            </div>
+        </div>
+      </a>
+    </div>    
   </div>
 </div>
 
