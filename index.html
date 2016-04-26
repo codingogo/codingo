@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="codingo" id="ng-app">
+<html xmlns:ng="http://angularjs.org" ng-app="codingo" id="ng-app">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no"/>
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./ng-app/pages/pages.css">
     <link rel="stylesheet" href="./ng-app/global/variables.css">
     <link rel="stylesheet" href="./ng-app/subscription/subscriptions.css">
+    <script src="./dist/all.min.js"></script>
   </head>
 
   <body>
@@ -28,13 +29,13 @@
   </body>
 
  <!-- Scripts -->  
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script src="https://drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/2.0/stamplay.min.js"></script>
   <script src="./bower_components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
-  <script src="https://drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/2.0/stamplay.min.js"></script>
   <script type="text/javascript" src="./bower_components/angular-stamplay/angular-stamplay.js"></script>
   <script type="text/javascript" src="./bower_components/algoliasearch/dist/algoliasearch.angular.js"></script>
  
-  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script> 
   <script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script> 
   <script typer="text/javascript" src="./bower_components/angular-materialize/src/angular-materialize.js"></script>

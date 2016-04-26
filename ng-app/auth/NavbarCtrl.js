@@ -22,7 +22,6 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope',
     // Set User for Header
     UserStatus.getUser()
     .then(function(res){
-      // console.log('user', res.user);
       var user = res.user;
       user_id = res.user._id;
       if(user._id !== undefined){
@@ -45,9 +44,7 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope',
       return UserStatus.getSubscriptions(user._id, 'monthly_subscription');
     })
     .then(function(subscription){
-      // console.log('subscription', subscription);
       UserStatus.updateUser(user_id, {'subscriptions': subscription})
-      // console.log(subscription.data[0].status);
       var status = subscription.data[0].status;
       if(status === 'active'){
         $scope.subscribed = true;
@@ -55,9 +52,7 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope',
       if(user_id !== undefined){
         $scope.$apply(function(){
           $rootScope.subscriptions = subscription;
-          // console.log('updated user');
         }, function(err){
-          // console.log(err);
         });
       } 
     })

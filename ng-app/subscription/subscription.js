@@ -90,7 +90,6 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                 return UserStatus.subscribe(user_id, 'monthly_subscription');
               }, function(err){
                 $scope.spinner = false;
-                // console.log(err);
               })
               .then(function(subscription){
                 $scope.$apply(function(){
@@ -108,11 +107,9 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                   })
                 }, function(err){
                   $scope.spinner = false;
-                  // console.log(err);
                 });              
               }, function(err){
                 $scope.spinner = false;
-                // console.log(err);
               });
             // user has a card
             } else {
@@ -136,7 +133,6 @@ app.controller('SubscriptionsCtrl', function($scope, $stamplay, UserStatus, $sta
                     $scope.spinner = false;
                   })
                 }, function(err){
-                  // console.log(err);
                   $scope.spinner = false;
                 });              
               });

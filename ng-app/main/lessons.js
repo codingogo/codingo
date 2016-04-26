@@ -9,7 +9,6 @@ app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, Us
   var getUser = function(){
     UserStatus.getUser()
     .then(function(res){
-      // console.log('user', res);
     });
   };
 
@@ -36,7 +35,6 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
   $scope.showTab = function(tabIndex) {
     $scope.currentTabIndex = tabIndex;
     $scope.videoObj = $scope.filteredVideos[tabIndex];
-    console.log($scope.videoObj);
     $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];
 
     window._wq = window._wq || [];
@@ -95,7 +93,6 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
 
     Lesson.get($stateParams.lessonId)
       .then(function(data){
-        console.log('lesson', data.data);
         $scope.premium = data.data[0].premium;
         $scope.lessonObj = data.data[0];
         $scope.comments = data.data[0].actions.comments;
@@ -108,15 +105,12 @@ app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce)
 
     Video.query(query)
       .then(function(data){
-        console.log(data.data.length);
         $scope.test = data.data;
-        console.log($stateParams);
         var obj = data.data;
         videos = obj.filter(function(val){
           return val.lesson_id == $stateParams.lessonId;
         })
         $scope.filteredVideos = videos;
-        console.log('videos with same lessonId', videos);
 
         // initial video
         $scope.videoObj = $scope.filteredVideos[0];

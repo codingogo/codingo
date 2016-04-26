@@ -16,7 +16,6 @@ app.controller('LoginCtrl', ['$scope', '$state', 'UserStatus', 'GlobalVariable',
         $scope.spinner = false;
         $state.go('home');
       }, function(err){
-        // console.log(err);
         $scope.error = "이메일 또는 비밀번호 입력이 잘못됐습니다";
         $scope.$apply(function(){
           $scope.spinner = false;

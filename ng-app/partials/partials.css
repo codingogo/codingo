@@ -41,6 +41,10 @@ nav .dropdown-content {
   margin-top: 5px;
   float: right;
 }
+/*Sign Up*/
+.error-space {
+  margin-top:16px;
+}
 /*Card page*/
 .stripe-info {
   margin: 15px;
