@@ -1,11 +1,42 @@
+
 .main-background {
-  margin-top: 30px;
+  margin-top: 15px;
   padding: 54px 20px 10px 30px;
-  height: 320px;
-  background: radial-gradient(#fff, #c8e6c9);
-  background: -webkit-radial-gradient(#fff, #c8e6c9); 
+  height: 400px;
+  background-color: #c8e6c9;
+  background: linear-gradient(#fafafa, #c8e6c9);
+  background: -webkit-linear-gradient(#fafafa, #c8e6c9); 
   background: -o-radial-gradient(#fff, #c8e6c9); 
   background: -moz-radial-gradient(#fff, #c8e6c9);  
+}
+.slides {
+  margin-top: 15px;
+  background-color: #c8e6c9;
+  background: linear-gradient(#fafafa, #c8e6c9);
+  background: -webkit-linear-gradient(#fafafa, #c8e6c9); 
+  background: -o-radial-gradient(#fff, #c8e6c9); 
+  background: -moz-radial-gradient(#fff, #c8e6c9);  
+}
+.slider .slides li .caption {
+/*  top: 10%;*/
+  left: 10%;
+  width: 80%;
+}
+.indicators {
+  display: none;
+}
+.project-heading {
+  padding-left: 20px;
+}
+.vector1 {
+  background-image: url(../assets/images/device.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  min-height: 300px;
+  min-width: 100px;
 }
 nav .button-collapse i{
   padding-left: 10px;
