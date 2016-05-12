@@ -2,7 +2,7 @@
 .main-background {
   margin-top: 15px;
   padding: 54px 20px 10px 30px;
-  height: 400px;
+  height: 340px;
   background-color: #c8e6c9;
   background: linear-gradient(#fafafa, #c8e6c9);
   background: -webkit-linear-gradient(#fafafa, #c8e6c9); 
@@ -11,11 +11,22 @@
 }
 .slides {
   margin-top: 15px;
-  background-color: #c8e6c9;
+  background: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/learning2.jpg) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+/*  background-color: #c8e6c9;
   background: linear-gradient(#fafafa, #c8e6c9);
   background: -webkit-linear-gradient(#fafafa, #c8e6c9); 
   background: -o-radial-gradient(#fff, #c8e6c9); 
-  background: -moz-radial-gradient(#fff, #c8e6c9);  
+  background: -moz-radial-gradient(#fff, #c8e6c9);  */
+}
+.text-shadow {
+  text-shadow: 1px 1px 10px #000;
+}
+.slider {
+  height: 340px;
 }
 .slider .slides li .caption {
 /*  top: 10%;*/
@@ -27,6 +38,7 @@
 }
 .project-heading {
   padding-left: 20px;
+  font-size: 18px;
 }
 .vector1 {
   background-image: url(../assets/images/device.png);
