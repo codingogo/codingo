@@ -1,4 +1,5 @@
-app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope', '$stamplay',
+module.exports= function(app){ 
+  app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope', '$stamplay',
   function NavbarController($scope, $location, UserStatus, $rootScope, $stamplay) {
     $scope.spinner = false;
     $scope.currentTabIndex = 0;
@@ -59,3 +60,4 @@ app.controller('NavbarCtrl', ['$scope', '$location', 'UserStatus', '$rootScope',
   }
 
 ]);
+}

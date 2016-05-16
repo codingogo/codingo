@@ -2,14 +2,14 @@
   "name": "codingo",
   "version": "1.0.0",
   "description": "Simple way to learn coding for your startup",
-  "main": "gulpfile.js",
-  "dependencies": {},
+  "main": "",
   "devDependencies": {
+    "angular": "^1.5.5",
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
     "event-stream": "^3.3.2",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-uglify": "^1.5.3"
+    "font-awesome": "^4.6.1",
+    "webpack": "^1.13.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -7,8 +7,8 @@
       <ul class="collection lesson-nav">
         <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos">
           <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
-          <div class="video-note">
 
+          <div class="video-note">
             <a href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 로그인해주세요 " data-delay="0"><i class="material-icons circle-grey play-arrow" >play_arrow</i>{{item.title}}</a>
               <span class="text-right grey-text darken-3 video-time">{{item.duration}}</span>
             <p class="full-width grey-text limited-description">{{item.description | limitTo: 50}}...</p>
@@ -23,8 +23,13 @@
         <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos">
           <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
           <div class="video-note">
-            <a href="" ng-click="showTab($index)" class="play-title"><i class="material-icons circle-blue play-arrow">play_arrow</i>{{item.title}}</a>
-              <span class="text-right grey-text darken-3 video-time">{{item.duration}}</span>
+            <!-- video button -->
+            <a href="" ng-click="showTab($index)" class="play-title" ng-hide="item.text"><i class="material-icons circle-blue play-arrow">play_arrow</i>{{item.title}}</a>
+            <!-- description button -->
+            <a href="" ng-click="showDescription($index)" class="play-title" ng-show="item.text">
+              <i class="material-icons plain-icon">description</i>{{item.title}}
+            </a>
+              <span class="text-right grey-text darken-3 video-time" ng-hide="item.text">{{item.duration}}</span>
             <a href="" class="full-width grey-text limited-description" ng-click="showTab($index)">{{item.description | limitTo: 50}}...</a>
           </div>  
         </li>
@@ -46,15 +51,38 @@
       </ul>
     </div>
     
-    <!-- Video Section -->
+    <!-- *** VIDEO SECTION *** -->
     <div class="video-section white-text">
       <div class="card blue-grey darken-1 video-card">
-        <div class="card-content">
+        <!-- Video Object -->
+        <div class="card-content" ng-if="videoObj">
           <p class="card-title video-title">{{videoObj.title}}</p>
           <div class="card-image">
             <iframe ng-src="{{videoLink[0].url}}" allowtransparency="true" frameborder="0" scrolling="no" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen class="iframe-video"></iframe>
           </div>
           <p class="video-description">{{videoObj.description}}</p>
+        </div>
+        
+        <!-- Description Object -->
+        <div class="card-content" ng-if="descriptionObj">
+          <p class="card-title video-title">{{descriptionObj.title}}</p>
+          <div class="grey-text text-lighten-4">
+            <div class="card-image" ng-if="descriptionObj.subtitle1">
+              <h5 class="sub-title">{{descriptionObj.subtitle1}}</h5>
+              <p class="code white-text grey darken-4">{{descriptionObj.code1}}</p>
+              <p class="sub-detail">{{descriptionObj.detail1}}</p>
+            </div>
+            <div class="card-image" ng-if="descriptionObj.subtitle1">
+              <h5 class="sub-title">{{descriptionObj.subtitle2}}</h5>
+              <p class="code white-text grey darken-4">{{descriptionObj.code2}}</p>
+              <p class="sub-detail">{{descriptionObj.detail2}}</p>
+            </div>
+            <div class="card-image" ng-if="descriptionObj.subtitle1">
+              <h5 class="sub-title">{{descriptionObj.subtitle3}}</h5>
+              <p class="code white-text grey darken-4">{{descriptionObj.code3}}</p>
+              <p class="sub-detail">{{descriptionObj.detail3}}</p>
+            </div>            
+          </div>
         </div>
 
         <!-- video controller -->
