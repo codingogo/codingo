@@ -1,6 +1,5 @@
 module.exports= function(app){ 
-  app
-  .controller('AboutCtrl', function($scope){
+  app.controller('AboutCtrl', function($scope){
     
     $scope.aboutInfo = [
       {subTitle: '쉬운 교육', icon: 'videocam', info: ['프로그래밍에대한 배경이 없더라도 영상을 따라 쉽게 코딩을 배울 수 있습니다.'], classInfo: 'col s12 m5 offset-m1'},
