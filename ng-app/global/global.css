@@ -284,7 +284,7 @@ i.video-skips:hover {
 }
 .iframe-video {
   width: 100%;
-  min-height: 480px;
+  min-height: 500px;
   height: 100%;
 }
 .video-time {
