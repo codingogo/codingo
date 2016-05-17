@@ -108,7 +108,10 @@ body {
 }
 .project-heading {
   padding-left: 20px;
-  font-size: 18px;
+  font-size: 24px;
+}
+.card-panel {
+  border-radius: 5%;
 }
 .vector1 {
   background-image: url(../assets/images/device.png);
@@ -285,6 +288,44 @@ i.video-skips:hover {
   font-size: .85em;
 }
 
+.video-snippets {
+  /*margin-top: 30px;*/
+  min-height: 100px;
+  padding: 20px;
+}
+.video-trigger {
+  position: absolute;
+  font-size: 60px;
+  top: 340px;
+  z-index: 999;
+  right: 15%;
+}
+.youtube-video {
+  width: 532px; 
+  height: 299px;
+}
+.card-testimonial {
+  min-height: 270px;
+}
+.codingo-green {
+  color: #a5d6a7;
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;  
+}
+.youtube-main:hover, .youtube-main:focus {
+  color: #fff;
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;
+}
+.fa-film:hover {
+  color: #fff;
+}
 /*Comment Area*/
 .comment-add {
   min-height: 150px;
@@ -367,33 +408,8 @@ i.video-skips:hover {
   margin: 0;
   font-size: 1.1em;
 }
-.video-trigger {
-  position: absolute;
-  font-size: 60px;
-  top: 340px;
-  z-index: 999;
-  right: 15%;
-}
-.youtube-video {
-  width: 532px; 
-  height: 299px;
-}
-.codingo-green {
-  color: #a5d6a7;
-  transition: color 0.5s;
-  -webkit-transition: color 0.5s;
-  -o-transition: color 0.5s;
-  -moz-transition: color 0.5s;
-  -ms-transition: color 0.5s;  
-}
-.youtube-main:hover {
-  color: #fff;
-  transition: color 0.5s;
-  -webkit-transition: color 0.5s;
-  -o-transition: color 0.5s;
-  -moz-transition: color 0.5s;
-  -ms-transition: color 0.5s;
-}
+
+
 /*Pricing Page*/
 .price-content {
   min-height: 258px;
