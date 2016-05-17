@@ -75,6 +75,9 @@ body {
 }
 
 /*Lessons*/
+.modal{
+  min-height: 500px;
+}
 .main-background {
   margin-top: 15px;
   padding: 54px 20px 10px 30px;
@@ -166,6 +169,7 @@ nav .button-collapse i{
   padding-left: 15px;
   padding-right: 15px;
 }
+
 .lesson-price{
   width: 70px;
   height: 40px;
@@ -304,6 +308,10 @@ i.video-skips:hover {
   width: 532px; 
   height: 299px;
 }
+.iframe-size {
+  width: 560px;
+  height: 315px;
+}
 .card-testimonial {
   min-height: 270px;
 }
@@ -348,6 +356,10 @@ i.video-skips:hover {
   .main-background {
     padding-top: 20px;
   }
+  .iframe-size {
+    width: 100%;
+    min-height: 300px;
+  }  
 }
 @media (max-width: 450px){
   .iframe-video {
