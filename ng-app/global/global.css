@@ -380,6 +380,19 @@ i.video-skips:hover {
 }
 .codingo-green {
   color: #a5d6a7;
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;  
+}
+.youtube-main:hover {
+  color: #fff;
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;
 }
 /*Pricing Page*/
 .price-content {
