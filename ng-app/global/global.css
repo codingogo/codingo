@@ -109,6 +109,9 @@ body {
 .text-shadow {
   text-shadow: 1px 1px 10px #000;
 }
+.text-shadow-light {
+  text-shadow: 1px 1px 1px #777;
+}
 .slider {
   height: 340px;
 }
