@@ -77,6 +77,15 @@ body {
 /*Lessons*/
 .modal{
   min-height: 520px;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 25px;
+}
+.modal .modal-footer {
+  background-color: #000;
+}
+.modal .modal-content {
+  padding: 10px;
 }
 .main-background {
   margin-top: 15px;
@@ -367,6 +376,15 @@ i.video-skips:hover {
     width: 100%;
     min-height: 300px;
   }  
+  .modal {
+    width: 64%;
+    min-height: 580px;
+  }
+}
+@media (max-width: 1094px){
+  .modal {
+    width: 80%;
+  }
 }
 @media (max-width: 450px){
   .iframe-video {
