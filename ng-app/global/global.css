@@ -291,19 +291,22 @@ i.video-skips:hover {
   margin-top: 8px;
   font-size: .85em;
 }
-
+.youtube-desc {
+  font-style: italic;
+}
 .video-snippets {
-  /*margin-top: 30px;*/
   min-height: 100px;
   padding: 20px;
 }
 .video-trigger {
   position: absolute;
-  font-size: 60px;
+  font-size: 50px;
   top: 340px;
   z-index: 999;
   right: 15%;
+  vertical-align: bottom;
 }
+
 .youtube-video {
   width: 532px; 
   height: 299px;
@@ -315,6 +318,10 @@ i.video-skips:hover {
 .card-testimonial {
   min-height: 270px;
 }
+.why{
+  font-size: 24px;
+  vertical-align: middle;
+}
 .codingo-green {
   color: #a5d6a7;
   transition: color 0.5s;
@@ -323,7 +330,7 @@ i.video-skips:hover {
   -moz-transition: color 0.5s;
   -ms-transition: color 0.5s;  
 }
-.youtube-main:hover, .youtube-main:focus {
+.youtube-main:hover, .youtube-main:focus, .codingo-green.why:hover {
   color: #fff;
   transition: color 0.5s;
   -webkit-transition: color 0.5s;
