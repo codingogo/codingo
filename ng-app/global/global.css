@@ -6,6 +6,9 @@ body {
   text-align: center;
   margin: 0 auto;
 }
+.height100 {
+  height: 100px;
+}
 .height400 {
   min-height: 400px;
 }
@@ -111,6 +114,7 @@ body {
   background-color: #000;
   height: 80px;
 }
+
 .text-shadow {
   text-shadow: 1px 1px 10px #000;
 }
@@ -750,7 +754,7 @@ nav .dropdown-content {
     min-height: 300px;
   }  
   .modal {
-    width: 64%;
+    width: 90%;
     min-height: 580px;
   }
 }
