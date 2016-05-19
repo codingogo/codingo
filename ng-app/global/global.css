@@ -114,7 +114,19 @@ body {
   background-color: #000;
   height: 80px;
 }
-
+.modal.main-video .modal-content .slider .slides{
+  max-height: 180px;
+}
+.modal-close-x {
+  right: 20px;
+  position: absolute;
+  font-size: 24px;
+  font-family: sans-serif;
+  
+}
+.modal .modal-close:hover {
+  color: #777;
+}
 .text-shadow {
   text-shadow: 1px 1px 10px #000;
 }
@@ -334,6 +346,7 @@ i.video-skips:hover {
 .iframe-size {
   width: 560px;
   height: 315px;
+  padding-top: 30px;
 }
 .card-testimonial {
   min-height: 210px;
@@ -766,3 +779,4 @@ nav .dropdown-content {
     height: 100%;
   }
 }
+
