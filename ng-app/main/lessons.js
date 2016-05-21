@@ -34,13 +34,16 @@ module.exports= function(app){
   app.controller('LessonCtrl', function($scope, $stateParams, Lesson, Video, $sce){
 
     $scope.showDescription = function(tabIndex){
+      console.log(tabIndex);
       console.log($scope.filteredVideos[tabIndex]);
       $scope.currentTabIndex = tabIndex;
       $scope.videoObj = null;
-      $scope.descriptionObj = $scope.filteredVideos[tabIndex];
+      $scope.textInstruction = $scope.filteredVideos[tabIndex];
+      console.log($scope.textInstruction);
     };
 
     $scope.showTab = function(tabIndex) {
+      $scope.textInstruction = null;
       $scope.currentTabIndex = tabIndex;
       $scope.videoObj = $scope.filteredVideos[tabIndex];
       $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];

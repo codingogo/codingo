@@ -127,6 +127,10 @@ body {
 .modal .modal-close:hover {
   color: #777;
 }
+td.table-num {
+  width: 20px;
+  padding: 5px 15px;
+}
 .text-shadow {
   text-shadow: 1px 1px 10px #000;
 }
@@ -281,10 +285,34 @@ nav .button-collapse i{
 .sub-detail {
   padding: 5px 0 5px 22px;
 }
-.code {
+.sidenote {
+  font-style: italic;
+  font-size: 0.9em;
+}
+.italic {
+  font-style: italic;
+}
+.site-info {
+  padding: 20px 0px;
+  font-size: 1.3rem;
+}
+.card .card-content p.mid-text {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+.card .card-content p.side-note {
+  margin-left: 30px;
+  margin-top: -20px;
+  margin-bottom: 25px;
+  font-style: italic;
+  font-size: 0.9em;
+}
+.card .card-content p.code {
   margin-left: 10px;
   padding: 10px 10px 10px 22px;
   border-radius: 10px;
+  margin-bottom: 25px;
 }
 .video-note {
   padding: 15px 25px 15px 20px;

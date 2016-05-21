@@ -5,7 +5,7 @@
     <!-- Scenerio 1: user is not logged -->
     <div class="" ng-if="!premium">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos">
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
           <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
 
           <div class="video-note">
@@ -17,10 +17,10 @@
       </ul>
     </div>
 
-    <!-- Scenerio 2: (free lesson && user logged) or (premiu && subscribed)-->
+    <!-- Scenerio 2: (free lesson && user logged) or (premium && subscribed)-->
     <div class="" ng-if="(!premium && user.logged) ||(premium && user.subscribed) ">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos">
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
           <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
           <div class="video-note">
             <!-- video button -->
@@ -40,7 +40,7 @@
     <!-- Scenerio 3: user is not subscribed && premium-->
     <div class="" ng-if="premium && !user.subscribed">          
       <ul class="collection lesson-nav">
-        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos">
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
           <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
           <div class="video-note">
             <a href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 Pro회원에 가입해주세요 " data-delay="0"><i class="material-icons circle-blue red">lock</i>{{item.title}}</a>
@@ -63,27 +63,11 @@
           <p class="video-description">{{videoObj.description}}</p>
         </div>
         
-        <!-- Description Object -->
-        <div class="card-content" ng-if="descriptionObj">
-          <p class="card-title video-title">{{descriptionObj.title}}</p>
-          <div class="grey-text text-lighten-4">
-            <div class="card-image" ng-if="descriptionObj.subtitle1">
-              <h5 class="sub-title">{{descriptionObj.subtitle1}}</h5>
-              <p class="code white-text grey darken-4">{{descriptionObj.code1}}</p>
-              <p class="sub-detail">{{descriptionObj.detail1}}</p>
-            </div>
-            <div class="card-image" ng-if="descriptionObj.subtitle1">
-              <h5 class="sub-title">{{descriptionObj.subtitle2}}</h5>
-              <p class="code white-text grey darken-4">{{descriptionObj.code2}}</p>
-              <p class="sub-detail">{{descriptionObj.detail2}}</p>
-            </div>
-            <div class="card-image" ng-if="descriptionObj.subtitle1">
-              <h5 class="sub-title">{{descriptionObj.subtitle3}}</h5>
-              <p class="code white-text grey darken-4">{{descriptionObj.code3}}</p>
-              <p class="sub-detail">{{descriptionObj.detail3}}</p>
-            </div>            
-          </div>
-        </div>
+        <!-- Ruby on Rails Install Instruction Mac(code 1) -->
+        <div ng-include="'./ng-app/main/instructions/_code1.html'"></div>
+
+        <!-- Ruby on Rails Install Instruction Mac(code 2) -->
+        <div ng-include="'./ng-app/main/instructions/_code2.html'"></div>
 
         <!-- video controller -->
         <div class="card-action video-controller" ng-if="!user.logged && !premium">
