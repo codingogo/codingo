@@ -301,6 +301,10 @@ nav .button-collapse i{
   margin-bottom: 10px;
   margin-top: -10px;
 }
+.card .card-content p.mid-texter {
+  margin-left: 30px;
+  margin-bottom: 10px;  
+}
 .card .card-content p.side-note {
   margin-left: 30px;
   margin-top: -20px;
@@ -409,6 +413,13 @@ i.video-skips:hover {
 .fa-film:hover {
   color: #fff;
 }
+.instruction-img {
+  max-width: 250px;
+  padding: 10px;
+}
+
+
+
 /*Comment Area*/
 .comment-add {
   min-height: 150px;
