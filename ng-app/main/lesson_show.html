@@ -63,7 +63,7 @@
           <p class="video-description">{{videoObj.description}}</p>
         </div>
         
-        <div ng-if="videoObj.wistia!==''">
+        <div ng-if="videoObj.wistia==='' || videoObj.wistia === null">
           <!-- Ruby on Rails Install Instruction Mac(code 1) -->
           <div ng-include="'./ng-app/main/instructions/_code1.html'"></div>
 
@@ -79,12 +79,12 @@
         <!-- Video Controllers -->
         <div class="card-action video-controller" ng-if="!premium && user.logged">
           <a href="" ng-click="previousVideo(videoObj.order)" ng-if="allowPreviousBtn"><i class="material-icons large video-skips">fast_rewind</i></a>
-          <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn"><i class="material-icons large video-skips">fast_forward</i></a></span>
+          <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn && videoObj"><i class="material-icons large video-skips">fast_forward</i></a></span>
         </div>
 
         <div class="card-action video-controller" ng-if="premium && user.subscribed">
           <a href="" ng-click="previousVideo(videoObj.order)" ng-if="allowPreviousBtn"><i class="material-icons large video-skips">fast_rewind</i></a>
-          <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn"><i class="material-icons large video-skips">fast_forward</i></a></span>
+          <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn && videoObj"><i class="material-icons large video-skips">fast_forward</i></a></span>
         </div>
 
         <div class="card-action video-controller" ng-if="premium && !user.subscribed">
