@@ -55,7 +55,7 @@
     <div class="video-section white-text">
       <div class="card blue-grey darken-1 video-card">
         <!-- Video Object -->
-        <div class="card-content" ng-if="videoObj">
+        <div class="card-content" ng-if="videoObj.wistia">
           <p class="card-title video-title">{{videoObj.title}}</p>
           <div class="card-image">
             <iframe ng-src="{{videoLink[0].url}}" allowtransparency="true" frameborder="0" scrolling="no" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen class="iframe-video"></iframe>
@@ -63,17 +63,20 @@
           <p class="video-description">{{videoObj.description}}</p>
         </div>
         
-        <!-- Ruby on Rails Install Instruction Mac(code 1) -->
-        <div ng-include="'./ng-app/main/instructions/_code1.html'"></div>
+        <div ng-if="videoObj.wistia!==''">
+          <!-- Ruby on Rails Install Instruction Mac(code 1) -->
+          <div ng-include="'./ng-app/main/instructions/_code1.html'"></div>
 
-        <!-- Ruby on Rails Install Instruction Mac(code 2) -->
-        <div ng-include="'./ng-app/main/instructions/_code2.html'"></div>
+          <!-- Ruby on Rails Install Instruction Mac(code 2) -->
+          <div ng-include="'./ng-app/main/instructions/_code2.html'"></div>
+        </div>
 
         <!-- video controller -->
         <div class="card-action video-controller" ng-if="!user.logged && !premium">
           <p>영상을 시청하려면 로그인해주세요</p>
         </div>
 
+        <!-- Video Controllers -->
         <div class="card-action video-controller" ng-if="!premium && user.logged">
           <a href="" ng-click="previousVideo(videoObj.order)" ng-if="allowPreviousBtn"><i class="material-icons large video-skips">fast_rewind</i></a>
           <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn"><i class="material-icons large video-skips">fast_forward</i></a></span>

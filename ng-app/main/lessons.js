@@ -35,11 +35,11 @@ module.exports= function(app){
 
     $scope.showDescription = function(tabIndex){
       console.log(tabIndex);
-      console.log($scope.filteredVideos[tabIndex]);
+      // console.log($scope.filteredVideos[tabIndex]);
       $scope.currentTabIndex = tabIndex;
       $scope.videoObj = null;
       $scope.textInstruction = $scope.filteredVideos[tabIndex];
-      console.log($scope.textInstruction);
+      console.log('text inst',$scope.textInstruction);
     };
 
     $scope.showTab = function(tabIndex) {
@@ -69,11 +69,16 @@ module.exports= function(app){
     $scope.nextVideo = function(index){
       if($scope.filteredVideos[index + 1] !== undefined){
         $scope.videoObj = $scope.filteredVideos[index + 1];
+        if($scope.filteredVideos[index+1].wistia=="" || $scope.filteredVideos[index+1].wistia == null){
+          
+          $scope.showDescription(index+1);
+        }
       } 
       if ($scope.filteredVideos[index + 2] === undefined){
         $scope.allowNextBtn = false;
       }
-      if($scope.videoLink !== undefined){
+        // debugger;
+      if($scope.videoLink !== undefined && $scope.videoObj !== null){
         $scope.videoLink = [{url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia)}];
         $scope.allowPreviousBtn = true;
       }
