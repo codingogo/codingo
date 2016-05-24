@@ -83,6 +83,7 @@ module.exports= function(app){
 
     $scope.previousVideo = function(index){
       $scope.allowNextBtn = true;
+      
       if($scope.filteredVideos[index-1] !== undefined){
         $scope.videoObj = $scope.filteredVideos[index - 1];
         if($scope.filteredVideos[index-1].wistia==="" || $scope.filteredVideos[index-1].wistia === null){
