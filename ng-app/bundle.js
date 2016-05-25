@@ -421,6 +421,7 @@
 	    };
 
 	    $scope.showTab = function (tabIndex) {
+
 	      $scope.textInstruction = null;
 	      $scope.currentTabIndex = tabIndex;
 	      $scope.videoObj = $scope.filteredVideos[tabIndex];
@@ -442,38 +443,51 @@
 	      } else {
 	        $scope.allowPreviousBtn = true;
 	      }
+	      console.log('currentTabIndex', $scope.currentTabIndex = tabIndex);
+	      console.log('videoObj', $scope.videoObj);
 	    };
 
 	    $scope.nextVideo = function (index) {
-	      if ($scope.filteredVideos[index + 1] !== undefined) {
-	        $scope.videoObj = $scope.filteredVideos[index + 1];
-	        if ($scope.filteredVideos[index + 1].wistia == "" || $scope.filteredVideos[index + 1].wistia == null) {
 
+	      // if there is next filteredVideo obj
+	      if ($scope.filteredVideos[index + 1]) {
+	        $scope.videoObj = $scope.filteredVideos[index + 1];
+
+	        // if next section is textInst
+	        if ($scope.videoObj.wistia === "" || $scope.videoObj.wistia === null) {
 	          $scope.showDescription(index + 1);
 	        }
+	        // if next section is video
+	        if ($scope.videoObj.wistia !== "" && $scope.videoObj.wistia !== null) {
+
+	          $scope.videoLink = [{ url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia) }];
+	          $scope.textInstruction = null;
+	        }
 	      }
+	      // if the next next section is not a video nor textInstruction
 	      if ($scope.filteredVideos[index + 2] === undefined) {
 	        $scope.allowNextBtn = false;
 	      }
-	      if ($scope.videoLink !== undefined && $scope.videoObj !== null) {
-	        $scope.videoLink = [{ url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia) }];
-	        $scope.allowPreviousBtn = true;
-	      }
+	      $scope.allowPreviousBtn = true;
 	    };
 
 	    $scope.previousVideo = function (index) {
 	      $scope.allowNextBtn = true;
-
-	      if ($scope.filteredVideos[index - 1] !== undefined) {
+	      // if there is previous filteredVideo
+	      if ($scope.filteredVideos[index - 1]) {
 	        $scope.videoObj = $scope.filteredVideos[index - 1];
-	        if ($scope.filteredVideos[index - 1].wistia === "" || $scope.filteredVideos[index - 1].wistia === null) {
+	        // if prev section is textInst
+	        if ($scope.videoObj.wistia === "" || $scope.videoObj.wistia === null) {
 	          $scope.showDescription(index - 1);
 	        }
+	        // if prev section is video
+	        if ($scope.videoObj.wistia !== "" && $scope.videoObj.wistia !== null) {
+	          $scope.videoLink = [{ url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia) }];
+	          $scope.allowPreviousBtn = true;
+	          $scope.textInstruction = null;
+	        }
 	      }
-	      if ($scope.videoObj !== undefined) {
-	        $scope.videoLink = [{ url: $sce.trustAsResourceUrl('//fast.wistia.net/embed/iframe/' + $scope.videoObj.wistia) }];
-	        $scope.allowPreviousBtn = true;
-	      };
+	      // if prev prev section is not a video nor textInst
 	      if ($scope.filteredVideos[index - 2] === undefined) {
 	        $scope.allowPreviousBtn = false;
 	      }
@@ -493,7 +507,7 @@
 	      Lesson.get($stateParams.lessonId).then(function (data) {
 	        $scope.premium = data.data[0].premium;
 	        $scope.lessonObj = data.data[0];
-	        $scope.comments = data.data[0].actions.comments;
+	        // $scope.comments = data.data[0].actions.comments;
 	      });
 
 	      var query = {
@@ -502,7 +516,7 @@
 	      };
 
 	      Video.query(query).then(function (data) {
-	        $scope.test = data.data;
+	        // $scope.test = data.data;
 	        var obj = data.data;
 	        videos = obj.filter(function (val) {
 	          return val.lesson_id == $stateParams.lessonId;
@@ -794,7 +808,7 @@
 
 	    $scope.spinner = false;
 	    $scope.monthly_sub = false;
-	    // set up to signup-are initially
+
 	    $scope.currentTabIndex = 0;
 	    $scope.card = {};
 

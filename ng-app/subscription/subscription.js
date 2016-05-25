@@ -3,7 +3,7 @@ module.exports= function(app){
 
     $scope.spinner = false;
     $scope.monthly_sub = false;
-    // set up to signup-are initially
+    
     $scope.currentTabIndex = 0;
     $scope.card = {};
 
