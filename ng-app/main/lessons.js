@@ -63,8 +63,6 @@ module.exports= function(app){
       } else {
         $scope.allowPreviousBtn = true;
       }
-      console.log('currentTabIndex', $scope.currentTabIndex = tabIndex);
-      console.log('videoObj', $scope.videoObj);
     };
 
     $scope.nextVideo = function(index){
