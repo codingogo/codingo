@@ -1,6 +1,20 @@
 /*Global*/
 body {
   background-color: #fafafa ;
+  width                  : 100%;
+  height                 : 100%;
+  -moz-background-size   : cover;
+  -webkit-background-size: cover;
+  background-size        : cover;
+  background-position    : top center !important;
+  background-repeat      : no-repeat !important;
+  background-attachment  : fixed;  
+}
+.wrap {
+  padding-top: 150px;
+}
+.pad-top {
+  padding-top: 42px;
 }
 .center {
   text-align: center;
@@ -101,9 +115,57 @@ body {
   background: -o-radial-gradient(#fff, #c8e6c9); 
   background: -moz-radial-gradient(#fff, #c8e6c9);  
 }
-.slides {
-  margin-top: 15px;
-  background: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/learning2.jpg) no-repeat;
+.landing-page {
+  margin-top: -20px;
+  background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe.jpeg);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /*background-color: #999;*/
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+}
+.landing-page-footer {
+  /*position: fixed;*/
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding: 10px 50px;
+  z-index: 9;
+}
+.lesson-content {
+  color           : #fff;
+  position        : absolute;
+  top             : 100%;
+  width           : 100%;
+  height          : 100%;
+  text-align      : center;
+  background-color: #fafafa ;
+  padding         : 2em;
+  left            : 0;
+}
+.home-page-OUT {
+  background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe.jpeg);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color       : #999;
+  background-position    : center;
+  background-size        : cover;
+  -webkit-background-size: cover;
+  -moz-background-size   : cover;
+  -o-background-size     : cover;
+  z-index: -1;  
+}
+.display-none{
+  background-color: rgba(1,1,1,0);
+}
+.slider .slides {
+  /*height: 100%;*/
+  /*background: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/desk.jpg) no-repeat;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -114,6 +176,7 @@ body {
   background-color: #000;
   height: 80px;
 }
+
 .modal.main-video .modal-content .slider .slides{
   max-height: 180px;
 }
@@ -138,7 +201,7 @@ td.table-num {
   text-shadow: 1px 1px 1px #777;
 }
 .slider {
-  height: 340px;
+  height: 540px;
 }
 .slider .slides li .caption {
   left: 10%;
@@ -163,6 +226,26 @@ td.table-num {
 }
 nav .button-collapse i{
   padding-left: 10px;
+}
+nav {
+  height: 20px;
+}
+.navbar {
+  /*margin-top: -20px;*/
+  background: transparent;
+  text-shadow: 1px 1px 1px #666;
+  z-index: 9999;
+  /*position: fixed;*/
+  box-shadow: none;
+/*  height: 64px;*/
+}
+nav .nav-wrapper{
+   background: linear-gradient(rgba(1,1,1,.2),rgba(1,1,1,0));
+  text-shadow: 1px 1px 1px #666;
+  z-index: 9999;
+  /*position: fixed;*/
+  box-shadow: none;
+  height: 64px; 
 }
 .card-title-text {
   font-size: 18px;
@@ -296,6 +379,9 @@ nav .button-collapse i{
   padding: 20px 0px;
   font-size: 1.3rem;
 }
+.card {
+  margin: 8px 0 10px 0;
+}
 .card .card-content p.mid-text {
   margin-left: 30px;
   margin-bottom: 10px;
@@ -363,11 +449,12 @@ i.video-skips:hover {
   padding: 20px;
 }
 .video-trigger {
-  position: absolute;
+  /*position: absolute;*/
   font-size: 50px;
   top: 340px;
   z-index: 999;
-  right: 15%;
+  margin-left: auto;
+  margin-right: auto;
   vertical-align: bottom;
 }
 
@@ -512,7 +599,7 @@ i.video-skips:hover {
 }
 .free-price-card {
   position: relative;
-  margin: 0.49rem 0 1rem 0;
+  margin: 8px 0 10px 0;
   background-color: #fff;
   border: 1px solid #eee;
   border-radius: 2px;
@@ -595,7 +682,7 @@ i.video-skips:hover {
   height: 64px;
   margin-right: 0px;
   float: right;
-  background-color: #a5d6a7;
+  /*background-color: #a5d6a7;*/
   border-radius: 0;
 }
 nav .brand-logo {
@@ -608,11 +695,17 @@ nav .brand-logo:hover {
   -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
+nav .nav-wrapper{
+  z-index: 9999;
+}
 .login-btn {
   margin-right: 15px;
 }
 nav .dropdown-content {
   margin-top: 8px;
+}
+.chip {
+  background-color: transparent;
 }
 .chip img {
   margin: 13px 10px 0 1px;
@@ -740,6 +833,7 @@ nav .dropdown-content {
 }
 
 /*MEDIA QUERIES*/
+
 @media (min-width: 993px){
   .video-snippets {
     padding-left: 10%;
