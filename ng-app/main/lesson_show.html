@@ -30,7 +30,7 @@
               <i class="material-icons plain-icon">description</i>{{item.title}}
             </a>
               <span class="text-right grey-text darken-3 video-time" ng-hide="item.text">{{item.duration}}</span>
-            <a href="" class="full-width grey-text limited-description" ng-click="showTab($index)">{{item.description | limitTo: 50}}...</a>
+            <p class="full-width grey-text limited-description">{{item.description | limitTo: 50}}...</p>
           </div>  
         </li>
       </ul>
