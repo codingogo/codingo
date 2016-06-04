@@ -57,103 +57,105 @@
   </div>  
 </div>
 
+<div class="above-footer"></div>
+
 <div class="lesson-content">  
-    <!-- Video Snippets -->
-    <div class="container-default">
-      <!-- Lessons -->
-      <div class="row">
-        <h5 class="left-align project-heading green-text text-lighten-2">프로젝트를 클릭하세요</h5>
-        <br>
-        <!-- lessons not locked -->
-        <div class="col s12 m6 l4 " ng-repeat="lesson in lessons">
-          <a ui-sref="lessonDetail({lessonId: '{{lesson._id}}'})" ng-if="!lesson.locked">
-            <div class="card hoverable lesson-card">
-                <div class="card-image">
-                  <img src="{{lesson.main_img}}" alt="lesson image">
-                </div>    
-                <div class="card-content">
-                  <span class="card-title-text grey-text text-darken-4">{{lesson.title}}</span>
-                  <p class="grey-text text-darken-2">{{lesson.description}}</p>
-                  <button class="lesson-price grey lighten-2 blue-text text-darken-2" ng-if="!lesson.premium">FREE</button>
-                  <button class="lesson-price blue lighten-1 white-text" ng-if="lesson.premium" tooltipped data-position="top" data-delay="30" data-tooltip="Pro 회원만 시청이 가능합니다">PRO</button>
-                  <p class="lesson-level blue-text lighten-1">{{lesson.level}}</p>
-                </div>
-            </div>
-          </a>
-        </div>
-      
-        <!-- lessons locked -->
-        <div class="col s12 m6 l4 " ng-repeat="lesson in lessons">
-          <a ui-sref="comingsoon" ng-if="lesson.locked">
-            <div class="card hoverable lesson-card">
-                <div class="card-image">
-                  <img src="{{lesson.main_img}}" alt="lesson image">
-                </div>    
-                <div class="card-content">
-                  <span class="card-title-text grey-text text-darken-4">{{lesson.title}}</span>
-                  <p class="grey-text text-darken-2">{{lesson.description}}</p>
-                  <button class="lesson-price grey lighten-2 blue-text text-darken-2" ng-if="!lesson.premium">FREE</button>
-                  <button class="lesson-price blue lighten-1 white-text" ng-if="lesson.premium" tooltipped data-position="top" data-delay="30" data-tooltip="Pro 회원만 시청이 가능합니다">PRO</button>
-                  <p class="lesson-level blue-text lighten-1">{{lesson.level}}</p>
-                </div>
-            </div>
-          </a>
-        </div>    
+  <!-- Video Snippets -->
+  <div class="container-default">
+    <!-- Lessons -->
+    <div class="row">
+      <h5 class="left-align project-heading green-text text-lighten-2">프로젝트를 클릭하세요</h5>
+      <br>
+      <!-- lessons not locked -->
+      <div class="col s12 m6 l4 " ng-repeat="lesson in lessons">
+        <a ui-sref="lessonDetail({lessonId: '{{lesson._id}}'})" ng-if="!lesson.locked">
+          <div class="card hoverable lesson-card">
+              <div class="card-image">
+                <img src="{{lesson.main_img}}" alt="lesson image">
+              </div>    
+              <div class="card-content">
+                <span class="card-title-text grey-text text-darken-4">{{lesson.title}}</span>
+                <p class="grey-text text-darken-2">{{lesson.description}}</p>
+                <button class="lesson-price grey lighten-2 blue-text text-darken-2" ng-if="!lesson.premium">FREE</button>
+                <button class="lesson-price blue lighten-1 white-text" ng-if="lesson.premium" tooltipped data-position="top" data-delay="30" data-tooltip="Pro 회원만 시청이 가능합니다">PRO</button>
+                <p class="lesson-level blue-text lighten-1">{{lesson.level}}</p>
+              </div>
+          </div>
+        </a>
       </div>
-
-      <!-- Video Snippets -->
-      <div class="video-snippets center-align" ng-if="!user.logged">
-        <div class="row">
-          <h5 class="left-align project-heading green-text text-lighten-2">코딩 이야기</h5>
-          <div class="row">
-
-            <div class="col s12 m4">
-              <div class="card-panel green lighten-5 card-testimonial">
-                <p class="green-text text-darken-4 video-title">스티브 잡스</p>
-                <a href="#videoTrigger1" class="text-shadow-light white-text" modal><i class="fa fa-film fa-3x codingo-green" aria-hidden="true"></i></a>
-                <div id="videoTrigger1" class="modal">
-                  <div class="modal-content">
-                    <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
-                    <iframe class="iframe-size" src="https://www.youtube.com/embed/5Z1gfgM7kzo" frameborder="0" allowfullscreen></iframe>
-                    <br>
-                    <p>"...프로그래밍에서 가장 중요한 점은 실용적으로 사용하는 것보다 자신의 사고방식을 거울로 비추는 것처럼 생각하는 법을 배운다는 것입니다. 이 나라에 모든 사람들은 컴퓨터 프로그래밍을 배워야한다고 생각합니다. 어떻게 생각해야하는지를 배우기 때문입니다."</p>
-                  </div>
-                </div>
-              </div>  
-            </div>
-
-            <div class="col s12 m4">
-              <div class="card-panel green lighten-5 card-testimonial">
-                <p class="green-text text-darken-4 video-title">버락 오바마</p>
-                <a href="#videoTrigger2" class="text-shadow-light white-text" modal><i class="fa fa-film fa-3x codingo-green" aria-hidden="true"></i></a>
-                <div id="videoTrigger2" class="modal">
-                  <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
-                  <div class="modal-content">
-                    <iframe class="iframe-size" src="https://www.youtube.com/embed/6XvmhE1J9PY" frameborder="0" allowfullscreen></iframe>
-                    <p>"미국의 학생들, 선생님들, 비즈니스들, 그리고 비영리재단들이 학업에 컴퓨터 프로그래밍을 지지하는 중요한 첫걸음에 동참하는 것을 자랑스럽게 말씀드립니다. 프로그래밍을 배우는 것은 단지 미래를 준비하기위해 필요한 것뿐만 아니라 우리나라의 미래를 위해서도 중요합니다..."</p>
-                  </div>
-                </div>
-              </div>  
-            </div>
-
-            <div class="col s12 m4">
-              <div class="card-panel green lighten-5 card-testimonial">
-                <p class="green-text text-darken-4 video-title">윌.아이.엠</p>
-                <a href="#videoTrigger3" class="text-shadow-light white-text" modal><i class="fa fa-film fa-3x codingo-green" aria-hidden="true"></i></a>
-                <div id="videoTrigger3" class="modal">
-                  <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
-                  <div class="modal-content">
-                    <iframe class="iframe-size" src="https://www.youtube.com/embed/HX30e5VtQO8" frameborder="0" allowfullscreen></iframe>
-                    <p>"제가 47살이되면 코딩을 자연스럽게 하고 싶습니다. 그래서 저는 (코딩을) 단련하고 있습니다."</p>
-                  </div>
-                </div>
-              </div>  
-            </div>
-          </div>  
-        </div>  
-      </div><!-- ends video snippets -->
+    
+      <!-- lessons locked -->
+      <div class="col s12 m6 l4 " ng-repeat="lesson in lessons">
+        <a ui-sref="comingsoon" ng-if="lesson.locked">
+          <div class="card hoverable lesson-card">
+              <div class="card-image">
+                <img src="{{lesson.main_img}}" alt="lesson image">
+              </div>    
+              <div class="card-content">
+                <span class="card-title-text grey-text text-darken-4">{{lesson.title}}</span>
+                <p class="grey-text text-darken-2">{{lesson.description}}</p>
+                <button class="lesson-price grey lighten-2 blue-text text-darken-2" ng-if="!lesson.premium">FREE</button>
+                <button class="lesson-price blue lighten-1 white-text" ng-if="lesson.premium" tooltipped data-position="top" data-delay="30" data-tooltip="Pro 회원만 시청이 가능합니다">PRO</button>
+                <p class="lesson-level blue-text lighten-1">{{lesson.level}}</p>
+              </div>
+          </div>
+        </a>
+      </div>    
     </div>
-  
+
+    <!-- Video Snippets -->
+    <div class="video-snippets center-align" ng-if="!user.logged">
+      <div class="row">
+        <h5 class="left-align project-heading green-text text-lighten-2">코딩 이야기</h5>
+        <div class="row">
+
+          <div class="col s12 m4">
+            <div class="card-panel green lighten-5 card-testimonial">
+              <p class="green-text text-darken-4 video-title">스티브 잡스</p>
+              <a href="#videoTrigger1" class="text-shadow-light white-text" modal><i class="fa fa-film fa-3x codingo-green" aria-hidden="true"></i></a>
+              <div id="videoTrigger1" class="modal">
+                <div class="modal-content">
+                  <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
+                  <iframe class="iframe-size" src="https://www.youtube.com/embed/5Z1gfgM7kzo" frameborder="0" allowfullscreen></iframe>
+                  <br>
+                  <p>"...프로그래밍에서 가장 중요한 점은 실용적으로 사용하는 것보다 자신의 사고방식을 거울로 비추는 것처럼 생각하는 법을 배운다는 것입니다. 이 나라에 모든 사람들은 컴퓨터 프로그래밍을 배워야한다고 생각합니다. 어떻게 생각해야하는지를 배우기 때문입니다."</p>
+                </div>
+              </div>
+            </div>  
+          </div>
+
+          <div class="col s12 m4">
+            <div class="card-panel green lighten-5 card-testimonial">
+              <p class="green-text text-darken-4 video-title">버락 오바마</p>
+              <a href="#videoTrigger2" class="text-shadow-light white-text" modal><i class="fa fa-film fa-3x codingo-green" aria-hidden="true"></i></a>
+              <div id="videoTrigger2" class="modal">
+                <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
+                <div class="modal-content">
+                  <iframe class="iframe-size" src="https://www.youtube.com/embed/6XvmhE1J9PY" frameborder="0" allowfullscreen></iframe>
+                  <p>"미국의 학생들, 선생님들, 비즈니스들, 그리고 비영리재단들이 학업에 컴퓨터 프로그래밍을 지지하는 중요한 첫걸음에 동참하는 것을 자랑스럽게 말씀드립니다. 프로그래밍을 배우는 것은 단지 미래를 준비하기위해 필요한 것뿐만 아니라 우리나라의 미래를 위해서도 중요합니다..."</p>
+                </div>
+              </div>
+            </div>  
+          </div>
+
+          <div class="col s12 m4">
+            <div class="card-panel green lighten-5 card-testimonial">
+              <p class="green-text text-darken-4 video-title">윌.아이.엠</p>
+              <a href="#videoTrigger3" class="text-shadow-light white-text" modal><i class="fa fa-film fa-3x codingo-green" aria-hidden="true"></i></a>
+              <div id="videoTrigger3" class="modal">
+                <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
+                <div class="modal-content">
+                  <iframe class="iframe-size" src="https://www.youtube.com/embed/HX30e5VtQO8" frameborder="0" allowfullscreen></iframe>
+                  <p>"제가 47살이되면 코딩을 자연스럽게 하고 싶습니다. 그래서 저는 (코딩을) 단련하고 있습니다."</p>
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div>  
+      </div>  
+    </div><!-- ends video snippets -->
+  </div> 
+  <!-- Footer --> 
   <div ng-include="'./ng-app/partials/_footer.html'" class="left-align"></div>  
 </div>
 
