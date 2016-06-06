@@ -1,15 +1,18 @@
+<div class="landing-cover"></div>
 <div class="landing-page">
   <div class="wrap container">
     <div class="caption white-text center-align col m8">
       <h3 class="white-text text-darken-3 text-shadow">코딩 교육 </h3>
-      <h5 class="light white-text text-darken-1 text-shadow">가장 쉽고 빠르게 코딩을 배웁니다</h5>
+      <h5 class="light white-text text-darken-1 text-shadow">어플리케이션을 만들면서 쉽고 빠르게 배웁니다</h5>
       <br>  
       <a ui-sref="registration" class="btn btn-large blue waves-effect waves-light" ng-hide="logged">FREE 계정 시작</a>
     </div>
 
+
+
     <!-- main marketing video -->
     <div class="why-code center-align">
-      <a href="#videoTrigger" class="video-trigger text-shadow white-text" modal><span class="why">Why code? </span><i class="fa fa-video-camera codingo-green youtube-main"></i></a>
+<!--       <a href="#videoTrigger" class="video-trigger text-shadow white-text" modal><span class="why">Why code? </span><i class="fa fa-video-camera codingo-green youtube-main"></i></a> -->
       <div id="videoTrigger" class="modal main-video">
         <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
         <div class="modal-content center-align">
@@ -53,18 +56,20 @@
 
         </div>
       </div>
-    </div>      
+    </div>  
+    <div class="center-align">
+      <a href ng-click="gotoLesson('lesson')" class="white-text text-shadow waves-effect waves-dark"><i class="fa fa-arrow-down fa-3x goto-lesson" aria-hidden="true"></i></a> 
+    </div>     
   </div>  
 </div>
 
 <div class="above-footer"></div>
-
 <div class="lesson-content">  
   <!-- Video Snippets -->
   <div class="container-default">
     <!-- Lessons -->
     <div class="row">
-      <h5 class="left-align project-heading green-text text-lighten-2">프로젝트를 클릭하세요</h5>
+      <h5 class="left-align project-heading green-text text-lighten-2" id="lesson">프로젝트를 클릭하세요</h5>
       <br>
       <!-- lessons not locked -->
       <div class="col s12 m6 l4 " ng-repeat="lesson in lessons">

@@ -225,3 +225,4 @@ require('./subscription/subscription')(app);
 require('./services/VideoService')(app);
 require('./services/GlobalVariable')(app);
 require('./services/Validator.js')(app);
+require('./services/AnchorSmoothScroll.js')(app);

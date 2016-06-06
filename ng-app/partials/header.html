@@ -4,6 +4,9 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     
     <ul class="right ">
+      <!-- video trigger -->
+      <li class="hide-on-med-and-down"> <a href="#videoTrigger" class="" modal><span class="why"></span><i class="fa fa-video-camera fa-2x"></i></a></li>
+
       <li class="hide-on-med-and-down"><a ui-sref="about">코딩고란?</a></li>  
       <li class="hide-on-med-and-down" ng-hide="subscribed"><a ui-sref="pricing">가격표</a></li>
       <li ng-if="!logged" class="hide-on-small-and-down"><a ui-sref="registration">회원가입</a></li>
@@ -25,7 +28,7 @@
   </div>
 
   <!-- spinner  -->
-  <img src="./ng-app/assets/images/spinner.gif" alt="spinner"class="spinner" ng-if="spinner">    
+  <img src="./ng-app/assets/images/spinner-green.gif" alt="spinner"class="spinner" ng-if="spinner">    
 </nav>
 
 <script>

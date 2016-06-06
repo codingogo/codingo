@@ -1,5 +1,5 @@
 module.exports= function(app){ 
-  app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, UserStatus){
+  app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, UserStatus, AnchorSmoothScroll, $location){
     $scope.lessons = [];
     
     var initialise = function(){
@@ -26,6 +26,11 @@ module.exports= function(app){
         })
         $scope.lessons = lessons.data;
       })
+    };
+
+    $scope.gotoLesson = function(eID) {
+      $location.hash('lesson');
+      AnchorSmoothScroll.scrollTo(eID);
     };
 
     initialise();
