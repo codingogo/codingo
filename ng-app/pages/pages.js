@@ -1,6 +1,8 @@
 module.exports= function(app){ 
   app.controller('AboutCtrl', function($scope){
     
+    $scope.footer = true;
+
     $scope.aboutInfo = [
       {subTitle: '쉬운 교육', icon: 'videocam', info: ['프로그래밍에대한 배경이 없더라도 영상을 따라 쉽게 코딩을 배울 수 있습니다.'], classInfo: 'col s12 m5 offset-m1'},
       {subTitle: '신속한 개발', icon: 'trending_up', info: ['본인이 원하는 것을 직접 해결한다면 개발이 신속해지고 범실도 줄일 수 있습니다.'], classInfo: 'col s12 m5'},

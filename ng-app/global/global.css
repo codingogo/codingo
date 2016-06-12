@@ -10,6 +10,17 @@ body {
   background-repeat      : no-repeat !important;
   background-attachment  : fixed;  
 }
+a {
+  color: #79b27b;
+}
+a:hover {
+  color: #76876e;
+  transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s; 
+}
 .landing-cover {
   position: absolute;
   top: 0%;
@@ -23,7 +34,7 @@ body {
 }
 .landing-page {
   margin-top: -20px;
-  background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe.jpeg);
+  background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe-original.jpeg);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -42,6 +53,8 @@ body {
 }
 .goto-lesson {
   margin-top: 40px;
+  font-size: 50px;
+  padding: 10px;
 }
 .goto-lesson:hover {
   color: #a5d6a7;
@@ -57,7 +70,7 @@ body {
   left            : 0;
 }
 .why-code {
-  margin-top: 42px;
+  margin-top: 30px;
 }
 .home-page-OUT {
   background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe.jpeg);
@@ -275,6 +288,7 @@ nav .nav-wrapper{
 }
 .lesson-card {
   min-height: 420px;
+  text-align: left;
 }
 .lesson-nav {
   z-index: 99;
@@ -331,7 +345,7 @@ nav .nav-wrapper{
   border-bottom: 1px solid #ddd;
 }
 .collection .collection-item.avatar .play-title:hover {
-  color: #01579b;
+  color: #555;
 }
 .collection .collection-item.avatar i.plain-icon {
   width: 42px;
@@ -356,7 +370,7 @@ nav .nav-wrapper{
 }
 .collection .collection-item.avatar i.circle-blue{
   /*light blue*/
-  background-color: #039be5;  
+  background-color: #a5d6a7;  
   font-size: 18px;
   line-height: 42px;
   text-align: center;
@@ -376,8 +390,14 @@ nav .nav-wrapper{
 }
 .collection .collection-item.avatar i.circle-blue:hover {
   /*dark blue*/
-  background-color: #01579b;
+  background-color: #e5e5e5;
   color: #000;
+  color: #76876e;
+  transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;   
 }
 .collection .collection-item.avatar {
   padding: 0;
@@ -402,9 +422,9 @@ nav .nav-wrapper{
 .card {
   margin: 8px 0 10px 0;
 }
-.card .card-content {
+/*.card .card-content {
   text-align: left;
-}
+}*/
 .card .card-content p.mid-text {
   margin-left: 30px;
   margin-bottom: 10px;
@@ -432,8 +452,8 @@ nav .nav-wrapper{
 }
 .collection .collection-item.avatar p.chapter {
   font-size: 1.1em;
-  padding: 15px 20px 15px 20px;
-  background-color: #e8f5e9;
+  padding: 12px 20px;
+  background-color: #888;
 }
 .card .card-action.video-controller{
   padding: 10px 40px 6px 64px;
@@ -448,11 +468,21 @@ nav .nav-wrapper{
   color: #ccc;
 }
 i.video-skips {
-  color: white;
+  color: #a5d6a7;
   text-shadow: 1px 1px 1px #999;
+  transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;   
 }
 i.video-skips:hover {
-  color: #ffa000;
+  color: #888;
+  transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;   
 }
 .iframe-video {
   width: 100%;
@@ -472,13 +502,11 @@ i.video-skips:hover {
   padding: 20px;
 }
 .video-trigger {
-  /*position: absolute;*/
-  font-size: 50px;
+  font-size: 40px;
   top: 340px;
   z-index: 999;
   margin-left: auto;
   margin-right: auto;
-  vertical-align: bottom;
 }
 
 .youtube-video {
@@ -501,9 +529,10 @@ i.video-skips:hover {
   font-size: 20px;
 }
 .why{
-  font-size: 24px;
+  font-size: 16px;
   vertical-align: middle;
 }
+
 .codingo-green {
   color: #a5d6a7;
   transition: color 0.5s;
@@ -579,9 +608,9 @@ i.video-skips:hover {
 .page-title {
   display: block;
   width: 100%;
-  padding: 30px 20px 10px 20px;
+  padding: 35px 20px 10px 20px;
   height: 100px;
-  margin: 15px 0 10px 0;
+  margin: 35px 0 10px 0;
 }
 .second-title-accordion {
   height: 50px;
@@ -731,11 +760,12 @@ nav .dropdown-content {
   background-color: transparent;
 }
 .chip img {
-  margin: 13px 10px 0 1px;
+  margin: 13px 3px 0 1px;
   height: 40px;
   width: 40px;
 }
 .chip-pro {
+  color: #a5d6a7;
   font-weight: bolder;
   text-shadow: 1px 1px 1px #222;
   font-size: 1.2em;
@@ -770,7 +800,16 @@ nav .dropdown-content {
   padding: 0 10px;
 }
 /*Nav Page*/
-
+.side-nav {
+  background-color: #444;
+  color: #fff;
+}
+.side-nav a {
+  color: #fff;
+}
+nav ul a:hover {
+  background-color: transparent;
+}
 /*Registration Page*/
 .signup-area {
   background-color: #fff;

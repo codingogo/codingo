@@ -4,6 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="누구나 쉽고 빠르게 배울 수 있는 소프트웨어 개발 교육입니다. 코딩고는 사용자들이 직접 어플리케이션을 만들면서 자연스럽게 컴퓨터 언어를 배울 수 있게 구성되어 있습니다.">
+    <meta name="author" content="Codingo Co.">
+    <meta property="og:site_name" content="Codingo">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.codingo.co">
+    <meta property="og:title" content="누구나 쉽고 빠르게 배우는 코딩 교육입니다.">
+    <meta property="og:description" content="코딩고는 사용자들이 직접 어플리케이션을 만들면서 자연스럽게 컴퓨터 언어를 배울 수 있게 구성되어 있습니다.">
+    <meta property="og:image" content="https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe.jpeg">
+    <meta property="og:locale" content="ko_KR.UTF-8">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://www.codingo.co">
+    <meta property="twitter:title" content="누구나 쉽고 빠르게 배우는 코딩 교육입니다."> 
+    <meta property="twitter:site" content="@codingo_co">
+    <meta property="twitter:app:name:iphone" content="Codingo">
+    <meta property="twitter:app:name:ipad" content="Codingo">
+    <meta property="twitter:app:name:googleplay" content="Codingo">
+
+
     <title>코딩 교육</title>
 
     <!-- Stylesheets -->
@@ -26,7 +44,7 @@
   <body>
     <div ui-view="header"></div>
     <div ui-view></div>
-    <div ng-include="'./ng-app/partials/_footer.html'"></div>
+    <div ng-hide="footer" ng-include="'./ng-app/partials/_footer.html'"></div>
   </body>
 
  <!-- Scripts -->  

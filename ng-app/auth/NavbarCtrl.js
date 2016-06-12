@@ -7,7 +7,10 @@ module.exports= function(app){
     var user_id;
 
     $scope.logout = function(){
-      UserStatus.logout();
+      UserStatus.logout()
+      .then(function(res){
+        $scope.logged = false;
+      })
     }
 
     //method for setting active class in navbar

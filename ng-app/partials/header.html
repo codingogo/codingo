@@ -5,7 +5,7 @@
     
     <ul class="right ">
       <!-- video trigger -->
-      <li class="hide-on-med-and-down"> <a href="#videoTrigger" class="" modal><span class="why"></span><i class="fa fa-video-camera fa-2x"></i></a></li>
+      <!-- <li class="hide-on-med-and-down"> <a href="#videoTrigger" class="" modal><span class="why"></span><i class="fa fa-video-camera fa-2x"></i></a></li> -->
 
       <li class="hide-on-med-and-down"><a ui-sref="about">코딩고란?</a></li>  
       <li class="hide-on-med-and-down" ng-hide="subscribed"><a ui-sref="pricing">가격표</a></li>
@@ -13,7 +13,7 @@
       <li ng-if="!logged"><a ui-sref="login" class="login-btn">로그인</a></li>
       <li ng-if="logged" class="hidden" ng-class="{visible: !user.subscribed}"><a ui-sref="subscriptions" class="btn blue accent-1 hide-on-small-and-down"><span class="black-text">PRO</span> 회원가입</a></li>
       <!-- user logo menu -->
-      <li ng-hide="!logged"><a class='profile-img-frame chip' data-activates='dropdown1' ui-sref="profile"><span class="chip-pro blue-text" ng-if="user.subscribed">Pro</span><img src="{{picture}}" alt="" class="profile-img"></a></li> 
+      <li ng-hide="!logged"><a class='profile-img-frame chip' data-activates='dropdown1' ui-sref="profile"><span class="chip-pro" ng-if="user.subscribed">Pro</span><img src="{{picture}}" alt="" class="profile-img"></a></li> 
       <li class="hide-on-med-and-down" ng-if="logged" ng-click="logout()"><a>로그아웃</a></li>
     </ul>
 

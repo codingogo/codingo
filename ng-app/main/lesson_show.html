@@ -6,7 +6,7 @@
     <div class="" ng-if="!premium">          
       <ul class="collection lesson-nav">
         <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
-          <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
+          <p ng-if="item.show" class=" white-text chapter">{{item.chapter_title}}</p>
 
           <div class="video-note">
             <a href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 로그인해주세요 " data-delay="0"><i class="material-icons circle-grey play-arrow" >play_arrow</i>{{item.title}}</a>
@@ -21,7 +21,7 @@
     <div class="" ng-if="(!premium && user.logged) ||(premium && user.subscribed) ">          
       <ul class="collection lesson-nav">
         <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
-          <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
+          <p ng-if="item.show" class=" white-text chapter">{{item.chapter_title}}</p>
           <div class="video-note">
             <!-- video button -->
             <a href="" ng-click="showTab($index)" class="play-title" ng-hide="item.text"><i class="material-icons circle-blue play-arrow">play_arrow</i>{{item.title}}</a>
@@ -41,7 +41,7 @@
     <div class="" ng-if="premium && !user.subscribed">          
       <ul class="collection lesson-nav">
         <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
-          <p ng-if="item.show" class=" grey-text text-darken-1 chapter">{{item.chapter_title}}</p>
+          <p ng-if="item.show" class=" white-text chapter">{{item.chapter_title}}</p>
           <div class="video-note">
             <a href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 Pro회원에 가입해주세요 " data-delay="0"><i class="material-icons circle-blue red">lock</i>{{item.title}}</a>
             <span class="text-right grey-text darken-3 video-time">{{item.duration}}</span>
