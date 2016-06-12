@@ -1,0 +1,129 @@
+<div class="container-video height600">
+  <div class="row">
+    <h4 class="center grey-text text-darken-2 page-title">{{lessonObj.title}}</h4>
+
+    <!-- Scenerio 1: user is not logged -->
+    <div class="" ng-if="!premium">          
+      <ul class="collection lesson-nav">
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
+          <p ng-if="item.show" class=" white-text chapter">{{item.chapter_title}}</p>
+
+          <div class="video-note">
+            <a href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 로그인해주세요 " data-delay="0"><i class="material-icons circle-grey play-arrow" >play_arrow</i>{{item.title}}</a>
+              <span class="text-right grey-text darken-3 video-time">{{item.duration}}</span>
+            <p class="full-width grey-text limited-description">{{item.description | limitTo: 50}}...</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Scenerio 2: (free lesson && user logged) or (premium && subscribed)-->
+    <div class="" ng-if="(!premium && user.logged) ||(premium && user.subscribed) ">          
+      <ul class="collection lesson-nav">
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
+          <p ng-if="item.show" class=" white-text chapter">{{item.chapter_title}}</p>
+          <div class="video-note">
+            <!-- video button -->
+            <a href="" ng-click="showTab($index)" class="play-title" ng-hide="item.text"><i class="material-icons circle-blue play-arrow">play_arrow</i>{{item.title}}</a>
+            <!-- description button -->
+            <a href="" ng-click="showDescription($index)" class="play-title" ng-show="item.text">
+              <i class="material-icons plain-icon">description</i>{{item.title}}
+            </a>
+              <span class="text-right grey-text darken-3 video-time" ng-hide="item.text">{{item.duration}}</span>
+            <p class="full-width grey-text limited-description">{{item.description | limitTo: 50}}...</p>
+          </div>  
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- Scenerio 3: user is not subscribed && premium-->
+    <div class="" ng-if="premium && !user.subscribed">          
+      <ul class="collection lesson-nav">
+        <li class="collection-item avatar video-note" ng-repeat="item in filteredVideos | orderBy:'order'">
+          <p ng-if="item.show" class=" white-text chapter">{{item.chapter_title}}</p>
+          <div class="video-note">
+            <a href="" class="grey-text text-darken-1" tooltipped data-position="top" data-tooltip="영상을 보려면 Pro회원에 가입해주세요 " data-delay="0"><i class="material-icons circle-blue red">lock</i>{{item.title}}</a>
+            <span class="text-right grey-text darken-3 video-time">{{item.duration}}</span>
+            <p class="full-width grey-text limited-description">{{item.description | limitTo: 50}}...</p>
+          </div>  
+        </li>
+      </ul>
+    </div>
+    
+    <!-- *** VIDEO SECTION *** -->
+    <div class="video-section white-text">
+      <div class="card black darken-1 video-card">
+        <!-- Video Object -->
+        <div class="card-content" ng-if="textInstruction==null">
+          <p class="card-title video-title">{{videoObj.title}}</p>
+          <div class="card-image">
+            <iframe ng-src="{{videoLink[0].url}}" allowtransparency="true" frameborder="0" scrolling="no" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen class="iframe-video"></iframe>
+          </div>
+          <p class="video-description">{{videoObj.description}}</p>
+        </div>
+        
+        <div ng-if="textInstruction!=null">
+          <!-- Ruby on Rails Install Instruction Mac(code 1) -->
+          <div ng-include="'./ng-app/main/instructions/_code1.html'"></div>
+
+          <!-- Ruby on Rails Install Instruction Mac(code 2) -->
+          <div ng-include="'./ng-app/main/instructions/_code2.html'"></div>
+        </div>
+
+        <!-- video controller -->
+        <div class="card-action video-controller" ng-if="!user.logged && !premium">
+          <p>영상을 시청하려면 로그인해주세요</p>
+        </div>
+
+        <!-- Video Controllers -->
+        <div class="card-action video-controller" ng-if="!premium && user.logged">
+          <a href="" ng-click="previousVideo(videoObj.order)" ng-if="allowPreviousBtn"><i class="material-icons large video-skips">fast_rewind</i></a>
+          <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn && videoObj"><i class="material-icons large video-skips">fast_forward</i></a></span>
+        </div>
+
+        <div class="card-action video-controller" ng-if="premium && user.subscribed">
+          <a href="" ng-click="previousVideo(videoObj.order)" ng-if="allowPreviousBtn"><i class="material-icons large video-skips">fast_rewind</i></a>
+          <span class="right"><a href="" ng-click="nextVideo(videoObj.order)" ng-if="allowNextBtn && videoObj"><i class="material-icons large video-skips">fast_forward</i></a></span>
+        </div>
+
+        <div class="card-action video-controller" ng-if="premium && !user.subscribed">
+          <p>Pro 회원은 본 영상을 시청할 수 있습니다. 
+          <span>
+            <a ui-sref="subscriptions"> <button class="btn btn-default blue btn-large" ><span class="black-text">Pro</span> 회원 가입하기</button></a>
+          </span></p>
+        </div>        
+      </div>      
+    </div>
+ 
+  </div>
+
+  <!-- spinner  -->
+  <img src="./ng-app/assets/images/spinner-green.gif" alt="spinner"class="spinner" ng-if="spinner">
+  <!-- Comment Area -->
+  <div id="disqus_thread" ng-show="user.subscribed"></div>
+</div> <!-- end of container -->
+
+<script src="http://fast.wistia.net/assets/external/E-v1.js" async></script>
+
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//codingogo.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>

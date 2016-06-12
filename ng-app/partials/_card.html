@@ -1,0 +1,74 @@
+<div class="center signup-area" id="payment-form" ng-class="{disabled: !logged}"> 
+  
+  <p ng-if="!logged">*Pro회원이 되려면 일반회원가입 또는 로그인해주시기 바랍니다.</p>
+  <!-- Card Info -->
+  <div class="row" ng-if="!user.subscribed">
+    <form class="col s12 center" id="payment-form">
+      <div class="price-checkbox">
+        <div class="row ">
+          <p class="col s12">
+            <input name="subscription1" type="checkbox" id="subscription1" ng-model="card.price" value="29000" ng-click="checked(check)"/>
+            <label for="subscription1" class="price-month">월<span class="green-text">29,000</span>원</label>
+          </p>
+            <p class="grey-text text-darken-2 note-info"><span class="red-text">*</span> 위 가격을 체크해주시기 바랍니다.</p>
+        </div>  
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="cardnum" type="text" class="validate" ng-model="card.number">
+          <label for="cardnum"><span class="red-text">*</span> 카드번호 (16자리)</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="name" type="text" class="validate" ng-model="card.name">
+          <label for="name">이름</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <div class="row">
+            <span class="left red-text col s1 required-date">*</span>
+            <select class="browser-default col s8 offset-s1" ng-model="card.exp_month" ng-options="item.month for item in months"></select>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <div class="row">
+            <span class="left red-text col s1 required-date">*</span>
+            <select class="browser-default col s8 offset-s1" ng-model="card.exp_year" ng-options="item.year for item in years"></select>    
+          </div>      
+        </div>
+      </div>  
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="cvc" type="text" class="validate" ng-model="card.cvc">
+          <label for="cvc"><span class="red-text">*</span> <a tooltipped data-position="top" data-delay="30" data-tooltip="카드 뒷편에 나온 3자리 숫자" class="grey-text text-darken-2">CVC</a></label>
+        </div>
+
+        <!-- Modal Trigger -->
+        <div class="col">
+            <a class='cvc' href='#demoModal' modal>(CVC가 뭔가요?)</a>
+        </div>
+        <!-- Modal Structure -->
+        <div id="demoModal" class="modal">
+            <div class="modal-content">
+                <h5>CVC는 카드 뒷편에 있는 3자리 숫자입니다 </h5>
+                <img src="./ng-app/assets/images/cvc.jpg" alt="cvc"> 
+            </div>
+            <div class="modal-footer">
+                <a href class=" modal-action modal-close btn white black-text">닫기 </a>
+            </div>
+        </div>
+      </div>
+
+      <!-- error msg -->
+      <h5 class="error-msg" ng-show="error">{{error}}</h5>
+      <button class="btn blue btn-large" ng-click="subscribeMembership(card)" ng-disabled="spinner">결제하기 </button>
+      <p class="center grey-text text-darken-2 stripe-info"><span class="red-text">*</span> 표시된 부분은 필수 입력사항입니다 </p>
+      <p class="center grey-text text-darken-2 stripe-info ">본 결제는 <a href="https://stripe.com"><span class="blue-text">Stripe</span></a>를 통하여 안전하게 결제되고, 코딩고는 고객님의 카드정보를 저장하지 않습니다.</p>    
+    </form>
+  </div>
+</div>

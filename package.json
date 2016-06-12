@@ -1,0 +1,29 @@
+{
+  "name": "codingo",
+  "version": "1.0.0",
+  "description": "Simple way to learn coding for your startup",
+  "main": "",
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
+    "event-stream": "^3.3.2",
+    "font-awesome": "^4.6.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jilee-angular/codingo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jilee-angular/codingo/issues"
+  },
+  "homepage": "https://github.com/jilee-angular/codingo#readme",
+  "dependencies": {}
+}

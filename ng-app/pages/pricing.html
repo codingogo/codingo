@@ -1,0 +1,42 @@
+<div class="container pad-top">
+  <div class="row">
+    <h4 class="center grey-text text-darken-2 page-title green lighten-5">가입비</h4>
+    <div class="col s12 m6">
+      <div class="free-price-card center">
+        <div class="free-card-content">
+          <p class="free-title blue-text">FREE!</p>
+          <p class="free-price">0원</p>
+          <ul class="grey-text text-darken-2">
+            <li class="price-detail">무료 기본 교육</li>
+            <li class="price-detail">Source code 제공</li>
+            <!-- li>무료 기본 교육</li> -->
+          </ul>
+        </div>
+        <div class="free-card-action center info-text">
+          <a ui-sref="registration" class="btn btn-large grey text-darken-2" ng-hide="user">일반회원 가입</a> <span class="blue-text " ng-show="user">가입한 회원입니다</span>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6">
+      <div class="card center">
+        <div class="card-content price-content">
+          <p class="price-title blue-text">PRO</p>
+          <p class="price">월 29,000원<span class="sidenote"></span></p>
+          <ul class="grey-text text-darken-2">
+            <li  class="price-detail">모든 영상 무제한 시청 </li>
+            <li  class="price-detail">회원 지원을 위한 포럼 </li>
+            <li class="price-detail">문제해결 지원 </li>
+            <li class="price-detail">Source code 제공</li>
+          </ul>          
+        </div>
+        <div class="card-action center price-action">
+          <a ui-sref="subscriptions" class="btn btn-large blue darken-1" ng-if="!user.subscribed">PRO 회원가입</a>
+          <span class="blue-text" ng-show="user.subscribed">가입한 회원입니다</span>
+        </div>
+      </div>
+    </div>    
+  </div>
+  <div class="space-sm"></div>
+  <p class="green-text center">* 모든 회원은 언제든지 취소할 수 있습니다.</p>
+  <div class="space-from-footer"></div>
+</div>

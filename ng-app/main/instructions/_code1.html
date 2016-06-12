@@ -1,0 +1,119 @@
+<div>
+  <div class="card-content" ng-if="textInstruction && textInstruction.code === 1">
+    <p class="card-title video-title">{{textInstruction.title}}</p>
+    <blockquote>
+      <p class="grey-text text-lighten-2"><strong class="white-text">터미널(또는 iTerm)을 열고 아래 코드들을 입력하면서 설치를 따라해주세요.</strong> <br><span class="sidenote">(터미널 또는 iTerm을 Spotlight에서 열어주면됩니다.)</span></p>
+    </blockquote>
+    <br> 
+    <ul> 
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">1. 루비(Ruby) 설치 확인</h5>
+          <p class="code white-text grey darken-4">
+            <span class="grey-text">$</span> ruby -v 
+            <br>
+            <span class="grey-text">#</span> ruby 2.3.0</p>
+          <p class="side-note">ruby 2.3.0 <span class="italic">(버젼은 상관 없음)</span>이라고 나타나지 않으면 루비를 설치해야합니다. 루비 버젼이 나타나면 이미 설치가 되어 있는 것입니다.</p>
+        </div>                                       
+      </li>
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">2. 래일즈(Rails) 설치 확인</h5>
+          <p class="code white-text grey darken-4"><span class="grey-text">$</span> rails -v <br><span class="grey-text">#</span> Rails 4.2.6</p>
+          <p class="side-note">Rails 4.2.6 <span class="italic">(버젼은 상관 없음)</span>이라고 나타나지 않으면 래일즈를 설치해야합니다. 래일즈 버젼이 나타나면 이미 설치가 되어 있는 것입니다.</p>
+        </div>                                      
+      </li> 
+      <blockquote>
+        <p class="site-info">Ruby 또는 Rails가 설치되어 있지 않으면 아래 방법을 따라해주세요.</p>
+      </blockquote>
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">3. 터미널에 Command Line 설치</h5>
+          <p class="code white-text grey darken-4"><span class="grey-text">$</span> xcode-select --install</p>
+        </div>                                         
+      </li> 
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">4. Homebrew 설치</h5>
+          <p class="code white-text grey darken-4">
+            <span class="grey-text">$</span> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            <br>
+            <br>
+            <span class="grey-text">$</span> brew -v
+            <br>
+            <span class="grey-text">#</span> Homebrew 0.9.X
+          </p>
+        </div>                                         
+      </li>
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">5. RVM(Ruby Version Manager) 설치 </h5>
+          <p class="code white-text grey darken-4">
+            <span class="grey-text">$</span> \curl -L https://get.rvm.io | bash -s stable 
+          </p>
+          <p class="mid-text">터미널을 닫고 다시 열어서 다음 코드를 입력해서 루비를 설치합니다.</p>
+          <p class="code white-text grey darken-4">
+            <span class="grey-text">$</span> rvm | head -n 1 
+            <br><span class="grey-text">$</span> rvm use ruby --install --default
+          </p>        
+        </div>                                         
+      </li>
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">6. 래일즈(Rails) 설치 </h5>
+          <p class="code white-text grey darken-4"><span class="grey-text">$</span> gem install rails --no-ri --no-rdoc
+        </div>                                         
+      </li>
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">7. 확인 </h5>
+          <p class="code white-text grey darken-4"><span class="grey-text">$</span> ruby -v 
+            <br><span class="grey-text">#</span> ruby 2.3.0 
+            <br>
+            <br><span class="grey-text">$</span> rails -v <br><span class="grey-text">#</span> Rails 4.2.6</p>
+        </div>                                         
+      </li>
+    </ul> 
+    <blockquote><p class="site-info">보다 자세한 설치 설명이 필요하거나 OS X 버젼이 10.9미만이면 <a href="http://installrails.com/steps/choose_os_version">installrails.com</a>을 참고해주세요.</p></blockquote>          
+  </div>
+  <br>
+  <hr>
+  <div class="card-content">
+    <p class="card-title video-title">Ruby on Rails(윈도우즈) 설치 </p>
+    <br> 
+    <ul> 
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">1. 루비(Ruby) 다운로드</h5>
+          <p class="mid-texter">
+            <a href="http://railsinstaller.org/en">Railsinstaller.org</a>에서 맞는 윈도우즈 옵션을 다운로드하세요.
+          </p>
+          <img src="./ng-app/assets/images/windowsdownloads.png" alt="" class="instruction-img">
+        </div>                                       
+      </li>
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">2. Installer Wizard 열기</h5>
+          <p class="mid-texter">파일 다운로드가 끝나면 파일을 더블클릭해서 Installer Wizard를 열고 차례대로 'Next' 버튼을 누르고 설치합니다.</p>
+          <img src="./ng-app/assets/images/railsinstaller.png" alt="" class="instruction-img">
+        </div>                                      
+      </li> 
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">3. Git Bash 열기</h5>
+          <p class="mid-texter">'시작'메뉴에서 RailsInstaller폴더를 찾고, 폴더 안에서 'Git Bash'프로그램을 열어주세요. </p>
+          <img src="./ng-app/assets/images/gitbash.png" alt="" class="instruction-img">
+        </div>                                      
+      </li>     
+      <li class="grey-text text-lighten-4">
+        <div class="card-image">
+          <h5 class="sub-title">4. Rubygems 설치</h5>
+          <p class="mid-texter">'Git Bash' 입력창에서 다음 코드를 입력한 후 ENTER를 누르세요.</p>
+          <p class="code white-text grey darken-4"><span class="grey-text">$</span> curl http://installrails.com/update_rubygems.rb | ruby</p>
+        </div>                                      
+      </li> 
+
+    </ul> 
+    <blockquote><p class="site-info">보다 자세한 설치 설명이 필요하면 <a href="http://installrails.com">installrails.com</a>을 참고해주세.</p></blockquote>          
+  </div>
+</div>  
