@@ -21,17 +21,7 @@ a:hover {
   -moz-transition: color 0.3s;
   -ms-transition: color 0.3s; 
 }
-.landing-cover {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/black.jpg);
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
+
 .landing-page {
   margin-top: -20px;
   background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe-original.jpeg);
@@ -49,7 +39,6 @@ a:hover {
   width: 100%;
   left: 0;
   padding: 10px 50px;
-  z-index: 9;
 }
 .goto-lesson {
   margin-top: 40px;
@@ -798,6 +787,18 @@ nav .dropdown-content {
 /*Footer Page*/
 .fa-icons {
   padding: 0 10px;
+}
+.subscribe-email {
+  color: #999;
+  background-color: #2d373d;
+  padding: 10px;
+  border-radius: 5px;
+}
+.subscription-email-title {
+  color: #999;
+}
+.subscription-email-title.active {
+  color: #fff;
 }
 /*Nav Page*/
 .side-nav {

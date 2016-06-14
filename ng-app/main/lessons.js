@@ -2,7 +2,6 @@ module.exports= function(app){
   app.controller('LessonsCtrl', function($scope, $rootScope, $stamplay, Lesson, UserStatus, AnchorSmoothScroll, $location){
     $scope.lessons = [];
     $scope.footer = true;
-   
 
     var initialise = function(){
       loadLessons();
