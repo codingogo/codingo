@@ -800,6 +800,9 @@ nav .dropdown-content {
 .subscription-email-title.active {
   color: #fff;
 }
+.green.lighten-3.subscribe-btn:hover {
+  background-color: #999;
+}
 /*Nav Page*/
 .side-nav {
   background-color: #444;
