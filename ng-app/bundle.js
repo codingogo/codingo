@@ -869,7 +869,7 @@
 	                  });
 	                  UserStatus.updateUser(user_id, { 'hasCard': true });
 
-	                  return UserStatus.subscribe(user_id, 'monthlysubscription');
+	                  return UserStatus.subscribe(user_id, 'monthly_subscription');
 	                }, function (err) {
 	                  $scope.spinner = false;
 	                }).then(function (subscription) {
@@ -895,7 +895,7 @@
 	              } else {
 	                  // get card
 	                  UserStatus.getCard(user_id).then(function (card) {
-	                    return UserStatus.subscribe(user_id, 'monthlysubscription');
+	                    return UserStatus.subscribe(user_id, 'monthly_subscription');
 	                  }).then(function (subscription) {
 	                    $scope.$apply(function () {
 	                      $rootScope.subscriptions = subscription;
