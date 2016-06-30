@@ -53,6 +53,7 @@ module.exports= function(app){
     };
 
     $scope.subscribeMembership = function(card){
+      console.log('card', card);
       $scope.error = false;
       $scope.spinner = true;
 
@@ -62,6 +63,8 @@ module.exports= function(app){
         exp_month: card.exp_month.value,
         exp_year: card.exp_year.value
       }
+      console.log('card info', cardInfo);
+      console.log('monthly_sub', $scope.monthly_sub);
       if($scope.monthly_sub === true){
         UserStatus.getUser()
         .then(function(res){
@@ -69,7 +72,8 @@ module.exports= function(app){
           var hasCard = res.user.hasCard;
 
           Stripe.card.createToken(cardInfo, function(status, response){
-            if(response.error){
+            console.log('card token response',response);
+            if(response.object !== 'token'){
               $scope.spinner = false;
               $scope.$apply(function(){
                 $scope.error = "카드정보가 옳지 않습니다 ";
@@ -77,11 +81,12 @@ module.exports= function(app){
             } else {
               var token = response.id;
               var used = response.used;
-
+console.log('hasCard', hasCard);
               // user has no credit card
               if(hasCard === undefined || hasCard === false){
                 UserStatus.createCard(user_id, token)
                 .then(function(resCard){
+                  console.log('resCard', resCard);
                   $scope.$apply(function(){
                     $scope.user.hasCard = true;
                     $rootScope.user.hasCard = true;
@@ -93,22 +98,31 @@ module.exports= function(app){
                   $scope.spinner = false;
                 })
                 .then(function(subscription){
-                  $scope.$apply(function(){
-                    $rootScope.subscriptions = subscription;
-                    $rootScope.subscribed = true;
-                    UserStatus.updateUser(user_id, {'subscribed': true})
-                    .then(function(){
-                      $scope.successMsg = "Pro회원되신 것을 축하드립니다!"
-                      Materialize.toast($scope.successMsg, 2000);
-                      $scope.spinner = false;
-                      $state.go('home');
+                  console.log('subscription', subscription);
+                  if (subscription !== undefined){
+                    $scope.$apply(function(){
+                      $rootScope.subscriptions = subscription;
+                      $rootScope.subscribed = true;
+                      UserStatus.updateUser(user_id, {'subscribed': true})
+                      .then(function(){
+                        $scope.successMsg = "Pro회원되신 것을 축하드립니다!"
+                        Materialize.toast($scope.successMsg, 2000);
+                        $scope.spinner = false;
+                        $state.go('home');
+                      }, function(err){
+                        $scope.spinner = false;
+                        $scope.error = err;
+                      })
                     }, function(err){
                       $scope.spinner = false;
-                      $scope.error = err;
+                    });              
+                  } else {
+                    console.log('show error');
+                    $scope.$apply(function(){
+                      $scope.error = "카드정보가 옳지 않습니다 ";
+                      $scope.spinner = false;
                     })
-                  }, function(err){
-                    $scope.spinner = false;
-                  });              
+                  }
                 }, function(err){
                   $scope.spinner = false;
                 });
@@ -117,6 +131,7 @@ module.exports= function(app){
                 // get card
                 UserStatus.getCard(user_id)
                 .then(function(card){
+                  console.log('card detail', card);
                   return UserStatus.subscribe(user_id, 'monthly_subscription');
                 })
                 .then(function(subscription){
