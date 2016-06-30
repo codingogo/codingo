@@ -88,7 +88,7 @@ module.exports= function(app){
                   })
                   UserStatus.updateUser(user_id, {'hasCard': true});
 
-                  return UserStatus.subscribe(user_id, 'monthly_subscription');
+                  return UserStatus.subscribe(user_id, 'monthlysubscription');
                 }, function(err){
                   $scope.spinner = false;
                 })
@@ -117,7 +117,7 @@ module.exports= function(app){
                 // get card
                 UserStatus.getCard(user_id)
                 .then(function(card){
-                  return UserStatus.subscribe(user_id, 'monthly_subscription');
+                  return UserStatus.subscribe(user_id, 'monthlysubscription');
                 })
                 .then(function(subscription){
                   $scope.$apply(function(){
