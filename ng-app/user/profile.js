@@ -49,9 +49,9 @@ module.exports= function(app){   // Profile Page
       }, function(err){
         $scope.spinner = false;
       })
-      .then(function(cancellation){
+      .then(function(){
         $scope.$apply(function(){
-          $rootScope.subscriptions = cancellation;
+          $rootScope.subscriptions = undefined;
           $rootScope.subscribed = false; 
           UserStatus.updateUser(user_id, {'subscribed': false})
             .then(function(res){

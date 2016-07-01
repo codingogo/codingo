@@ -118,6 +118,9 @@ console.log('hasCard', hasCard);
                     });              
                   } else {
                     console.log('show error');
+                    $scope.subscription = undefined;
+                    $rootScope.subscription = undefined;
+                    $rootScope.subscribed = false;
                     $scope.$apply(function(){
                       $scope.error = "카드정보가 옳지 않습니다 ";
                       $scope.spinner = false;

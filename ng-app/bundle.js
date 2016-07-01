@@ -741,9 +741,9 @@
 	        return UserStatus.unsubscribe(user_id, subscriptionId, {});
 	      }, function (err) {
 	        $scope.spinner = false;
-	      }).then(function (cancellation) {
+	      }).then(function () {
 	        $scope.$apply(function () {
-	          $rootScope.subscriptions = cancellation;
+	          $rootScope.subscriptions = undefined;
 	          $rootScope.subscribed = false;
 	          UserStatus.updateUser(user_id, { 'subscribed': false }).then(function (res) {
 	            $scope.successMsg = "Pro 회원권을 안전하게 취소하였습니다";
@@ -897,6 +897,9 @@
 	                    });
 	                  } else {
 	                    console.log('show error');
+	                    $scope.subscription = undefined;
+	                    $rootScope.subscription = undefined;
+	                    $rootScope.subscribed = false;
 	                    $scope.$apply(function () {
 	                      $scope.error = "카드정보가 옳지 않습니다 ";
 	                      $scope.spinner = false;
