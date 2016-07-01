@@ -62,16 +62,14 @@ module.exports= function(app){
         // Set cuerrentUser and userId
         currentUser = res;
         userId = res.user._id;
-        console.log('currenUser', currentUser);
         return UserStatus.getCard(userId);
       }, function(err){
-        console.log('err user', err);
+        $scope.error = err;
       })
       .then(function(resCard){
         storedCard = resCard;
-        console.log('storedCard', storedCard);
       }, function(err){
-        console.log('storedCard err', err);
+        $scope.error = err;
       })
     };
 
@@ -106,7 +104,6 @@ module.exports= function(app){
                 return UserStatus.subscribe(userId, 'monthly_subscription');
               }, function(err){
                 $scope.spinner = false;
-                console.log('updatedCard err', err);
               })
               .then(function(subscription){
                 $scope.$apply(function(){
@@ -125,14 +122,13 @@ module.exports= function(app){
                 })
               }, function(err){
                 $scope.spinner = false;
-                console.log('last err', err);
               })
             }
           })
         }
 
         // if card is new
-        if(storedCard === undefined) {
+        if(storedCard.card_id === undefined) {
           Stripe.card.createToken(cardObj, function(status, response){
             if(response.object !== 'token'){
               $scope.spinner = false;
@@ -151,7 +147,7 @@ module.exports= function(app){
                 return UserStatus.subscribe(userId, 'monthly_subscription');
               }, function(err){
                 $scope.spinner = false;
-                console.log('new card err', err);
+                $scope.error = err;
               })
               .then(function(subscription){
                 if(subscription !== undefined){
