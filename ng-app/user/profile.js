@@ -49,7 +49,7 @@ module.exports= function(app){   // Profile Page
       }, function(err){
         $scope.spinner = false;
       })
-      .then(function(){
+      .then(function(cancellation){
         $scope.$apply(function(){
           $rootScope.subscriptions = undefined;
           $rootScope.subscribed = false; 

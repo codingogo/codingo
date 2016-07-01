@@ -15,7 +15,7 @@ module.exports= function(app){
         return Stamplay.User.logout();
       },
       getUserModel: function () {
-        return Stamplay.User;
+        return Stamplay.User();
       },    
 
       // Getter and Setter method
@@ -43,6 +43,9 @@ module.exports= function(app){
       // card and subscription
       createCard: function(user_id, token){
         return Stamplay.Stripe.createCreditCard(user_id, token);
+      },
+      updateCard: function(user_id, token){
+        return Stamplay.Stripe.updateCreditCard(user_id, token);
       },
       getCard: function(user_id){
         return Stamplay.Stripe.getCreditCard(user_id);
