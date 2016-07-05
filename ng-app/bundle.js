@@ -46,7 +46,7 @@
 
 	var app = angular.module('codingo', ['ngStamplay', 'ui.router', 'ui.materialize']).run(function ($stamplay, UserStatus, $rootScope) {
 	  Stamplay.init('codingo');
-	  Stripe.setPublishableKey('pk_test_EUICxbyG7LkG2qT9zPcTBGen');
+	  Stripe.setPublishableKey('pk_live_ukAmcMqroatAcXzjIteOXGYw');
 	}).config(function ($stateProvider, $urlRouterProvider) {
 
 	  $urlRouterProvider.otherwise('/index.html');
@@ -847,16 +847,12 @@
 	        // Set cuerrentUser and userId
 	        currentUser = res;
 	        userId = res.user._id;
-	        console.log('currenUser', currentUser);
 	        return UserStatus.getCard(userId);
 	      }, function (err) {
-	        console.log('err user', err);
+	        $scope.error = err;
 	      }).then(function (resCard) {
 	        storedCard = resCard;
-	        console.log('storedCard', storedCard);
-	      }, function (err) {
-	        console.log('storedCard err', err);
-	      });
+	      }, function (err) {});
 	    };
 
 	    $scope.getUser();
@@ -889,7 +885,6 @@
 	                return UserStatus.subscribe(userId, 'monthly_subscription');
 	              }, function (err) {
 	                $scope.spinner = false;
-	                console.log('updatedCard err', err);
 	              }).then(function (subscription) {
 	                $scope.$apply(function () {
 	                  $rootScope.subscriptions = subscription;
@@ -906,7 +901,6 @@
 	                });
 	              }, function (err) {
 	                $scope.spinner = false;
-	                console.log('last err', err);
 	              });
 	            }
 	          });
@@ -922,7 +916,6 @@
 	              });
 	            } else {
 	              var token = response.id;
-	              console.log('userId', userId);
 	              UserStatus.createCard(userId, token).then(function (resCard) {
 	                $scope.$apply(function () {
 	                  $scope.user.hasCard = true;
@@ -932,7 +925,6 @@
 	                return UserStatus.subscribe(userId, 'monthly_subscription');
 	              }, function (err) {
 	                $scope.spinner = false;
-	                console.log('new card err', err);
 	              }).then(function (subscription) {
 	                if (subscription !== undefined) {
 	                  $scope.$apply(function () {

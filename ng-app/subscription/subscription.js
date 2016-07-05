@@ -62,16 +62,13 @@ module.exports= function(app){
         // Set cuerrentUser and userId
         currentUser = res;
         userId = res.user._id;
-        console.log('currenUser', currentUser);
         return UserStatus.getCard(userId);
       }, function(err){
-        console.log('err user', err);
+        $scope.error = err;
       })
       .then(function(resCard){
         storedCard = resCard;
-        console.log('storedCard', storedCard);
       }, function(err){
-        console.log('storedCard err', err);
       })
     };
 
@@ -106,7 +103,6 @@ module.exports= function(app){
                 return UserStatus.subscribe(userId, 'monthly_subscription');
               }, function(err){
                 $scope.spinner = false;
-                console.log('updatedCard err', err);
               })
               .then(function(subscription){
                 $scope.$apply(function(){
@@ -125,7 +121,6 @@ module.exports= function(app){
                 })
               }, function(err){
                 $scope.spinner = false;
-                console.log('last err', err);
               })
             }
           })
@@ -141,7 +136,6 @@ module.exports= function(app){
               })
             } else {
               var token = response.id;
-              console.log('userId', userId);
               UserStatus.createCard(userId, token)
               .then(function(resCard){
                 $scope.$apply(function(){
@@ -152,7 +146,6 @@ module.exports= function(app){
                 return UserStatus.subscribe(userId, 'monthly_subscription');
               }, function(err){
                 $scope.spinner = false;
-                console.log('new card err', err);
               })
               .then(function(subscription){
                 if(subscription !== undefined){

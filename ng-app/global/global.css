@@ -1,3 +1,40 @@
+/*.fullscreen-video{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+.main-title {
+  position: absolute;
+  top: 120px;
+  left: 72px;
+  font-size: 28px;
+}
+.main-description {
+  position: absolute;
+  top: 176px;
+  left: 72px;
+  font-size: 18px;
+}
+.signup-btn {
+  position: absolute;
+  left: 72px;
+  top: 230px;
+}
+.slide-down {
+  position: absolute;
+  top: 244px;
+  left: 121px;
+}
+.slide-down-center {
+  position: absolute;
+  top: 300px;
+  margin-left: 48%;
+}*/
+
 /*Global*/
 body {
   background-color: #fafafa ;
@@ -184,7 +221,9 @@ a:hover {
   background: -o-radial-gradient(#fff, #c8e6c9); 
   background: -moz-radial-gradient(#fff, #c8e6c9);  
 }
-
+.main-subtitle{
+  font-size: 22px;
+}
 .slider .slides {
   /*height: 100%;*/
   /*background: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/desk.jpg) no-repeat;*/
@@ -217,7 +256,7 @@ td.table-num {
   padding: 5px 15px;
 }
 .text-shadow {
-  text-shadow: 1px 1px 10px #000;
+  text-shadow: 1px 1px 10px #555;
 }
 .text-shadow-light {
   text-shadow: 1px 1px 1px #777;
@@ -492,10 +531,7 @@ i.video-skips:hover {
 }
 .video-trigger {
   font-size: 40px;
-  top: 340px;
-  z-index: 999;
-  margin-left: auto;
-  margin-right: auto;
+  color: #fff;
 }
 
 .youtube-video {
@@ -530,14 +566,7 @@ i.video-skips:hover {
   -moz-transition: color 0.5s;
   -ms-transition: color 0.5s;  
 }
-.youtube-main:hover, .youtube-main:focus, .codingo-green.why:hover {
-  color: #fff;
-  transition: color 0.5s;
-  -webkit-transition: color 0.5s;
-  -o-transition: color 0.5s;
-  -moz-transition: color 0.5s;
-  -ms-transition: color 0.5s;
-}
+
 .fa-film:hover {
   color: #fff;
 }
@@ -911,9 +940,9 @@ nav ul a:hover {
   background-color: #ddd;
   pointer-events: none;
 }
-.videocam-hover:hover {
+/*.videocam-hover:hover {
   color: #3f51b5;
-}
+}*/
 .sub-info{
   height: 35px;
   margin: -30px 0 30px 0;
@@ -939,7 +968,14 @@ nav ul a:hover {
   } 
   .video-title {
     font-size: 14px;
-  }  
+  } 
+  .fullscreen-video{
+    width: 150%;
+    margin-left: -20%;
+  } 
+  .container-default {
+    padding-top: 25px;
+  }     
 }
 @media (max-width: 600px) { 
   .profile-img {
@@ -990,6 +1026,10 @@ nav ul a:hover {
     width: 90%;
     min-height: 580px;
   }
+  .fullscreen-video{
+    width: 200%;
+    margin-left: -50%;
+  }
 }
 
 @media (max-width: 450px){
@@ -998,5 +1038,9 @@ nav ul a:hover {
     min-height: 300px;
     height: 100%;
   }
+  .fullscreen-video{
+    width: 280%;
+    margin-left: -90%;
+  }  
 }
 
