@@ -58,7 +58,10 @@ a:hover {
   -moz-transition: color 0.3s;
   -ms-transition: color 0.3s; 
 }
-
+.beta {
+  font-size: 14px;
+  color: yellow;
+}
 .landing-page {
   margin-top: -20px;
   background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe-original.jpeg);
