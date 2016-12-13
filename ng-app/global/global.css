@@ -48,10 +48,10 @@ body {
   background-attachment  : fixed;  
 }
 a {
-  color: #79b27b;
+  color: #a7cca8;
 }
 a:hover {
-  color: #76876e;
+  color: #000;
   transition: color 0.3s;
   -webkit-transition: color 0.3s;
   -o-transition: color 0.3s;
@@ -64,7 +64,7 @@ a:hover {
 }
 .landing-page {
   margin-top: -20px;
-  background-image: url(https://s3.ap-northeast-2.amazonaws.com/codingogo/images/cafe-original.jpeg);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/codingo-bed34.appspot.com/o/iconspinklow-01.png?alt=media&token=9315f878-0079-46fb-95f6-bed8f1f5bfad);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -80,13 +80,8 @@ a:hover {
   left: 0;
   padding: 10px 50px;
 }
-.goto-lesson {
-  margin-top: 40px;
-  font-size: 50px;
-  padding: 10px;
-}
-.goto-lesson:hover {
-  color: #a5d6a7;
+.fa-angle-down.goto-lesson {
+  font-size: 45px;
 }
 .lesson-content {
   color           : #fff;
@@ -118,7 +113,7 @@ a:hover {
   background-color: rgba(1,1,1,0);
 }
 .wrap {
-  padding-top: 150px;
+  padding-top: 120px;
   min-height: 200px
 }
 .pad-top {
@@ -320,6 +315,9 @@ nav .nav-wrapper{
 .lesson-card {
   min-height: 420px;
   text-align: left;
+}
+.lesson.image {
+  height: 240px;
 }
 .lesson-nav {
   z-index: 99;
@@ -951,8 +949,9 @@ nav ul a:hover {
   margin: -30px 0 30px 0;
 }
 
-/*MEDIA QUERIES*/
 
+/*MEDIA QUERIES****************************/
+/******************************************/
 @media (min-width: 993px){
   .video-snippets {
     padding-left: 10%;
@@ -1035,6 +1034,7 @@ nav ul a:hover {
   }
 }
 
+/* Mobile Media*/
 @media (max-width: 450px){
   .iframe-video {
     width: 100%;
