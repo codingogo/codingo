@@ -47,6 +47,9 @@ body {
   background-repeat      : no-repeat !important;
   background-attachment  : fixed;  
 }
+nav ul a, a.brand-logo {
+  color: #616161;
+}
 a {
   color: #fff;
 }
@@ -78,6 +81,12 @@ a:hover {
 .landing-page-caption {
   text-align: left;
 }  
+.landing-pg-title {
+  color: #212121;
+}
+.landing-pg-subtitle {
+  color: #424242;
+}
 .landing-page-footer {
   bottom: 0;
   width: 100%;
@@ -86,6 +95,7 @@ a:hover {
 }
 .fa-angle-double-down.goto-lesson {
   font-size: 45px;
+  color: #212121;
 }
 .lesson-content {
   color           : #fff;
@@ -117,7 +127,7 @@ a:hover {
   background-color: rgba(1,1,1,0);
 }
 .wrap {
-  padding-top: 120px;
+  padding-top: 100px;
   min-height: 200px
 }
 .pad-top {
@@ -294,19 +304,15 @@ nav {
   height: 20px;
 }
 .navbar {
-  /*margin-top: -20px;*/
   background: transparent;
-  text-shadow: 1px 1px 1px #666;
+  /*text-shadow: 1px 1px 1px #666;*/
   z-index: 9999;
-  /*position: fixed;*/
   box-shadow: none;
-/*  height: 64px;*/
 }
 nav .nav-wrapper{
    background: linear-gradient(rgba(214,79,79,.2),rgba(1,1,1,0));
-  text-shadow: 1px 1px 1px #666;
+  /*text-shadow: 1px 1px 1px #666;*/
   z-index: 9999;
-  /*position: fixed;*/
   box-shadow: none;
   height: 64px; 
 }
@@ -960,12 +966,15 @@ nav ul a:hover {
   .video-snippets {
     padding-left: 10%;
   }
-  .fa-angle-double-down.goto-lesson {
+  .show-lesson {
     margin-left: 58px;
     margin-top: 30px;
   }  
 }
 @media (max-width: 992px){
+  nav ul a, a.brand-logo {
+    color: #fff;
+  }  
   .modal {
     width: 80%;
   } 
@@ -991,7 +1000,19 @@ nav ul a:hover {
   }  
   .landing-page-caption {
     text-align: center;
-  }     
+  }  
+  .landing-pg-title {
+    color: #fff;
+  }
+  .landing-pg-subtitle {
+    color: #f5f5f5;
+  }  
+  .fa-angle-double-down.goto-lesson {
+    color: #fff;
+  }   
+  .navbar {
+    text-shadow: 1px 1px 1px #666;
+  }
 }
 @media (max-width: 600px) { 
   .profile-img {
