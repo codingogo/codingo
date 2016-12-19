@@ -876,8 +876,9 @@
 	          Stripe.card.createToken(cardObj, function (status, response) {
 	            if (response.object !== 'token') {
 	              $scope.spinner = false;
+
 	              $scope.$apply(function () {
-	                $scope.error = "카드정보가 옳지 않습니다 ";
+	                $scope.error = '카드정보에 문제가 있습니다: ' + response.error.message;
 	              });
 	            } else {
 	              var token = response.id;
@@ -901,6 +902,7 @@
 	                });
 	              }, function (err) {
 	                $scope.spinner = false;
+	                console.log('err', err);
 	              });
 	            }
 	          });
@@ -912,7 +914,7 @@
 	            if (response.object !== 'token') {
 	              $scope.spinner = false;
 	              $scope.$apply(function () {
-	                $scope.error = "카드정보가 옳지 않습니다 ";
+	                $scope.error = '카드정보에 문제가 있습니다: ' + response.error.message;
 	              });
 	            } else {
 	              var token = response.id;
@@ -942,8 +944,10 @@
 	                  });
 	                } else {
 	                  $scope.$apply(function () {
-	                    $scope.error = "카드정보가 옳지 않습니다. ";
+	                    $scope.error = '카드정보에 문제가 있습니다: ' + response.error.message;
 	                    $scope.spinner = false;
+	                    console.log('error', error);
+	                    console.log('error here');
 	                  });
 	                }
 	              }, function (err) {

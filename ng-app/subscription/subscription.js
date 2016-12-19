@@ -94,7 +94,7 @@ module.exports= function(app){
             if(response.object !== 'token'){
               $scope.spinner = false;
               $scope.$apply(function() {
-                $scope.error = "카드정보가 옳지 않습니다 ";
+                $scope.error = "카드정보가 옳지 않습니다: "+ response.error.message;
               })
             } else {
               var token = response.id;
@@ -132,7 +132,7 @@ module.exports= function(app){
             if(response.object !== 'token'){
               $scope.spinner = false;
               $scope.$apply(function() {
-                $scope.error = "카드정보가 옳지 않습니다 ";
+                $scope.error = "카드정보가 옳지 않습니다: " + response.error.message;
               })
             } else {
               var token = response.id;
@@ -165,7 +165,7 @@ module.exports= function(app){
                   })
                 } else {
                   $scope.$apply(function(){
-                    $scope.error = "카드정보가 옳지 않습니다. ";
+                    $scope.error = "카드정보가 옳지 않습니다: "+ response.error.message;
                     $scope.spinner = false;
                   })
                 }
