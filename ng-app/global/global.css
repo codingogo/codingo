@@ -861,6 +861,15 @@ nav .dropdown-content {
 .green.lighten-3.subscribe-btn:hover {
   background-color: #999;
 }
+.credicards {
+  margin-left: 30px;
+}
+.creditcard-img {
+  width: 35px;
+  height: 28px;
+  margin-left: 15px;
+  padding-top: 6px;
+}
 /*Nav Page*/
 .side-nav {
   background-color: #444;
