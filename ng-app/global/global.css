@@ -236,6 +236,7 @@ a:hover {
 }
 .main-subtitle{
   font-size: 22px;
+  color: #fff;
 }
 .slider .slides {
   /*height: 100%;*/
@@ -978,10 +979,10 @@ nav ul a:hover {
   .video-snippets {
     padding-left: 10%;
   }
-  .show-lesson {
-/*    margin-left: 58px;
-    margin-top: 30px;*/
-  }  
+  .main-subtitle {
+    width: 325px;
+    color: #555;
+  }
 }
 @media (max-width: 992px){
   nav ul a, a.brand-logo {
@@ -1015,10 +1016,7 @@ nav ul a:hover {
   }  
   .landing-pg-title {
     color: #fff;
-  }
-  .landing-pg-subtitle {
-    color: #f5f5f5;
-  }  
+  } 
   .goto-lesson {
     color: #fff;
   }   

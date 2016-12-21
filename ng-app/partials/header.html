@@ -2,14 +2,14 @@
   <div class="nav-wrapper">
     <a ui-sref="home" class="brand-logo"><i class="fa fa-video-camera"></i> CODINGO <span class="beta">beta</span></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <p ng-hide="true">코딩, 코딩 교육, 코딩 배우기, 프로그래밍</p>
+    <p ng-hide="true">코딩고는 모바일과 웹 애플리케이션을 영상으로 따라하면서 배우므로 코딩 경험이 없더라도 누구나 쉽고 빠르게 소프트웨어 개발을 할 수 있습니다.</p>
     
     <ul class="right">
       <!-- <li class="hide-on-med-and-down" ng-hide="logged"><a href="#videoTrigger" class="video-trigger" modal><span class="why"></span><i class="fa fa-video-camera youtube-main"></i></a></li> -->
 
       <!-- main marketing video -->
-      <li class="center-align hide-on-med-and-down">
-        <a href="#videoTrigger" modal><span>Why code? </span><i class="fa fa-video-camera"></i></a>
+      <li class="center-align hide-on-small-only">
+        <a href="#videoTrigger" modal ng-hide="logged"><span class="hide-on-med-and-down">Why code? </span><i class="fa fa-video-camera"></i></a>
         <div id="videoTrigger" class="modal main-video">
           <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
           <div class="modal-content center-align">
