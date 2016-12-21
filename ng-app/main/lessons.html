@@ -10,8 +10,8 @@
 
       <!-- main marketing video -->
       <div class="why-code center-align hide-on-large-only">
-        <a href="#videoTrigger7" class="video-trigger text-shadow" modal>
-          <span class="why">Why code? </span>
+        <a href="#videoTrigger7" class="video-trigger text-shadow" modal ng-hide="logged">
+          <span class="why" >Why code? </span>
           <i class="fa fa-video-camera youtube-main"></i>
         </a>
         <div id="videoTrigger7" class="modal main-video">
@@ -57,7 +57,11 @@
         </div>
       </div> 
 
-      <a href ng-click="gotoLesson('lesson')" class="text-shadow waves-effect waves-dark show-lesson"><i class="fa fa-angle-double-down fa-3x goto-lesson" aria-hidden="true"></i></a> 
+      <a href ng-click="gotoLesson('lesson')" class="text-shadow waves-effect waves-dark show-lesson goto-lesson">
+        <i class="fa fa-caret-down" aria-hidden="true"></i> 
+        <span class="project-show">프로젝트 보기</span>
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+      </a> 
         
     </div>
   </div>  

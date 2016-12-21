@@ -93,9 +93,10 @@ a:hover {
   left: 0;
   padding: 10px 50px;
 }
-.fa-angle-double-down.goto-lesson {
-  font-size: 45px;
-  color: #212121;
+.goto-lesson {
+  font-size: 20px;
+  color: #000;
+  margin-top: 30px;
 }
 .lesson-content {
   color           : #fff;
@@ -268,7 +269,7 @@ td.table-num {
   padding: 5px 15px;
 }
 .text-shadow {
-  text-shadow: 1px 1px 10px #555;
+  text-shadow: 1px 1px 6px #555;
 }
 .text-shadow-light {
   text-shadow: 1px 1px 1px #777;
@@ -903,7 +904,9 @@ nav ul a:hover {
   border-radius: 5px;
 }
 
-
+.project-show {
+  padding: 10px;
+}
 /*User*/
 .active {
   color: green;
@@ -976,8 +979,8 @@ nav ul a:hover {
     padding-left: 10%;
   }
   .show-lesson {
-    margin-left: 58px;
-    margin-top: 30px;
+/*    margin-left: 58px;
+    margin-top: 30px;*/
   }  
 }
 @media (max-width: 992px){
@@ -1016,7 +1019,7 @@ nav ul a:hover {
   .landing-pg-subtitle {
     color: #f5f5f5;
   }  
-  .fa-angle-double-down.goto-lesson {
+  .goto-lesson {
     color: #fff;
   }   
   .navbar {
