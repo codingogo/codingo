@@ -235,7 +235,7 @@ a:hover {
   background: -moz-radial-gradient(#fff, #c8e6c9);  
 }
 .main-subtitle{
-  font-size: 22px;
+  font-size: 20px;
   color: #fff;
 }
 .slider .slides {
@@ -980,8 +980,9 @@ nav ul a:hover {
     padding-left: 10%;
   }
   .main-subtitle {
-    width: 325px;
+    width: 296px;
     color: #555;
+    line-height: 28px;
   }
 }
 @media (max-width: 992px){
