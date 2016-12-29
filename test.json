@@ -1,0 +1,345 @@
+// {
+//   "_id": "56eb858014a989ab56796153",
+//   "description": "부트스트랩 템플렛을 이용해서 쉽고 빠를게 포트폴리오 웹사이트를 구축하고 Github을 사용해 무료로 호스팅까지 끝냅니다.",
+//   "main_img": "https://firebasestorage.googleapis.com/v0/b/codingo-24c2f.appspot.com/o/porfolio.jpeg?alt=media&token=45f724ec-9726-4ebb-ac2f-fe77b9e1b6fd",
+//   "premium": false,
+//   "title": "포트폴리오 만들기",
+//   "appId": "codingo",
+//   "cobjectId": "lesson",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-12-28T01:03:34.816Z",
+//   "dt_create": "2016-03-18T04:35:12.536Z",
+//   "level": 0,
+//   "id": "56eb858014a989ab56796153"
+// }
+
+// // 1. Free Template
+// {
+//   "_id": "56f49927c1a2197b3b5d72e0",
+//   "chapter_title": "1. 무료 템플렛 사용",
+//   "description": "Twitter Bootstrap은 모바일 우선인 웹개발 프로젝트에 가장 많이 사용하고 있는 디자인 프레임워크로써 빠른 개발을 실현할 수 있습니다.",
+//   "duration": "2:44",
+//   "lesson_id": "56eb858014a989ab56796153",
+//   "order": 0,
+//   "premium": false,
+//   "show": true,
+//   "title": "붙스트랩 템플렛으로 시작",
+//   "appId": "codingo",
+//   "cobjectId": "video",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-06-12T01:22:44.751Z",
+//   "dt_create": "2016-03-25T01:49:27.509Z",
+//   "wistia": "jrzn732je6",
+//   "id": "56f49927c1a2197b3b5d72e0"
+// }
+
+// // 2. Code Source 
+// {
+//   "_id": "56f4a0cdc1a2197b3b5d72fd",
+//   "description": "다운로드한 파일을 Sublime 텍스트 에디터로 살피고 HTML을 사용해서 파일 내용을 변경합니다. index.html 파일의 텍스트를 변경하고 저장한후 크롬 브라우져에서 확인을 반복해서 쉽고 빠르게 원하는 텍스트 작업을 합니다.",
+//   "duration": "9:08",
+//   "lesson_id": "56eb858014a989ab56796153",
+//   "order": 1,
+//   "premium": false,
+//   "show": true,
+//   "title": "HTML파일 고치기",
+//   "appId": "codingo",
+//   "cobjectId": "video",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-06-28T03:13:59.458Z",
+//   "dt_create": "2016-03-25T02:22:05.853Z",
+//   "chapter_title": "2. 코드 소스 변경",
+//   "wistia": "24k1xudywz",
+//   "id": "56f4a0cdc1a2197b3b5d72fd"
+// }
+
+// // 3. CSS design
+// {
+//   "_id": "56f4d67cc1a2197b3b5d742f",
+//   "description": "CSS으로 새로운 디자인과 스타일을 표현해봅니다.",
+//   "duration": "2:15",
+//   "lesson_id": "56eb858014a989ab56796153",
+//   "order": 2,
+//   "premium": false,
+//   "show": false,
+//   "title": "CSS 스타일링 ",
+//   "appId": "codingo",
+//   "cobjectId": "video",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-06-27T07:20:35.989Z",
+//   "dt_create": "2016-03-25T06:11:08.641Z",
+//   "chapter_title": "",
+//   "wistia": "twatekc5u1",
+//   "id": "56f4d67cc1a2197b3b5d742f"
+// }
+
+// // 4. Source Control
+// {
+//   "_id": "56f4ecd19b95dc4528a035cc",
+//   "chapter_title": "4. 소스 콘트롤과 호스팅",
+//   "description": "버젼 콘트록 소프트웨어인 Git(깃)과 Github에대해 알아봅니다.",
+//   "duration": "1:35",
+//   "lesson_id": "56eb858014a989ab56796153",
+//   "order": 5,
+//   "premium": false,
+//   "show": true,
+//   "title": "Git와 Github",
+//   "appId": "codingo",
+//   "cobjectId": "video",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-06-28T12:40:08.659Z",
+//   "dt_create": "2016-03-25T07:46:25.003Z",
+//   "wistia": "1jxebyi0ux",
+//   "id": "56f4ecd19b95dc4528a035cc"
+// }
+
+// // 5. Git
+// {
+//   "_id": "56f4eda69b95dc4528a035cd",
+//   "description": "터미날을 통해 자주쓰는 Git의 사용법에대해 알아봅니다. ",
+//   "duration": "5:07",
+//   "lesson_id": "56eb858014a989ab56796153",
+//   "order": 6,
+//   "premium": false,
+//   "show": false,
+//   "title": "터미날 활용",
+//   "appId": "codingo",
+//   "cobjectId": "video",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-06-28T14:03:50.993Z",
+//   "dt_create": "2016-03-25T07:49:58.470Z",
+//   "wistia": "e3a1id495r",
+//   "id": "56f4eda69b95dc4528a035cd"
+// }
+
+// // 6. Hosting
+// {
+//   "_id": "56f4ee3f9b95dc4528a035ce",
+//   "description": "Github에 올린 소스코드를 호스팅하고 웹사이트를 실행합니다. ",
+//   "duration": "2:20",
+//   "lesson_id": "56eb858014a989ab56796153",
+//   "order": 7,
+//   "premium": false,
+//   "show": false,
+//   "title": "무료 호스팅",
+//   "appId": "codingo",
+//   "cobjectId": "video",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-06-28T14:27:11.281Z",
+//   "dt_create": "2016-03-25T07:52:30.999Z",
+//   "wistia": "2q2zn2v2lc",
+//   "id": "56f4ee3f9b95dc4528a035ce"
+// }
+
+
+// // dollar save club
+// {
+//   "_id": "56ebd58cd0faaebb5da94849",
+//   "description": "Subscription Commerce(정기구독 상품)웹어플리케이션으로 빠른 매출창출 비즈니스를 만듭니다.",
+//   "level": 2,
+//   "main_img": "https://s3.ap-northeast-2.amazonaws.com/codingogo/images/lessons/lesson-box.png",
+//   "premium": true,
+//   "title": "Dollar Shave Club 만들기",
+//   "appId": "codingo",
+//   "cobjectId": "lesson",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-03-26T01:51:49.157Z",
+//   "dt_create": "2016-03-18T10:16:44.892Z",
+//   "locked": true,
+//   "id": "56ebd58cd0faaebb5da94849"
+// }
+
+// // tinder app
+// {
+//   "_id": "56ebcc3ad0faaebb5da94843",
+//   "description": "미국 온라인 데이트 열풍의 중심에 있는 틴더 모바일 앱을 만듭니다. 하이브리드 모바일 프래임워크를 사용해서 iOS와 Android 앱을 만듭니다.",
+//   "level": 2,
+//   "main_img": "https://s3.ap-northeast-2.amazonaws.com/codingogo/images/lessons/lesson-tinder.png",
+//   "premium": true,
+//   "title": "Tinder 모바일 앱",
+//   "appId": "codingo",
+//   "cobjectId": "lesson",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-03-26T01:51:35.429Z",
+//   "dt_create": "2016-03-18T09:36:58.516Z",
+//   "locked": true,
+//   "id": "56ebcc3ad0faaebb5da94843"
+// }
+
+// // podcast
+// {
+//   "_id": "56ebc188d0faaebb5da94837",
+//   "description": "Ionic 프레임워크와 Cordova의 네이티브 모바일 기능을 사용하여 Android와 iOS를 동시에 개발하는 코스입니다.",
+//   "level": 1,
+//   "main_img": "https://firebasestorage.googleapis.com/v0/b/codingo-24c2f.appspot.com/o/mobile-dev.png?alt=media&token=daff9631-a281-4477-9eea-4f833b1f6afe",
+//   "premium": true,
+//   "title": "Podcast/Music 모바일 앱",
+//   "appId": "codingo",
+//   "cobjectId": "lesson",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-12-13T01:55:55.380Z",
+//   "dt_create": "2016-03-18T08:51:20.164Z",
+//   "locked": false,
+//   "id": "56ebc188d0faaebb5da94837"
+// }
+
+// // etsy
+// {
+//   "_id": "56eb8ae914a989ab56796156",
+//   "description": "Etsy같은 쇼핑몰 만드는 것을 처음부터 끝까지 구축합니다. 루인온래일즈의 파워풀한 웹개발 기능과 MVC 모델의 체계에대해 전반적으로 배웁니다.",
+//   "main_img": "https://s3.ap-northeast-2.amazonaws.com/codingogo/images/lessons/lesson-etsy.png",
+//   "premium": true,
+//   "title": "Etsy 마켓 ",
+//   "appId": "codingo",
+//   "cobjectId": "lesson",
+//   "actions": {
+//     "comments": [],
+//     "ratings": {
+//       "users": [],
+//       "avg": 0,
+//       "total": 0
+//     },
+//     "votes": {
+//       "users_downvote": [],
+//       "users_upvote": [],
+//       "users": [],
+//       "total": 0
+//     }
+//   },
+//   "dt_update": "2016-06-10T12:45:39.212Z",
+//   "dt_create": "2016-03-17T04:58:17.571Z",
+//   "level": 2,
+//   "id": "56eb8ae914a989ab56796156"
+// }
+
+// // programming 시작
