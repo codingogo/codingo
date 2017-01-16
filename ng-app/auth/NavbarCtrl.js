@@ -45,7 +45,7 @@ module.exports= function(app){
         })
         UserStatus.setUser(user.displayName, user.profileImg, user._id, user.email, true);
       }
-      return UserStatus.getSubscriptions(user._id, 'monthly_subscription');
+      return UserStatus.getSubscriptions(user._id, 'monthly_discount_subscription');
     })
     .then(function(subscription){
       UserStatus.updateUser(user_id, {'subscriptions': subscription})

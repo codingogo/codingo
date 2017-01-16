@@ -100,7 +100,7 @@ module.exports= function(app){
               var token = response.id;
               UserStatus.updateCard(userId, token)
               .then(function(resUpdated){
-                return UserStatus.subscribe(userId, 'monthly_subscription');
+                return UserStatus.subscribe(userId, 'monthly_discount_subscription');
               }, function(err){
                 $scope.spinner = false;
               })
@@ -143,7 +143,7 @@ module.exports= function(app){
                   $rootScope.user.hasCard = true;
                 })
                 UserStatus.updateUser(userId, {'hasCard': true});
-                return UserStatus.subscribe(userId, 'monthly_subscription');
+                return UserStatus.subscribe(userId, 'monthly_discount_subscription');
               }, function(err){
                 $scope.spinner = false;
               })

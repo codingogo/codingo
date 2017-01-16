@@ -298,7 +298,7 @@
 	        });
 	        UserStatus.setUser(user.displayName, user.profileImg, user._id, user.email, true);
 	      }
-	      return UserStatus.getSubscriptions(user._id, 'monthly_subscription');
+	      return UserStatus.getSubscriptions(user._id, 'monthly_discount_subscription');
 	    }).then(function (subscription) {
 	      UserStatus.updateUser(user_id, { 'subscriptions': subscription });
 	      var status = subscription.data[0].status;
@@ -876,14 +876,13 @@
 	          Stripe.card.createToken(cardObj, function (status, response) {
 	            if (response.object !== 'token') {
 	              $scope.spinner = false;
-
 	              $scope.$apply(function () {
-	                $scope.error = '카드정보에 문제가 있습니다: ' + response.error.message;
+	                $scope.error = "카드정보가 옳지 않습니다: " + response.error.message;
 	              });
 	            } else {
 	              var token = response.id;
 	              UserStatus.updateCard(userId, token).then(function (resUpdated) {
-	                return UserStatus.subscribe(userId, 'monthly_subscription');
+	                return UserStatus.subscribe(userId, 'monthly_discount_subscription');
 	              }, function (err) {
 	                $scope.spinner = false;
 	              }).then(function (subscription) {
@@ -902,7 +901,6 @@
 	                });
 	              }, function (err) {
 	                $scope.spinner = false;
-	                console.log('err', err);
 	              });
 	            }
 	          });
@@ -914,7 +912,7 @@
 	            if (response.object !== 'token') {
 	              $scope.spinner = false;
 	              $scope.$apply(function () {
-	                $scope.error = '카드정보에 문제가 있습니다: ' + response.error.message;
+	                $scope.error = "카드정보가 옳지 않습니다: " + response.error.message;
 	              });
 	            } else {
 	              var token = response.id;
@@ -924,7 +922,7 @@
 	                  $rootScope.user.hasCard = true;
 	                });
 	                UserStatus.updateUser(userId, { 'hasCard': true });
-	                return UserStatus.subscribe(userId, 'monthly_subscription');
+	                return UserStatus.subscribe(userId, 'monthly_discount_subscription');
 	              }, function (err) {
 	                $scope.spinner = false;
 	              }).then(function (subscription) {
@@ -944,10 +942,8 @@
 	                  });
 	                } else {
 	                  $scope.$apply(function () {
-	                    $scope.error = '카드정보에 문제가 있습니다: ' + response.error.message;
+	                    $scope.error = "카드정보가 옳지 않습니다: " + response.error.message;
 	                    $scope.spinner = false;
-	                    console.log('error', error);
-	                    console.log('error here');
 	                  });
 	                }
 	              }, function (err) {
