@@ -8,7 +8,7 @@
 
       <!-- main marketing video -->
       <li class="center-align hide-on-small-only">
-        <a href="#videoTrigger" modal ng-hide="logged"><span class="hide-on-med-and-down">Why code? </span><i class="fa fa-video-camera"></i></a>
+        <a href="#videoTrigger" modal ng-hide="logged"><span class="hide-on-med-and-down"></span><i class="fa fa-video-camera"></i></a>
         <div id="videoTrigger" class="modal main-video">
           <a href class="modal-action modal-close modal-close-x codingo-green">X</a>
           <div class="modal-content center-align">
@@ -51,7 +51,8 @@
           </div>
         </div>
       </li> 
-
+      
+      <li class="hide-on-med-and-down"><a ui-sref="blog">블로그</a></li>
       <li class="hide-on-med-and-down"><a ui-sref="about">코딩고란?</a></li>  
       <li class="hide-on-med-and-down" ng-hide="subscribed"><a ui-sref="pricing">가격표</a></li>
       <li ng-if="!logged" class="hide-on-small-and-down"><a ui-sref="registration">회원가입</a></li>
@@ -64,16 +65,17 @@
 
     <!-- Mobile menu -->
     <ul class="side-nav" id="mobile-demo">
-      <li class="" ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
-      <li class="" ng-if="!logged"><a ui-sref="login">로그인</a></li>
-      <li class=""><a ui-sref="about">코딩고란?</a></li>  
-      <li class=""><a ui-sref="pricing">가격표</a></li>
-      <li class="" ng-if="logged" ng-click="logout()"><a>로그아웃</a></li>
+      <li ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
+      <li ng-if="!logged"><a ui-sref="login">로그인</a></li>
+      <li><a ui-sref="about">코딩고란?</a></li>  
+      <li><a ui-sref="pricing">가격표</a></li>
+      <li ng-if="logged" ng-click="logout()"><a>로그아웃</a></li>
+      <li><a ui-sref="blog">블로그</a></li>
     </ul>
   </div>
 
   <!-- spinner  -->
-  <img src="./ng-app/assets/images/spinner-green.gif" alt="spinner"class="spinner" ng-if="spinner">    
+  <img src="./ng-app/assets/images/spinner-green.gif" alt="spinner" class="spinner" ng-if="spinner">    
 </nav>
 
 <script>

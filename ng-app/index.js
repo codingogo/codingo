@@ -9,8 +9,6 @@ var app = angular.module('codingo', [
 
 })
 .config(function ($stateProvider, $urlRouterProvider){
-
-  $urlRouterProvider.otherwise('/index.html');
   $stateProvider
     .state('home', {
       url: '/home',    
@@ -116,7 +114,33 @@ var app = angular.module('codingo', [
           controller: 'NavbarCtrl'
         }
       }
+    })
+    .state('blog', {
+      url: '/blog',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/blog.html', 
+          controller: 'BlogCtrl'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
     }) 
+    .state('blogdetail', {
+      url: '/blog/:id',     
+      views: {
+        '': {
+          templateUrl: '/ng-app/pages/blog.html', 
+          controller: 'BlogDetailCtrl'
+        },
+        'header': {
+          templateUrl: '/ng-app/partials/header.html',
+          controller: 'NavbarCtrl'
+        }
+      }
+    })        
     .state('service', {
       url: '/service',     
       views: {
@@ -226,3 +250,4 @@ require('./services/VideoService')(app);
 require('./services/GlobalVariable')(app);
 require('./services/Validator.js')(app);
 require('./services/AnchorSmoothScroll.js')(app);
+require('./services/BlogService.js')(app);

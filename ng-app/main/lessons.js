@@ -132,7 +132,6 @@ module.exports= function(app){
         .then(function(data){
           $scope.premium = data.data[0].premium;
           $scope.lessonObj = data.data[0];
-          // $scope.comments = data.data[0].actions.comments;
       })
 
       var query = {

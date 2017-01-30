@@ -18,7 +18,7 @@ a {
   color: #212121;
 }
 a:hover {
-  color: #000;
+  color: #66bb6a;
   transition: color 0.3s;
   -webkit-transition: color 0.3s;
   -o-transition: color 0.3s;
@@ -121,6 +121,9 @@ a:hover {
 }
 .height400 {
   min-height: 400px;
+}
+.height500 {
+  min-height: 500px;
 }
 .height600 {
   min-height: 600px;
@@ -285,13 +288,11 @@ nav {
 }
 .navbar {
   background: transparent;
-  /*text-shadow: 1px 1px 1px #666;*/
   z-index: 9999;
   box-shadow: none;
 }
 nav .nav-wrapper{
-   background: linear-gradient(rgba(214,79,79,.2),rgba(1,1,1,0));
-  /*text-shadow: 1px 1px 1px #666;*/
+   background: linear-gradient(rgba(1,1,1,.05),rgba(255,255,255,0));
   z-index: 9999;
   box-shadow: none;
   height: 64px; 
@@ -566,8 +567,41 @@ i.video-skips:hover {
   padding: 10px;
 }
 
-
-
+/*Blog Menu*/
+.blog-menu {
+  padding: 16px 10px 6px 10px;
+  text-align: left;
+  font-size: 15px;
+}
+.blog-menu:hover {
+  color: #388e3c;
+}
+.blog-info {
+  padding: 10px 15px;
+  border: 2px solid #fff;
+  min-height: 500px;
+}
+.blog-date{
+  padding-right: 30px;
+  color: #388e3c;
+  font-size: 16px;
+}
+.blog-image {
+  width: 100%;
+  padding: 0 10px;
+}
+.row .blog-menu-canvas {
+  height: 500px;
+  border: 2px solid #fff;
+}
+.row.blog-row {
+  margin-left: 0;
+}
+.blog-description {
+  white-space: pre-line;
+  font-size: 16px;
+  color: #555;
+}
 /*Comment Area*/
 .comment-add {
   min-height: 150px;
@@ -694,9 +728,7 @@ i.video-skips:hover {
 [type="checkbox"]+label {
   font-size: 1.4em;
 }
-.active {
-  color: blue;
-}
+
 .stripe-info {
   font-size: 0.9em;
 }
@@ -729,9 +761,6 @@ i.video-skips:hover {
 
 /*Partials*/
 /*Header Page*/
-.ng-scope {
-  /*margin-bottom: 10px;*/
-}
 .profile-img {
   width: 50px;
   height: 50px;
@@ -743,7 +772,6 @@ i.video-skips:hover {
   height: 64px;
   margin-right: 0px;
   float: right;
-  /*background-color: #a5d6a7;*/
   border-radius: 0;
 }
 nav .brand-logo {
@@ -888,8 +916,8 @@ nav ul a:hover {
 }
 /*User*/
 .active {
-  color: green;
-  font-size: 1.2em;
+  color: #388e3c;
+  font-size: 1.15em;
 }
 .font-mid {
   font-size: 0.7em;
@@ -942,9 +970,7 @@ nav ul a:hover {
   background-color: #ddd;
   pointer-events: none;
 }
-/*.videocam-hover:hover {
-  color: #3f51b5;
-}*/
+
 .sub-info{
   height: 35px;
   margin: -30px 0 30px 0;
@@ -954,6 +980,9 @@ nav ul a:hover {
 /*MEDIA QUERIES****************************/
 /******************************************/
 @media (min-width: 993px){
+  .container {
+    width: 80%;
+  }
   .video-snippets {
     padding-left: 10%;
   }

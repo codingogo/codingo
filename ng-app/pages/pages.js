@@ -11,13 +11,69 @@ module.exports= function(app){
     ];
 
   })
-  .controller('ContactCtrl', function($scope, UserStatus){
-    // var user = userStatus.getUserModel();
-    
+  .controller('ContactCtrl', function($scope, UserStatus){    
   })
-  .controller('TermsCtrl', function($scope){
+  .controller('TermsCtrl', function($scope){   
+  })
+  .controller('BlogCtrl', function($scope, Blog){  
+    var initialize = function() {
+      loadBlogs();
+      $scope.spinner = true;
+    }
 
-    
-    
+    var loadBlogs = function() {
+      Blog.all()
+      .then(function(blogs){
+        $scope.blogData = blogs.data;
+        $scope.blog = $scope.blogData.slice(-1)[0];
+        $scope.activeMenu = $scope.blog.id;
+        $scope.spinner = false;
+      })
+    }
+
+    $scope.titleArray = [];
+    if($scope.blogData != undefined){
+      for(var i=0; i < $scope.blogData.length; i++){
+        $scope.titleArray.push($scope.blogData[i].title);
+      } 
+    }
+
+    initialize();    
   })
+  .controller('BlogDetailCtrl', function($scope, $stateParams, Blog){  
+    var initialize = function() {
+      loadBlog();
+      loadBlogTitles();
+      $scope.spinner = true;
+    }
+
+    var loadBlog = function() {
+      Blog.get($stateParams.id)
+      .then(function(blog){
+        $scope.blog = blog.data[0] ;
+        $scope.spinner = false;
+      })
+    }
+
+    $scope.titleArray = [];
+    var loadBlogTitles = function() {
+      Blog.all()
+      .then(function(blogs){
+        $scope.blogData = blogs.data;
+        if($scope.blogData != undefined){
+          for(var i=0; i < $scope.blogData.length; i++){
+            $scope.titleArray.push($scope.blogData[i].title);
+          } 
+        }
+      })
+    }
+ 
+    $scope.activeMenu = $stateParams.id; 
+
+    initialize();
+  })      
 };
+
+
+
+
