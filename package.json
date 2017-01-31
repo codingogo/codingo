@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jilee-angular/codingo.git"
+    "url": "git+https://github.com/codingogo/codingo.git"
   },
-  "author": "",
+  "author": "Codingo",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jilee-angular/codingo/issues"
   },
-  "homepage": "https://github.com/jilee-angular/codingo#readme",
+  "homepage": "https://github.com/codingogo/codingo#readme",
   "dependencies": {}
 }
