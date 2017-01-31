@@ -572,7 +572,8 @@ i.video-skips:hover {
   padding: 16px 10px 6px 10px;
   text-align: left;
   font-size: 15px;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+  margin-top: 0px;
 }
 .blog-menu:hover {
   color: #388e3c;
