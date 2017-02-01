@@ -575,12 +575,17 @@ i.video-skips:hover {
   border-top: 1px solid #fff;
   margin-top: 0px;
 }
+.page-title.blog-title {
+  padding-left: 15px;
+  margin-bottom: 0;
+  min-height: 80px;
+}
 .blog-menu:hover {
   color: #388e3c;
 }
 .blog-info {
-  padding: 10px 15px;
-  border-left: 2px solid #fff;
+  padding: 10px 15px 10px 0px;
+  border-right: 1px solid #fff;
   min-height: 500px;
 }
 .blog-date{
@@ -590,11 +595,9 @@ i.video-skips:hover {
 }
 .blog-image {
   width: 100%;
-  padding: 0 10px;
 }
 .row .blog-menu-canvas {
   height: 500px;
-  /*border: 2px solid #fff;*/
 }
 .row.blog-row {
   margin-left: 0;
@@ -654,7 +657,7 @@ i.video-skips:hover {
   display: block;
   width: 100%;
   padding: 35px 20px 10px 20px;
-  height: 100px;
+  min-height: 100px;
   margin: 35px 0 10px 0;
 }
 .second-title-accordion {

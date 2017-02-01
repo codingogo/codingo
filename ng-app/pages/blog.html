@@ -1,12 +1,7 @@
 <div class="wrap container height400 pad-top">
 	<h5 class="col s12 grey-text text-darken-4 page-title blog-title">{{blog.title}}</h5>
 
-	<div class="row blog-row">
-		<div class="col s5 m4 l3 height500 blog-menu-canvas">
-			<ul ng-repeat="item in blogData | orderBy:reverse:true" class="blog-menu">	
-				<a ui-sref="blogdetail({id: item.id})" ng-class="{active: activeMenu === item.id}">{{item.title}}</a>	
-			</ul>
-		</div>		  
+	<div class="row blog-row">	  
 		<div class="col s7 m8 l9">
 			<div class="blog-info">
 				<p class="blog-date right-align">
@@ -16,6 +11,11 @@
 				<p class="blog-description">{{blog.description}}</p>
 			</div>
 		</div>
+		<div class="col s5 m4 l3 height500 blog-menu-canvas">
+			<ul ng-repeat="item in blogData | orderBy:reverse:true" class="blog-menu">	
+				<a ui-sref="blogdetail({id: item.id})" ng-class="{active: activeMenu === item.id}">{{item.title}}</a>	
+			</ul>
+		</div>	
 	</div>	
 </div>
 
