@@ -136,12 +136,11 @@ module.exports= function(app){
 
       var query = {
         page: 1,
-        per_page: 100
+        per_page: 250
       };
 
       Video.query(query)
         .then(function(data){
-          // $scope.test = data.data;
           var obj = data.data;
           videos = obj.filter(function(val){
             return val.lesson_id == $stateParams.lessonId;
