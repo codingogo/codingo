@@ -1,9 +1,9 @@
 <div class="landing-page">
   <div class="wrap container">
-    <div class="caption white-text center-align col m8 landing-page-caption">
+    <section class="caption white-text center-align col m8 landing-page-caption">
       <h1 class="landing-pg-title">코딩 배우기 </h1>
       <h4 class="light landing-pg-subtitle main-subtitle">영상을 따라하면서 누구나 쉽게 배우는 온라인 코딩 교육 서비스입니다.</h4>
-      <br>  
+      <br>
       <a ui-sref="registration" class="btn btn-large blue waves-effect waves-light" ng-hide="logged">FREE 계정 시작</a>
       <br ng-hide="logged">
 
@@ -34,40 +34,40 @@
                   <div class="caption center-align">
                     <p>"대학 기숙사에서 시작한게 십억인구가 쓸것이라는 것은 미친 생각같지만 (결과적으로는) 저를 겸손하게하고 그저 놀라울 따름입니다." - 마크 저커버그</p>
                   </div>
-                </li> 
+                </li>
                 <li>
                   <div class="caption center-align">
                     <p>"코딩은 배울 수 있습니다." - 크리스 보시</p>
                   </div>
-                </li> 
+                </li>
                 <li>
                   <div class="caption center-align">
                     <p>"(코딩은) 슈퍼파워에 가장 근접한것이라 생각합니다." - 드류 휴스턴</p>
                   </div>
-                </li>  
+                </li>
                 <li>
                   <div class="caption center-align">
                     <p>"뛰어난 코더는 오늘의 락스타입니다." - 윌.아이.엠</p>
                   </div>
-                </li>                  
+                </li>
               </ul>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
 
       <a href ng-click="gotoLesson('lesson')" class="text-shadow waves-effect waves-dark show-lesson goto-lesson">
-        <i class="fa fa-caret-down" aria-hidden="true"></i> 
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
         <span class="project-show">프로젝트 보기</span>
         <i class="fa fa-caret-down" aria-hidden="true"></i>
-      </a> 
-        
+      </a>
+
     </div>
-  </div>  
+  </section>
 </div>
 
 <div class="above-footer"></div>
-<div class="lesson-content">  
+<section class="lesson-content">
   <!-- Video Snippets -->
   <div class="container-default">
     <!-- Lessons -->
@@ -80,7 +80,7 @@
           <div class="card hoverable lesson-card">
               <div class="card-image">
                 <img src="{{lesson.main_img}}" alt="lesson image">
-              </div>    
+              </div>
               <div class="card-content">
                 <span class="card-title-text grey-text text-darken-4">{{lesson.title}}</span>
                 <p class="grey-text text-darken-2">{{lesson.description}}</p>
@@ -91,14 +91,14 @@
           </div>
         </a>
       </div>
-    
+
       <!-- lessons locked -->
       <div class="col s12 m6 l4 " ng-repeat="lesson in lessons | orderBy : 'order'">
         <a ui-sref="comingsoon" ng-if="lesson.locked">
           <div class="card hoverable lesson-card">
               <div class="card-image">
                 <img src="{{lesson.main_img}}" alt="lesson image">
-              </div>    
+              </div>
               <div class="card-content">
                 <span class="card-title-text grey-text text-darken-4">{{lesson.title}}</span>
                 <p class="grey-text text-darken-2">{{lesson.description}}</p>
@@ -108,7 +108,7 @@
               </div>
           </div>
         </a>
-      </div>    
+      </div>
     </div>
 
     <!-- Video Snippets -->
@@ -129,7 +129,7 @@
                   <p>"...프로그래밍에서 가장 중요한 점은 실용적으로 사용하는 것보다 자신의 사고방식을 거울로 비추는 것처럼 생각하는 법을 배운다는 것입니다. 이 나라에 모든 사람들은 컴퓨터 프로그래밍을 배워야한다고 생각합니다. 어떻게 생각해야하는지를 배우기 때문입니다."</p>
                 </div>
               </div>
-            </div>  
+            </div>
           </div>
 
           <div class="col s12 m4">
@@ -143,7 +143,7 @@
                   <p>"미국의 학생들, 선생님들, 비즈니스들, 그리고 비영리재단들이 학업에 컴퓨터 프로그래밍을 지지하는 중요한 첫걸음에 동참하는 것을 자랑스럽게 말씀드립니다. 프로그래밍을 배우는 것은 단지 미래를 준비하기위해 필요한 것뿐만 아니라 우리나라의 미래를 위해서도 중요합니다..."</p>
                 </div>
               </div>
-            </div>  
+            </div>
           </div>
 
           <div class="col s12 m4">
@@ -159,21 +159,20 @@
                   <p>"제가 47살이되면 코딩을 자연스럽게 하고 싶습니다. 그래서 저는 (코딩을) 단련하고 있습니다."</p>
                 </div>
               </div>
-            </div>  
+            </div>
           </div>
 
-        </div>  
-      </div>  
+        </div>
+      </div>
     </div><!-- ends video snippets -->
-  </div> 
+  </div>
 
-  <!-- Footer --> 
-  <div ng-include="'./ng-app/partials/_footer.html'" class="left-align"></div>  
-</div>
+  <!-- Footer -->
+  <div ng-include="'./ng-app/partials/_footer.html'" class="left-align"></div>
+</section>
 
 <script>
     $(document).ready(function(){
       $('.slider').slider({full_width: true});
     });
 </script>
-
