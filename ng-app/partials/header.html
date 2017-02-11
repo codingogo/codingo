@@ -3,7 +3,7 @@
     <a ui-sref="home" class="brand-logo"><i class="fa fa-video-camera"></i> CODINGO</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <p ng-hide="true">코딩고는 모바일과 웹 애플리케이션을 영상으로 따라하면서 배우므로 코딩 경험이 없더라도 누구나 쉽고 빠르게 소프트웨어 개발을 할 수 있습니다.</p>
-    
+
     <ul class="right">
 
       <!-- main marketing video -->
@@ -30,36 +30,36 @@
                   <div class="caption center-align">
                     <p>"대학 기숙사에서 시작한게 십억인구가 쓸것이라는 것은 미친 생각같지만 (결과적으로는) 저를 겸손하게하고 그저 놀라울 따름입니다." - 마크 저커버그</p>
                   </div>
-                </li> 
+                </li>
                 <li>
                   <div class="caption center-align">
                     <p>"코딩은 배울 수 있습니다." - 크리스 보시</p>
                   </div>
-                </li> 
+                </li>
                 <li>
                   <div class="caption center-align">
                     <p>"(코딩은) 슈퍼파워에 가장 근접한것이라 생각합니다." - 드류 휴스턴</p>
                   </div>
-                </li>  
+                </li>
                 <li>
                   <div class="caption center-align">
                     <p>"뛰어난 코더는 오늘의 락스타입니다." - 윌.아이.엠</p>
                   </div>
-                </li>                  
+                </li>
               </ul>
             </div>
           </div>
         </div>
-      </li> 
-      
-      <li class="hide-on-med-and-down"><a ui-sref="blog">블로그</a></li>
-      <li class="hide-on-med-and-down"><a ui-sref="about">코딩고란?</a></li>  
+      </li>
+
+      <!-- <li class="hide-on-med-and-down"><a ui-sref="blog">블로그</a></li> -->
+      <li class="hide-on-med-and-down"><a ui-sref="about">코딩고란?</a></li>
       <li class="hide-on-med-and-down" ng-hide="subscribed"><a ui-sref="pricing">가격표</a></li>
       <li ng-if="!logged" class="hide-on-small-and-down"><a ui-sref="registration">회원가입</a></li>
       <li ng-if="!logged"><a ui-sref="login" class="login-btn">로그인</a></li>
       <li ng-if="logged" class="hidden" ng-class="{visible: !user.subscribed}"><a ui-sref="subscriptions" class="btn blue accent-1 hide-on-small-and-down"><span class="black-text">PRO</span> 회원가입</a></li>
       <!-- user logo menu -->
-      <li ng-hide="!logged"><a class='profile-img-frame chip' data-activates='dropdown1' ui-sref="profile"><span class="chip-pro" ng-if="user.subscribed">Pro</span><img src="{{picture}}" alt="" class="profile-img"></a></li> 
+      <li ng-hide="!logged"><a class='profile-img-frame chip' data-activates='dropdown1' ui-sref="profile"><span class="chip-pro" ng-if="user.subscribed">Pro</span><img src="{{picture}}" alt="" class="profile-img"></a></li>
       <li class="hide-on-med-and-down" ng-if="logged" ng-click="logout()"><a>로그아웃</a></li>
     </ul>
 
@@ -67,15 +67,15 @@
     <ul class="side-nav" id="mobile-demo">
       <li ng-if="!logged"><a ui-sref="registration">회원가입</a></li>
       <li ng-if="!logged"><a ui-sref="login">로그인</a></li>
-      <li><a ui-sref="about">코딩고란?</a></li>  
+      <li><a ui-sref="about">코딩고란?</a></li>
       <li><a ui-sref="pricing">가격표</a></li>
       <li ng-if="logged" ng-click="logout()"><a>로그아웃</a></li>
-      <li><a ui-sref="blog">블로그</a></li>
+      <!-- <li><a ui-sref="blog">블로그</a></li> -->
     </ul>
   </div>
 
   <!-- spinner  -->
-  <img src="./ng-app/assets/images/spinner-green.gif" alt="spinner" class="spinner" ng-if="spinner">    
+  <img src="./ng-app/assets/images/spinner-green.gif" alt="spinner" class="spinner" ng-if="spinner">
 </nav>
 
 <script>
